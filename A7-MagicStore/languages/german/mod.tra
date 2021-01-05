@@ -1,0 +1,273 @@
+// Predefined area names (everything else is taken from worldmap names)
+// BG1
+@1000 = ~NW Baldur's Gate~
+@1001 = ~N Baldur's Gate~
+@1002 = ~NO Baldur's Gate~
+@1003 = ~W Baldur's Gate~
+@1004 = ~Baldur's Gate Zentrum~
+@1005 = ~O Baldur's Gate~
+@1006 = ~Lindwurmsquerung~
+@1007 = ~SW Baldur's Gate~
+@1008 = ~S Baldur's Gate~
+@1009 = ~SO Baldur's Gate~
+@1010 = ~Kerzenburg~  // for "Tutorial" Candlekeep
+// BG2
+@1100 = ~Ust Natha~
+
+
+// Ghostly Merchant dialog
+@2000 = ~Die geisterhafte Form eines Mannes, der wie ein Händler gekleidet ist, nimmt Gestalt an und wendet sich Euch zu.~
+@2001 = ~Zu Eurer Überraschung präsentiert er Euch eine Liste aller Läden, die Ihr in der Vergangenheit besucht habt und wartet auf Eure Entscheidung.~
+@2002 = ~Der Händler überreicht Euch eine Liste aller Läden, die Ihr bereits besucht habt, und wartet auf Eure Entscheidung.~
+@2003 = ~Ich möchte im Moment keinen Laden besuchen.~
+
+// Store response templates
+@2010 = ~"%store_name%".~
+@2011 = ~"%store_name%" von %creature_name%.~
+@2012 = ~"%store_name%" in "%area_name%".~
+@2013 = ~"%store_name%" von %creature_name%, in "%area_name%".~
+
+@2020 = ~Laden~ // default name for unnamed stores
+
+
+// Items
+@3000 = ~Magischer Laden von Vergadain~
+@3001 = ~Dieses mächtige Artefakt wurde ursprünglich von Zwergen entworfen, die der Kirche von Vergadain, dem Zwergengott des Verhandelns und des Reichtums, angehörten. Es ist ein magischer Spiegel, der benutzt werden kann, um einen geisterhaften Händler herbeizurufen. Er besitzt die Fähigkeit, Euch Zutritt zu allen Läden zu verschaffen, die Ihr in der Vergangenheit besucht habt.
+
+EIGENSCHAFTEN:
+
+Mindestintelligenz: 9
+
+Gewicht: 1~
+
+@3010 = ~Geisterhafter Händler~
+@3011 = ~Niemand bestiehlt mich!~
+@3012 = ~Ich gebe mich nicht mit diebischen Halunken ab.~
+
+@3100 = ~Kupferbrocken~
+@3101 = ~Dies ist ein Brocken Kupfererz. Er kann zum Schmieden von Schmuckstücken oder Verzierungen verwendet werden.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@3200 = ~Verzierter Kupferrahmen~
+@3201 = ~Dieser verzierte Kupferrahmen wurde entworfen, um empfindliche oder zerbrechliche Objekte festzuhalten.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+
+@3300 = ~Funkelnder Kristall~
+@3301 = ~Kristalle variieren stark in Form und Farbton. Sie sind bei Juwelieren und Zauberern sehr begehrt. Dieser Kristall ist außergewöhnlich rein und verträgt daher sehr mächtige Verzauberungen.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@3400 = ~Vergessene Artefakte, Band 3~
+@3401 = ~Vergessene Artefakte, Band 3
+Von Elameth
+
+Diese Buchreihe beschreibt verschiedene Artefakte, die im hohen Norden während der Zeit der Zusammenarbeit zwischen Elfen und Zwergen vom elfischen Zauberer Elameth und dem Zwergenschmied Karador erschaffen wurden.
+
+Dieser Band erläutert die Erschaffung eines Artefakts, mit dem es möglich ist, auf magische Weise ferne Händler herbeizurufen. Das Artefakt wird im Buch "Magischer Laden von Vergadain" genannt und benötigt einen verzauberten Kristall, der in einen Kupferrahmen eingebettet wird.~
+
+@3402 = ~Vergessene Artefakte, Band 3
+Von Elameth
+
+Diese Buchreihe beschreibt verschiedene Artefakte, die während der Zeit der Zusammenarbeit zwischen Elfen und Zwergen vom elfischen Zauberer Elameth und dem Zwergenschmied Karador erschaffen wurden.
+
+Dieser Band erläutert die Erschaffung eines Artefakts, mit dem es möglich ist, auf magische Weise ferne Händler herbeizurufen. Das Artefakt wird im Buch "Magischer Laden von Vergadain" genannt und benötigt einen verzauberten Kristall, der in einen Kupferrahmen eingebettet wird.~
+
+
+// BG1 quest dialog lines
+// Taerom lines
+@4000 = ~In einem Buch wird ein magisches Artefakt beschrieben, das einen Kupferrahmen benötigt. Könnt Ihr solch einen für mich herstellen?~
+@4001 = ~Der Magier Thalantyr hat mich wegen eines Kupferrahmens an Euch verwiesen. Könnt Ihr solch einen für mich herstellen?~
+@4002 = ~Ich möchte noch einmal über den Kupferrahmen sprechen. Könnt Ihr solch einen für mich herstellen?~
+@4003 = ~Aber sicher doch. Kupfer lässt sich leicht verarbeiten. Ein Rahmen sollte kein Problem sein. Leide habe ich zur Zeit kein Kupfererz im Lager. Falls Ihr es mir allerdings zur Verfügung stellen könnt, dann kann ich mich sofort an die Arbeit machen.~
+@4004 = ~Wo bekomme ich Kupfererz her?~
+@4005 = ~Natürlich, hier ist es.~
+@4006 = ~Eigentlich möchte ich im Moment keinen haben. Vielleicht später.~
+@4007 = ~In der Mine von Nashkell, südlich von hier, könnte man vielleicht noch etwas finden. Sie ist jetzt vor allem eine Eisenmine, allerdings wurde früher auch Kupfer gefördert.~
+@4008 = ~Danke, ich werde mich da mal umschauen.~
+@4009 = ~Ah, das ist ja ein schöner Brocken Kupfer. Für 100 Goldmünzen kann ich Euch auf der Stelle einen Kupferrahmen schmieden.~
+@4010 = ~Ich habe gerade nicht genug Gold bei mir. Vielleicht später.~
+@4011 = ~Ja, bitte. Hier habt Ihr das Gold.~
+@4012 = ~Wie Ihr wünscht. Ich bin zur Stelle, falls Ihr es Euch anders überlegt.~
+@4013 = ~Dann verschwenden wir keine Zeit mehr. Macht es Euch bequem. Ich bin gleich wieder zurück.~
+@4014 = ~Der Schmied wendet sich seiner Schmiedeausrüstung zu und fängt an, das Kupfererz zu schmelzen. Anschließend wird es kurz auf der Schmiede bearbeitet. Er wiederholt diesen Prozess noch einige Male, bevor er sich wieder Euch zuwendet.~
+@4015 = ~Wie versprochen, hier ist der Kupferrahmen. Es war ein Vergnügen, mit Euch Geschäfte zu machen.~
+@4016 = ~Leider kann ich Euch wegen des Kristalls nicht weiterhelfen. Allerdings kann das ein Bekannter von mir. Sein Name ist Thalantyr, und er ist ein talentierter Magier. Ihr könnt ihn in der Hohen Hecke, westlich von Beregost, finden.~
+@4017 = ~Aber sicher doch. Wenn Ihr mir das Kupfererz zur Verfügung stellt, kann ich sofort anfangen.~
+@4018 = ~Hier ist es.~
+@4019 = ~Ich habe keines bei mir. Ich komme später wieder.~
+// Thalantyr lines
+@4100 = ~In einem Buch wird die Herstellung des mächtigen Artefakts "Magischer Laden von Vergadain" beschrieben. Könnt Ihr mir so eines herstellen?~
+@4101 = ~Ich möchte noch einmal über den Magischen Laden sprechen.~
+@4102 = ~Vielleicht kann ich es, vielleicht auch nicht. Lasst mich Euer Buch sehen.~
+@4103 = ~Ich habe es nicht bei mir.~
+@4104 = ~Hier, bitte sehr.~
+@4105 = ~Ich habe mich anders entschieden. Ich entschuldige mich für die Störung und gehe sofort.~
+@4106 = ~Dann verschwendet meine Zeit nicht weiter.~
+@4107 = ~Hmm, das ist eine ziemlich kuriose Lektüre. Das Ritual hört sich sehr kompliziert an. Allerdings habe ich mich noch nie vor einer Herausforderung gescheut.~
+@4108 = ~Für die Verzauberung benötige ich zwei Gegenstände, einen Kupferrahmen und einen Kristall. Zum Glück habe ich Kristalle im Angebot. Sie sind äußerst nützlich für Verzauberungen aller Art.~
+@4109 = ~Ich benötige zwei Gegenstände, einen Kupferrahmen und einen Kristall.~
+@4110 = ~Einen Kupferrahmen könnt Ihr wohl bei Taerom Fuiruim, dem Besitzer der Donnerhammers Schmiede in Beregost ergattern.~
+@4111 = ~Wenn Ihr die Gegenstände habt, kann ich wohl diesen Magischen Laden herstellen. Für die eigentliche Verzauberung muss ich außerdem um 2.000 Goldmünzen bitten. Was sagt Ihr dazu?~
+@4112 = ~Ich habe alles bei mir. Fangt bitte an.~
+@4113 = ~Ich habe nicht genug Gold bei mir. Ich komme später wieder.~
+@4114 = ~Ich habe nicht alle Gegenstände bei mir. Ich komme später wieder.~
+@4115 = ~Dann kommt wieder, wenn Ihr alles beisammen habt. Bis dahin habe ich Euch nichts weiter zu sagen.~
+@4116 = ~Ich habe Euch bereits gesagt, was ich für das Artefakt benötige. Habt Ihr alles bei Euch?~
+@4117 = ~Ja, es sieht so aus, als ob alles in Ordnung ist.~
+@4118 = ~Seid jetzt bitte einen Moment ruhig. Ich brauche äußerste Konzentration für das Verzauberungsritual...~
+@4119 = ~...Und das war es schon. Ich überlasse es Euren eigenen geistigen Fähigkeiten, die Funktionsweise dieses Artefakts herauszufinden.  Bitte geht jetzt. Ich fühle mich ein wenig erschöpft.~
+
+// SoD quest dialog lines
+// Soralis lines
+@5000 = ~Ich weiß nicht so recht. Darf ich es mal sehen?~
+@5001 = ~Ich habe es nicht bei mir.~
+@5002 = ~Aber sicher doch. Hier ist das Buch.~
+@5003 = ~Ich habe es mir anders entschieden. Guten Tag. Ich muss weg.~
+@5004 = ~Ohne das Buch kann ich Euch nicht helfen. Kommt zurück, wenn Ihr es bei Euch habt.~
+@5005 = ~Hmm, soweit ich sehen kann, benötige ich zwei Gegenstände für die Verzauberung, einen Kupferrahmen und einen Kristall.~
+@5006 = ~Leider kann ich nicht sagen, wo Ihr diese Dinge finden könnt. Vielleicht habt Ihr bei einem Händler Glück, oder Ihr könnt die Gegend nach Schätzen durchsuchen. In dieser Region ist in letzter Zeit wegen des Kreuzzugs ziemlich viel los.~
+@5007 = ~Ich muss von Euch auch eine Gebühr von 2.000 Goldmünzen verlangen, um das Verzauberungsritual durchführen zu können.~
+@5008 = ~Ich habe alles bei mir. Fangt bitte an.~
+@5009 = ~Ich habe nicht genug Gold bei mir. Ich komme später wieder.~
+@5010 = ~Ich habe nicht alle Gegenstände bei mir. Ich komme später wieder.~
+@5011 = ~Dann kommt wieder, wenn Ihr alles beisammen habt. Einen schönen Tag Euch.~
+@5012 = ~Habt Ihr alles, was ich für das Verzauberungsritual benötige?~
+@5013 = ~Danke schön. Es scheint wirklich alles da zu sein.~
+@5014 = ~Gebt mir bitte einen Augenblick, um mich auf das Ritual vorzubereiten...~
+@5015 = ~...Und das war es schon. Ich bin mir sicher, dass der Magische Laden einwandfrei funktioniert.~
+
+// BG2 quest dialog lines
+// Cromwell lines
+@6000 = ~Das kommt unerwartet. Ein Buch aus der Feder meiner Verwandten aus dem hohen Norden? Es scheint ein Artefakt namens "Magischer Laden von Vergadain" zu beschreiben.~
+@6001 = ~So wie es ausschaut, habt Ihr bereits den benötigten Kupferrahmen und Kristall bei Euch. Außerdem würde ich für die Arbeit 3.000 Goldstücke verlangen.~
+@6002 = ~Wenn Ihr einen Kupferrahmen und Kristall bei Euch haben würdet, könnte ich mich für 3.000 Goldstücke an die Arbeit machen.~
+@6003 = ~Ihr habt einen Kupferrahmen, aber keinen Kristall bei Euch. Für 3.000 Goldstücke würde ich mich an die Arbeit machen, wenn Ihr beides hättet.~
+@6004 = ~Ihr habt einen Kristall, aber keinen Kupferrahmen bei Euch. Für 3.000 Goldstücke würde ich mich an die Arbeit machen, wenn Ihr beides hättet.~
+@6005 = ~Ich werde weiter nachschauen, mal sehen, hmmmm ...~
+
+// ToB quest dialog lines
+// Cespenar lines
+@7000 = ~Was haben wir denn da? Ein Buch? Ah...ist Buch der vielen Händler. Ich nicht gut genug für Euch?~
+@7001 = ~Wie auch immer...Ihr habt Kupferrahmen und Kristall. Für 4.000 Goldmünzen kann ich für Euch Vertrag mit vielen Händlern abschließen.~
+@7002 = ~Wie auch immer...ich brauche dafür Kupferrahmen und Kristall, oder keine Händler für Euch.~
+@7003 = ~Mal schauen, was sonst noch da ist...~
+
+// IWD quest dialog lines
+// Conlan lines
+@8000 = ~Das sollte kein Problem sein. Ich habe nur selten Gelegenheit, mit Kupfer zu arbeiten, da es vor allem für Schmuck oder Verzierungen verwendet wird. Aber ein Kupferrahmen müsste recht leicht zu schmieden sein.~
+@8001 = ~Leider habe ich zur Zeit kein Kupfererz vorrätig. Die nächste Erzlieferung ist eigentlich schon lange überfällig. Aber mit dem ungewöhnlichen Wetter und all den seltsamen Vorfällen erwarte ich in nächster Zeit keine Besserung.~
+@8002 = ~Eigentlich habe ich bereits Kupfererz bei mir.~
+@8003 = ~Das kann ich nicht mit Sicherheit sagen. Es gibt sicher welches in den Minen von Dorntief, weit unten im Süden. Aber das ist ziemlich weit weg, und ich bin mir nicht sicher, ob Euch die Zwerge Zugang gewähren würden. An Eurer Stelle würde ich es zuerst mit den Grabmälern des Tals der Schatten versuchen.~
+@8004 = ~Ausgezeichnet. Für 100 Goldmünzen kann ich Euch den Rahmen sofort herstellen.~
+@8005 = ~Wie Ihr wünscht. Ich bin zur Stelle, falls Ihr es Euch anders überlegt.~
+// Orrick lines
+@8100 = ~Das wäre möglich, falls man dem Inhalt des Buches Glauben schenken kann. Darf ich mal einen Blick hineinwerfen?~
+@8101 = ~Also ohne das Buch kann ich Euch nicht weiter helfen. Kommt doch bitte wieder, wenn Ihr es bei Euch habt.~
+@8102 = ~Ah, dieses Buch scheint aus der Zeit der Zusammenarbeit zwischen Elfen und Zwergen zu stammen. Ich denke, dass man seinem Inhalt vertrauen kann.~
+@8103 = ~Glücklicherweise wird das benötigte Ritual sehr detailiert beschrieben. Ich kann Euch wahrscheinlich helfen, dieses Artefakt herzustellen. Für die Verzauberung benötige ich aber noch zwei Gegenstände.~
+@8104 = ~Der erste Gegenstand ist ein Kupferrahmen. Ihr könnt so etwas sicher in Conlans Schmiede herstellen lassen.~
+@8105 = ~Der erste Gegenstand ist ein Kupferrahmen.~
+@8106 = ~Der zweite Gegenstand ist ein Kristall. Das überrascht mich nicht. Kristalle sind ganz allgemein sehr beliebt, um Verzauberungen durchzuführen. Ich habe wahrscheinlich einen im Angebot, falls Ihr daran interessiert seid.~
+@8107 = ~Der zweite Gegenstand ist ein Kristall. Das überrascht mich nicht. Kristalle sind ganz allgemein sehr beliebt, um Verzauberungen durchzuführen.~
+@8108 = ~Für den Verzauberungsprozess müsste ich außerdem von Euch 3.000 Goldstücke verlangen. Seid Ihr immer noch daran interessiert?~
+@8109 = ~Aber sicher. Habt Ihr den Kupferrahmen und einen Kristall bei Euch? Ich müsste außerdem 3.000 Goldstücke für den Verzauberungsprozess von Euch verlangen.~
+@8110 = ~Ausgezeichnet. Gebt mir nur einen Moment, um den Zauber vorzubereiten...~
+@8111 = ~...und das war es schon. Ich hoffe, er gefällt Euch. Artefakte dieser Qualität findet man heutzutage nur noch selten.~
+
+
+// Journal entries
+// Generic entry
+@10000 = ~Ein kaufmännisches Vermächtnis
+Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, um die notwendigen Verzauberungen durchzuführen.~
+
+// BG1 entries
+@10001 = ~Ein kaufmännisches Vermächtnis
+Taerom Fuiruim von der Donnerhammer Schmiede in Beregost bot mir an, einen Kupferrahmen zu schmieden, wenn ich ihm Kupfererz aus den Minen von Nashkell bringe.~
+
+@10002 = ~Ein kaufmännisches Vermächtnis
+Taerom Fuiruim von der Donnerhammer Schmiede in Beregost hat mir einen Kupferrahmen aus dem Erz geschmiedet, das ich in den Minen von Nashkell gefunden habe.~
+
+@10003 = ~Ein kaufmännisches Vermächtnis
+Taerom Fuiruim von der Donnerhammer Schmiede in Beregost hat mir einen Kupferrahmen aus dem Erz geschmiedet, das ich in den Minen von Nashkell gefunden habe. Wegen dem Kristall empfahl er mir, den Magier Thalantyr in der Hohen Hecke aufzusuchen.~
+
+@10004 = ~Ein kaufmännisches Vermächtnis
+Thalantyr sagte mir, dass er das Artefakt herstellen kann, sofern ich ihm die benötigten Gegenstände besorge. Einen Kristall kann ich bei Thalantyr selbst erwerben. Für den Kupferrahmen sollte ich beim Schmied in Beregost nachfragen.~
+
+@10005 = ~Ein kaufmännisches Vermächtnis
+Thalantyr sagte mir, dass er das Artefakt herstellen kann, sofern ich ihm die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall.~
+
+// (quest completed)
+@10006 = ~Ein kaufmännisches Vermächtnis
+Thalantyr konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
+
+// SoD entries
+@10100 = ~Ein kaufmännisches Vermächtnis
+Der Kupferrahmen, den ich in der Nähe des niedergebrannten Gasthauses gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
+
+@10101 = ~Ein kaufmännisches Vermächtnis
+Der Kupferrahmen, den ich in der Nähe des niedergebrannten Gasthauses gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Magier, der mir das Artefakt herstellen kann.~
+
+@10102 = ~Ein kaufmännisches Vermächtnis
+Der Kristall, den ich im Bereich der Steinstatuen gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
+
+@10103 = ~Ein kaufmännisches Vermächtnis
+Der Kristall, den ich im Bereich der Steinstatuen gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Magier, der mir das Artefakt herstellen kann.~
+
+@10104 = ~Ein kaufmännisches Vermächtnis
+Soralis sagte mir, dass sie wahrscheinlich das Artefakt herstellen kann, wenn ich ihr die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall. Außerdem benötigt sie etwas Gold für den Verzauberungsprozess.~
+
+// (quest completed)
+@10105 = ~Ein kaufmännisches Vermächtnis
+Soralis konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
+
+// BG2 entries
+@10200 = ~Ein kaufmännisches Vermächtnis
+Der Kupferrahmen, den ich in der Kupferkrone erworben habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
+
+@10201 = ~Ein kaufmännisches Vermächtnis
+Der Kupferrahmen, den ich in der Kupferkrone erworben habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Meisterschmied oder Zauberer, der mir dieses Artefakt herstellt.~
+
+@10202 = ~Ein kaufmännisches Vermächtnis
+Der Kristall, den ich vom Rakshasa erbeutet habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
+
+@10203 = ~Ein kaufmännisches Vermächtnis
+Der Kristall, den ich vom Rakshasa erbeutet habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Meisterschmied oder Zauberer, der mir dieses Artefakt herstellt.~
+
+// (quest completed)
+@10204 = ~Ein kaufmännisches Vermächtnis
+Cromwell konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
+
+// ToB entries
+@10300 = ~Ein kaufmännisches Vermächtnis
+Der Kupferrahmen, den ich in Kisers Haus gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
+
+@10301 = ~Ein kaufmännisches Vermächtnis
+Der Kristall, den ich von Gromnirs Magier erbeutet habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
+
+// (quest completed)
+@10302 = ~Ein kaufmännisches Vermächtnis
+Cespenar konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
+
+// IWD entries
+@10400 = ~Ein kaufmännisches Vermächtnis~
+
+@10401 = ~Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, um die notwendigen Verzauberungen durchzuführen.~
+
+@10402 = ~Conlan, der Schmied aus Kuldahar, bot mir an, einen Kupferrahmen zu schmieden, wenn ich ihm Kupfererz besorgen kann. Er schlug mir vor, danach im Tal der Schatten oder in Dorntief zu suchen.~
+
+@10403 = ~Conlan, der Schmied aus Kuldahar, hat mir einen Kupferrahmen geschmiedet, der für den Magischen Laden benötigt wird.~
+
+@10404 = ~Orrick bestätigte mir, dass er Kristalle zum Verkauf anbietet. Sie werden für den Magischen Laden benötigt.~
+
+@10405 = ~Orrick sagte mir, dass er wahrscheinlich das Artefakt herstellen kann, wenn ich ihm die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall.~
+
+// (quest completed)
+@10406 = ~Orrick konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~

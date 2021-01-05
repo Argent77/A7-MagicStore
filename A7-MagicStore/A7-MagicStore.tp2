@@ -31,6 +31,12 @@ LANGUAGE ~English~
          ~english~
          ~A7-MagicStore/languages/english/setup.tra~
          ~A7-MagicStore/languages/english/mod.tra~
+LANGUAGE ~Deutsch~
+         ~german~
+         ~A7-MagicStore/languages/english/setup.tra~
+         ~A7-MagicStore/languages/english/mod.tra~
+         ~A7-MagicStore/languages/german/setup.tra~
+         ~A7-MagicStore/languages/german/mod.tra~
 
 BEGIN @1  // Magic store of Vergadain
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
