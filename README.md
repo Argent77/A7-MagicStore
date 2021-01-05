@@ -1,2 +1,4 @@
-# A7-MagicStore
-A mod that introduces a magical artifact which allows access to stores from all over the world.
+# Magic Store
+*A magical artifact that allows access to stores from all over the world.*
+
+Coming soon...
