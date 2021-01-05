@@ -1,0 +1,66 @@
+// Returns the name of the given creature resref
+DEFINE_ACTION_FUNCTION GET_CRE_NAME
+STR_VAR
+  cre_resref = ~~
+RET
+  cre_name
+BEGIN
+  OUTER_TEXT_SPRINT cre_name ~~
+  ACTION_IF (NOT ~%cre_resref%~ STR_EQ ~~) BEGIN
+    COPY_EXISTING ~%cre_resref%.CRE~ ~override~
+      LPF GET_CRE_NAME RET cre_name END
+    BUT_ONLY IF_EXISTS
+  END
+END
+
+DEFINE_PATCH_FUNCTION GET_CRE_NAME
+RET
+  cre_name
+BEGIN
+  TEXT_SPRINT cre_name ~~
+  PATCH_IF (BUFFER_LENGTH >= 0x2d4) BEGIN
+    READ_ASCII 0 sig (8) NULL
+    PATCH_IF (~%sig%~ STR_EQ ~CRE V1.0~) BEGIN
+      READ_LONG 0x0c strref
+      PATCH_IF (strref > 0) BEGIN
+        GET_STRREF strref cre_name
+      END ELSE BEGIN
+        READ_LONG 0x08 strref
+        PATCH_IF (strref > 0) BEGIN
+          GET_STRREF strref cre_name
+        END
+      END
+    END
+    LPF TRIM STR_VAR string = EVAL ~%cre_name%~ RET cre_name = string END
+  END
+END
+
+DEFINE_PATCH_FUNCTION TRIM
+STR_VAR
+  string = ~~
+RET
+  string
+BEGIN
+  INNER_PATCH_SAVE string ~%string%~ BEGIN
+    SET max = BUFFER_LENGTH
+
+    // trim start
+    FOR (ofs = 0; ofs < max; ++ofs) BEGIN
+      READ_BYTE ofs value
+      PATCH_IF (value > 0x20) BEGIN
+        DELETE_BYTES 0 ofs
+        SET max -= ofs
+        SET ofs = max
+      END
+    END
+
+    // trim end
+    FOR (ofs = max - 1; ofs >= 0; --ofs) BEGIN
+      READ_BYTE ofs value
+      PATCH_IF (value > 0x20) BEGIN
+        DELETE_BYTES (ofs + 1) (max - ofs - 1)
+        SET ofs = "-1"
+      END
+    END
+  END
+END

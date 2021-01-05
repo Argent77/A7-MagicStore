@@ -1,0 +1,144 @@
+INCLUDE ~%MOD_FOLDER%/lib/areanames.tpa~
+
+// Retrieves area names from worldmap area entries.
+DEFINE_ACTION_FUNCTION GET_ARE_NAMES
+STR_VAR
+  array_name = ~AREANAME~ // optional name of an array containing predefined area names as (~are_resref~ => ~area_name~)
+RET_ARRAY
+  are_names
+BEGIN
+  ACTION_IF (NOT ~%array_name%~ STR_EQ ~~) BEGIN
+    ACTION_PHP_EACH EVAL ~%array_name%~ AS resref => desc BEGIN
+      ACTION_TO_UPPER ~resref~
+      OUTER_TEXT_SPRINT $are_names(~%resref%~) ~%desc%~
+    END
+  END
+
+  COPY_EXISTING_REGEXP GLOB ~.*\.WMP~ ~override~
+    PATCH_IF (NOT ~%SOURCE_RES%~ STR_EQ ~WORLDM25~ ||
+              NOT (~%SOURCE_RES%~ STR_EQ ~WORLDM25~ && GAME_IS ~tutu tutu_totsc bgee~)) BEGIN
+      PATCH_IF (BUFFER_LENGTH > 0x10) BEGIN
+        READ_ASCII 0 sig (8) NULL
+        PATCH_IF (~%sig%~ STR_EQ ~WMAPV1.0~) BEGIN
+          READ_LONG 0x8 num_maps
+          READ_LONG 0xc ofs_maps
+          FOR (i = 0; i < num_maps; ++i) BEGIN
+            SET ofs1 = ofs_maps + (i * 0xb8)
+            READ_LONG (ofs1 + 0x20) num_areas
+            READ_LONG (ofs1 + 0x24) ofs_areas
+            FOR (j = 0; j < num_areas; ++j) BEGIN
+              SET ofs2 = ofs_areas + (j * 0xf0)
+              TEXT_SPRINT area_name ~~
+              READ_LONG (ofs2 + 0x40) area_strref
+              PATCH_IF (area_strref > 0) BEGIN
+                GET_STRREF area_strref area_name
+              END
+              PATCH_IF (~%area_name%~ STR_EQ ~~) BEGIN
+                READ_LONG (ofs2 + 0x44) area_strref
+                PATCH_IF (area_strref > 0) BEGIN
+                  GET_STRREF area_strref area_name
+                END
+              END
+              PATCH_IF (NOT ~%area_name%~ STR_EQ ~~) BEGIN
+                READ_ASCII ofs2 area_resref (8) NULL
+                TO_UPPER ~area_resref~
+                TEXT_SPRINT $are_names(~%area_resref%~) ~%area_name%~
+              END
+            END
+          END
+        END
+      END
+    END
+  BUT_ONLY IF_EXISTS
+
+  // Tutu: original BG2 areas exist but are unused; adding dummy labels to reduce area name lookup time
+  ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+    OUTER_FOR (code = 100; code < 7000; code += 100) BEGIN
+      ACTION_IF (code < 1000) BEGIN
+        OUTER_TEXT_SPRINT area_resref ~AR0%code%~
+      END ELSE BEGIN
+        OUTER_TEXT_SPRINT area_resref ~AR%code%~
+      END
+      ACTION_IF (NOT VARIABLE_IS_SET $are_names(~%area_resref%~)) BEGIN
+        OUTER_TEXT_SPRINT $are_names(~%area_resref%~) ~%area_resref%~
+      END
+    END
+  END
+
+  // OUTER_TEXT_SPRINT output ~DEBUG: content of are_names:~
+  // ACTION_PHP_EACH are_names AS key => value BEGIN
+    // OUTER_TEXT_SPRINT output ~%output%%LNL%  "%key%" => "%value%"~
+  // END
+  // LOG ~%output%%WNL%~
+END
+
+
+// Attempts to find an area name from the specified or a connected area.
+DEFINE_ACTION_FUNCTION FIND_NAMED_AREA
+INT_VAR
+  level = 0
+STR_VAR
+  are_resref = ~~ // the area resref to search
+  are_parent = ~~ // used internally to prevent infinity loops
+  array_name = ~are_names~  // name of the area names array
+RET
+  resref level
+BEGIN
+  OUTER_TEXT_SPRINT resref ~~
+  OUTER_SET cur_level = level
+  ACTION_IF (level < 8) BEGIN // reduce processing time
+    OUTER_PATCH_SAVE space ~~ BEGIN
+      SET indent = level * 4
+      INSERT_BYTES 0 indent
+      FOR (i = 0; i < indent; ++i) BEGIN WRITE_BYTE i 0x20 END
+    END
+    // LOG ~%space%DEBUG: function FIND_NAMED_AREA("%are_resref%", "%are_parent%")~
+
+    ACTION_IF (NOT ~%array_name%~ STR_EQ ~~ && VARIABLE_IS_SET $EVAL ~%array_name%~(~%are_resref%~)) BEGIN
+      OUTER_TEXT_SPRINT resref ~%are_resref%~
+      OUTER_TEXT_SPRINT name $EVAL ~%array_name%~(~%resref%~)
+      // LOG ~%space%DEBUG: found name in array for %resref%: %name%~
+    END
+
+    // collecting travel destinations
+    ACTION_IF (~%resref%~ STR_EQ ~~) BEGIN
+      ACTION_CLEAR_ARRAY ~areas~
+      COPY_EXISTING ~%are_resref%.ARE~ ~override~
+        PATCH_IF (BUFFER_LENGTH > 8) BEGIN
+          READ_ASCII 0 sig (8) NULL
+          PATCH_IF (~%sig%~ STR_EQ ~AREAV1.0~) BEGIN
+            READ_SHORT 0x5a num_regions
+            READ_LONG 0x5c ofs_regions
+            FOR (i = 0; i < num_regions; ++i) BEGIN
+              SET ofs = ofs_regions + (i * 0xc4)
+              READ_SHORT (ofs + 0x20) type
+              PATCH_IF (type = 2) BEGIN
+                READ_ASCII (ofs + 0x38) value (8) NULL
+                PATCH_IF (FILE_EXISTS_IN_GAME ~%value%.ARE~ && NOT ~%value%~ STR_EQ ~%are_parent%~) BEGIN
+                  TO_UPPER ~value~
+                  SET $areas(~%value%~) = 1
+                END
+              END
+            END
+          END
+        END
+      BUT_ONLY IF_EXISTS
+
+      // searching travel destinations recursively for a match
+      OUTER_TEXT_SPRINT are_parent ~%are_resref%~
+      ACTION_PHP_EACH areas AS are_resref => _ BEGIN
+        ACTION_IF (~%resref%~ STR_EQ ~~) BEGIN
+          LAF FIND_NAMED_AREA
+            INT_VAR level = cur_level + 1
+            STR_VAR are_resref are_parent array_name
+            RET     resref level
+          END
+        END
+      END
+    END
+  END
+
+  // ACTION_IF (NOT ~%resref%~ STR_EQ ~~) BEGIN
+    // LOG ~%space%DEBUG: Area found: "%resref%" at level %level%~
+  // END
+END

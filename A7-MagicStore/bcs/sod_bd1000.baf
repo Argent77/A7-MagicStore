@@ -1,0 +1,101 @@
+// Initializing copper frame treasure
+IF
+  Global("A7STO-SODQuest","GLOBAL",1)
+  Global("A7STO-SODQuestFrame","MYAREA",0)
+  PartyHasItem("a7_cfrm")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("A7STO-SODQuest","GLOBAL",1)
+  Global("A7STO-SODQuestFrame","MYAREA",0)
+  !PartyHasItem("a7_cfrm")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestFrame","MYAREA",1)
+    ActionOverride("Halfling_Treasures_Chest",CreateItem("a7_cfrm",0,0,0))
+    Continue()
+END
+
+// Initializing crystal treasure
+IF
+  Global("A7STO-SODQuest","GLOBAL",1)
+  Global("A7STO-SODQuestCrystal","MYAREA",0)
+  PartyHasItem("a7_crys")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
+    ActionOverride("A7STO_Container1",CreateItem("misc07",100,0,0))
+    Continue()
+END
+
+IF
+  Global("A7STO-SODQuest","GLOBAL",1)
+  Global("A7STO-SODQuestCrystal","MYAREA",0)
+  !PartyHasItem("a7_crys")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestCrystal","MYAREA",1)
+    ActionOverride("A7STO_Container1",CreateItem("a7_crys",0,0,0))
+    Continue()
+END
+
+// Notify if copper frame is found
+IF
+  Global("A7STO-SODQuestFrame","MYAREA",1)
+  PartyHasItem("a7_cfrm")
+  Global("A7STO-SODQuestCrystal","MYAREA",2)
+  Switch("A7STO-SODQuestArtifact","GLOBAL")
+THEN
+  RESPONSE #0
+    SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
+    AddJournalEntry(@10101,QUEST)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
+    AddJournalEntry(@10100,QUEST)
+    Continue()
+END
+
+IF
+  Global("A7STO-SODQuestFrame","MYAREA",1)
+  PartyHasItem("a7_cfrm")
+  !Global("A7STO-SODQuestCrystal","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
+    AddJournalEntry(@10100,QUEST)
+    Continue()
+END
+
+// Notify if crystal frame is found
+IF
+  Global("A7STO-SODQuestCrystal","MYAREA",1)
+  PartyHasItem("a7_crys")
+  Global("A7STO-SODQuestFrame","MYAREA",2)
+  Switch("A7STO-SODQuestArtifact","GLOBAL")
+THEN
+  RESPONSE #0
+    SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
+    AddJournalEntry(@10103,QUEST)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
+    AddJournalEntry(@10102,QUEST)
+    Continue()
+END
+
+IF
+  Global("A7STO-SODQuestCrystal","MYAREA",1)
+  PartyHasItem("a7_crys")
+  !Global("A7STO-SODQuestFrame","MYAREA",2)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
+    AddJournalEntry(@10102,QUEST)
+    Continue()
+END
+

@@ -1,0 +1,10 @@
+IF
+  Global("A7STO-ItemCreated","GLOBAL",0)
+  Global("A7STO-IWDQuest","GLOBAL",0)
+  PartyHasItem("a7_mbk")
+THEN
+  RESPONSE #100
+  SetGlobal("A7STO-IWDQuest","GLOBAL",1)
+  AddJournalEntry(@10401,QUEST)
+  Continue()
+END

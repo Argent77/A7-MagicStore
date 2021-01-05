@@ -1,0 +1,115 @@
+IF
+  StealFailed([ANYONE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    SetGlobalTimer("A7STO_STEAL_TIMER","GLOBAL",300)
+    DisplayStringHead(Myself,@3011) // Nobody steals from me!
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  GlobalTimerNotExpired("A7STO_STEAL_TIMER","GLOBAL")
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",4)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    DisplayStringHead(Myself,@3012) // I don't deal with thieving scoundrels.
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  See(LastSummonerOf(Myself))
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  See([PC])
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  See(SecondNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  See(ThirdNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  See(FourthNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  See(FifthNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+    FaceObject(LastSeenBy(Myself))
+    Wait(1)
+    StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  Delay(1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_MERC","LOCALS",1)
+    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
+END
+
+IF
+  GlobalTimerExpired("A7STO_MERC_TIMER","LOCALS")
+THEN
+  RESPONSE #100
+    ApplySpellRES("A7_MERC1",Myself)
+END

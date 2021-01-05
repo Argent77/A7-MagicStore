@@ -1,0 +1,274 @@
+// Predefined area names (everything else is taken from worldmap names)
+// BG1
+@1000 = ~NW Baldur's Gate~
+@1001 = ~N Baldur's Gate~
+@1002 = ~NE Baldur's Gate~
+@1003 = ~W Baldur's Gate~
+@1004 = ~Central Baldur's Gate~
+@1005 = ~E Baldur's Gate~
+@1006 = ~Wyrm's Crossing~
+@1007 = ~SW Baldur's Gate~
+@1008 = ~S Baldur's Gate~
+@1009 = ~SE Baldur's Gate~
+@1010 = ~Candlekeep~  // for "Tutorial" Candlekeep
+// BG2
+@1100 = ~Ust Natha~
+
+
+// Ghostly Merchant dialog
+@2000 = ~The ghostly shape of a man who is dressed like a merchant takes form and turns his attention to you.~
+@2001 = ~To your surprise he presents you a list of all the stores you have visited in the past and waits for you to make a decision.~
+@2002 = ~The merchant presents you a list of stores and waits for your decision.~
+@2003 = ~I don't want to visit any stores right now.~
+
+// Store response templates
+@2010 = ~"%store_name%".~
+@2011 = ~"%store_name%" by %creature_name%.~
+@2012 = ~"%store_name%" in "%area_name%".~
+@2013 = ~"%store_name%" by %creature_name%, in "%area_name%".~
+
+@2020 = ~Store~ // default name for unnamed stores
+
+
+// Items
+@3000 = ~Magic Store of Vergadain~
+@3001 = ~This powerful artifact has been originally designed by dwarves dedicated to the church of Vergadain, the dwarven god of negotiation and wealth. It is a magical mirror that can be used to call forth a ghostly merchant with the power to visit stores from merchants you have visited in the past.
+
+STATISTICS:
+
+Requires:
+ 9 Intelligence
+
+Weight: 1~
+
+@3010 = ~Ghostly Merchant~
+@3011 = ~Nobody steals from me!~
+@3012 = ~I don't deal with thieving scoundrels.~
+
+@3100 = ~Copper Nuggets~
+@3101 = ~This is a chunk of copper ore. It can be used to forge trinkets or adornments.
+
+STATISTICS:
+
+Weight: 0~
+
+@3200 = ~Ornate Copper Frame~
+@3201 = ~This ornate copper frame is designed to safely hold any kind of intricate and fragile objects in place.
+
+STATISTICS:
+
+Weight: 1~
+
+@3300 = ~Shiny Crystal~
+@3301 = ~Crystals vary greatly in shape and hue, and are highly sought by jewelers and enchanters. This crystal is exceptionally pure and can therefore hold very powerful enchantments.
+
+STATISTICS:
+
+Weight: 0~
+
+@3400 = ~Forgotten Artifacts Vol. 3~
+@3401 = ~Forgotten Artifacts, Volume 3
+By Elameth
+
+This series of books describes various artifacts created by the elven enchanter Elameth, and the dwarven smith, Karador, during the time of cooperation between the two races long time ago in the far north.
+
+This volume outlines the creation of an artifact that can be used to call forth merchants from far away by magical means. The artifact is described as "Magic Store of Vergadain" and requires an enchanted crystal placed inside a copper frame.~
+
+@3402 = ~Forgotten Artifacts, Volume 3
+By Elameth
+
+This series of books describes various artifacts created by the elven enchanter Elameth, and the dwarven smith, Karador, during the time of cooperation between the two races.
+
+This volume outlines the creation of an artifact that can be used to call forth merchants from far away by magical means. The artifact is described as "Magic Store of Vergadain" and requires an enchanted crystal placed inside a copper frame.~
+
+
+// BG1 quest dialog lines
+// Taerom lines
+@4000 = ~A book mentioned a copper frame that is required for creating a magical artifact. Can you build one for me?~
+@4001 = ~The mage Thalantyr referred me to you for a copper frame. Can you build one for me?~
+@4002 = ~I'm back for the copper frame. Can you build one for me?~
+@4003 = ~But of course. Copper is easy to forge. I could build a frame for you in no time. However, I don't have the required material in stock at the moment. If you can provide me with copper ore I can start right away.~
+@4004 = ~Where can I find copper ore?~
+@4005 = ~Certainly, I have some for you.~
+@4006 = ~Actually, I don't want one right now. I'll be back later.~
+@4007 = ~You might still find some in the Nashkel mines south of here. It's mainly an iron mine now, but in the past it yielded copper ore as well.~
+@4008 = ~Thank you. I'll take a look.~
+@4009 = ~Ahh, that's a fine piece of copper you have. For 100 gold pieces I can forge the copper frame right away.~
+@4010 = ~I don't have enough gold to pay you. Maybe later.~
+@4011 = ~Yes, please do. Here is the gold.~
+@4012 = ~Suit yourself. I'll still be here if you change you mind.~
+@4013 = ~Then let's not waste any more time. Just make yourself comfortable. I'll be back in a moment.~
+@4014 = ~The smith turns to his smithing equipment and starts with the process of smelting the copper ore followed by a short session at the forge. He repeats the process several times before he turns his attention back to you.~
+@4015 = ~And here is the copper frame I promised. It was a pleasure doing business with you.~
+@4016 = ~Unfortunately I can't really help you with the crystal. But maybe a friend of mine can. His name is Thalantyr, and he is a talented mage. You can find him in the High Hedge, west of Beregost.~
+@4017 = ~Certainly. If you can provide me with copper ore I can start right away.~
+@4018 = ~Here it is.~
+@4019 = ~I don't have any. I'll be back later.~
+// Thalantyr lines
+@4100 = ~A book described the creation of a powerful magical artifact, called the "Magic Store of Vergadain". Can you create it for me?~
+@4101 = ~I wish to talk about the Magic Store again.~
+@4102 = ~Maybe, or maybe not. Let me see that book of yours.~
+@4103 = ~I don't have it with me.~
+@4104 = ~Here it is.~
+@4105 = ~I've changed my mind. I'm sorry to have bothered you, and will leave immediately.~
+@4106 = ~Then do not waste my time further.~
+@4107 = ~Hmm, that's quite a curious read. The ritual sounds difficult to perform, but I have never shied away from a challenge.~
+@4108 = ~I need two components for the enchantment, a copper frame and a crystal. Luckily for you I have crystals in stock. They are useful for all kinds of enchantments.~
+@4109 = ~I need two components for the enchantment, a copper frame and a crystal.~
+@4110 = ~For the copper frame I would refer you to Taerom Fuiruim. He runs the Thunderhammer Smithy in Beregost.~
+@4111 = ~If you can provide me with the required components I can create the Magic Store for you. For the actual enchantment process I will also have to ask for 2000 gold pieces. What do you say?~
+@4112 = ~I have everything you need with me. Please create the artifact.~
+@4113 = ~I don't have enough money. I'll be back later.~
+@4114 = ~I don't have all the components with me. I'll be back later.~
+@4115 = ~Then return when you have everything I need. Until then I have nothing more to say to you.~
+@4116 = ~I have told you already what I require to create the Magic Store. Do you have everything I need?~
+@4117 = ~Yes, it looks like everything is in order.~
+@4118 = ~Now be quiet for a moment. I need utmost concentration to perform the enchantment ritual...~
+@4119 = ~...And it is done. I leave it to your intellectual abilities to figure out how to make the item work.  Please go now. I feel a bit weary.~
+
+// SoD quest dialog lines
+// Soralis lines
+@5000 = ~I don't rightly know. May I take a look?~
+@5001 = ~I don't have the book with me.~
+@5002 = ~Certainly. Here is the book.~
+@5003 = ~I've changed my mind. Good day. I must be off.~
+@5004 = ~I can't help you without the book. Come back when you have it.~
+@5005 = ~Hmm, from what I can see I require two components for the enchantment, a copper frame and a crystal.~
+@5006 = ~Unfortunately I don't know where to find these. You might want to check out the merchants, or search the area for hidden treasures. This region has been pretty busy lately with the crusade going on.~
+@5007 = ~I will also have to ask for a fee of 2000 gold pieces for the enchantment ritual.~
+@5008 = ~I have everything you need. Here you go.~
+@5009 = ~I don't have enough gold right now. I'll be back later.~
+@5010 = ~I don't have all the items required for the artifact. I'll be back later.~
+@5011 = ~Return when you have everything. Good day to you.~
+@5012 = ~Do you have everything required for the enchantment ritual?~
+@5013 = ~Thank you. It looks like everything is in order.~
+@5014 = ~Give me a moment to prepare the ritual...~
+@5015 = ~...And that's it. I'm certain the item will function flawlessly.~
+
+// BG2 quest dialog lines
+// Cromwell lines
+@6000 = ~Now this is unexpected. A tome written by me kin up in the north describing the Magic Store of Vergadain?~
+@6001 = ~Looks like ye've the required copper frame and crystal ready. It would cost ye 3,000 gold.~
+@6002 = ~If ye had a copper frame and crystal I could do the job for 3,000 gold.~
+@6003 = ~Ye've a copper frame, but no crystal. I could do the job for 3,000 gold if ye had both.~
+@6004 = ~Ye've the crystal, but no copper frame. I could do the job for 3,000 gold if ye had both.~
+@6005 = ~Well, let's see what else ye got.~
+
+// ToB quest dialog lines
+// Cespenar lines
+@7000 = ~What gots we here? A book? Ah...is book of many merchants. I's no good enough for you?~
+@7001 = ~Anyway...you has copper frame and crystal. For 4,000 gp I makes contract with many merchants for you.~
+@7002 = ~Anyway...I needs both copper frame and crystal, or no merchants for you.~
+@7003 = ~Well, let's sees what else you has...~
+
+// IWD quest dialog lines
+// Conlan lines
+@8000 = ~That should be no problem. I rarely have the opportunity to work with copper, since it's mainly used for trinkets and adornments. But a copper frame should be easy enough to forge.~
+@8001 = ~Unfortunately I don't have any copper ore in stock. The next shipment of ore is long overdue, but with the abnormal weather and the strange goings-on I don't expect it anytime soon.~
+@8002 = ~Actually, I have some copper ore with me.~
+@8003 = ~I can't say for sure. There might be found some in the mines of Dorn's Deep to the south. But that's quite a distance to travel, and I don't even know if the dwarves would grant you entrance. I'd suggest to try your luck with the tombs of the Vale of Shadows first.~
+@8004 = ~Very good. For 100 gold I can forge the copper frame right away.~
+@8005 = ~Alright. Come back when you've changed your mind.~
+// Orrick lines
+@8100 = ~It could be, if the book speaks true. May I take a look?~
+@8101 = ~Well, without the book I can do nothing for you. Come back again when you have it.~
+@8102 = ~Ah, this book dates from the time of the cooperation between elves and dwarves. I think it can be believed what is stated there.~
+@8103 = ~Fortunately, the ritual is outlined in great detail. I believe it is possible to create such an artifact. I would need two components for the initial enchantment though.~
+@8104 = ~The first one is a copper frame. You might want to ask Conlan the Smith about it.~
+@8105 = ~The first one is a copper frame.~
+@8106 = ~The second component is a crystal. This is not surprising considering their usefulness for enchanting purposes. I may still have one in stock if you want to take a look.~
+@8107 = ~The second component is a crystal. This is not surprising considering their usefulness for enchanting purposes.~
+@8108 = ~For the enchantment ritual itself I would also have to ask for 3000 gold pieces. Are you still interested?~
+@8109 = ~Certainly. Do you have the copper frame and crystal ready? I would also have to ask for 3000 gold pieces for the enchantment ritual.~
+@8110 = ~Excellent. Just give me a moment to cast the enchantment spell...~
+@8111 = ~...And it is done. I hope you enjoy it. Artifacts of that quality are rarely seen in this day and age.~
+
+
+// Journal entries
+// Generic entry
+@10000 = ~A mercantile legacy
+A book mentioned the creation of an unusual magical artifact, described as "Magic Store of Vergadain". According to the text it allows the users to call forth any merchants they have dealt with in the past. From what you can gather you need a copper frame and a magical crystal to create such an item.~
+
+// BG1 entries
+@10001 = ~A mercantile legacy
+Taerom Fuiruim of the Thunderhammer Smithy in Beregost offered me to forge a copper frame if I provide him with copper ore from the Nashkel Mines.~
+
+@10002 = ~A mercantile legacy
+Taerom Fuiruim of the Thunderhammer Smithy in Beregost constructed a copper frame from the ore found in the mines.~
+
+@10003 = ~A mercantile legacy
+Taerom Fuiruim of the Thunderhammer Smithy in Beregost constructed a copper frame from the ore found in the mines. He didn't know where I could acquire any crystals needed for the artifact but suggested to ask Thalantyr of the High Hedge about it.~
+
+@10004 = ~A mercantile legacy
+Thalantyr told me that he could create the artifact if I provide him with the required components. A crystal can be bought from his own stock. For the copper frame I should consult the smith in Beregost.~
+
+@10005 = ~A mercantile legacy
+Thalantyr told me that he could create the artifact if I provide him with the required components, a copper frame and a crystal.~
+
+// (quest completed)
+@10006 = ~A mercantile legacy
+Thalantyr has successfully created the artifact "Magic Store of Vergadain" for me. With it I can freely access any stores I have visited in the past.~
+
+// SoD entries
+@10100 = ~A mercantile legacy
+The copper frame found in the burned down ruins of the halfling inn could be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
+
+@10101 = ~A mercantile legacy
+The copper frame found in the burned down ruins of the halfling inn could be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts. All I need now is an able mage to create the artifact for me.~
+
+@10102 = ~A mercantile legacy
+The crystal found in the clearing at the Coastway Crossing looks like it can be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
+
+@10103 = ~A mercantile legacy
+The crystal found in the clearing at the Coastway Crossing looks like it can be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts. All I need now is an able mage to create the artifact for me.~
+
+@10104 = ~A mercantile legacy
+Soralis told me that she could create the artifact if I provide her with the required components, a copper frame and the crystal as well as some gold for the enchantment process.~
+
+// (quest completed)
+@10105 = ~A mercantile legacy
+Soralis has successfully created the artifact "Magic Store of Vergadain" for me. With it I can freely access any stores I have visited in the past.~
+
+// BG2 entries
+@10200 = ~A mercantile legacy
+The copper frame purchased from Bernard in the Copper Coronet could be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
+
+@10201 = ~A mercantile legacy
+The copper frame purchased from Bernard in the Copper Coronet could be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts. All I need now is a master smith or enchanter to assemble the artifact for me.~
+
+@10202 = ~A mercantile legacy
+The crystal looted from the Rakshasa looks like it can be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
+
+@10203 = ~A mercantile legacy
+The crystal looted from the Rakshasa looks like it can be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts. All I need now is a master smith or enchanter to assemble the artifact for me.~
+
+// (quest completed)
+@10204 = ~A mercantile legacy
+Cromwell has successfully assembled the artifact "Magic Store of Vergadain" for me. With it I can freely access any stores I have visited in the past.~
+
+// ToB entries
+@10300 = ~A mercantile legacy
+The copper frame found in Kiser's home could be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
+
+@10301 = ~A mercantile legacy
+The crystal looted from one of Gromnir's mages looks like it can be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
+
+// (quest completed)
+@10302 = ~A mercantile legacy
+Cespenar has successfully assembled the Magic Store artifact for me. With it I can freely access any stores I have visited in the past.~
+
+// IWD entries
+@10400 = ~A mercantile legacy~
+
+@10401 = ~A book mentioned the creation of an unusual magical artifact, described as "Magic Store of Vergadain". According to the text it allows the users to call forth any merchants they have dealt with in the past. From what you can gather you need a copper frame and a magical crystal to build such an item.~
+
+@10402 = ~Conlan in Kuldahar offered me to forge a copper frame if I provide him with copper ore. He suggested to look for it in the Vale of Shadows or Dorn's Deep.~
+
+@10403 = ~Conlan in Kuldahar constructed a copper frame for me, which is required for the Magic Store artifact.~
+
+@10404 = ~Orrick confirmed that he has crystals available for sale which are required for the Magic Store artifact.~
+
+@10405 = ~Orrick told me that he can create the artifact if I bring him all the required components, a copper frame and a crystal.~
+
+// (quest completed)
+@10406 = ~Orrick has successfully created the artifact "Magic Store of Vergadain" for me. With it I can freely access any stores I have visited in the past.~

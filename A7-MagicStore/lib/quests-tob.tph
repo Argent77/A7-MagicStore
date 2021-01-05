@@ -1,0 +1,39 @@
+DEFINE_ACTION_FUNCTION INSTALL_QUEST_TOB
+BEGIN
+ ADD_JOURNAL @10000 @10300 @10301 @10302
+
+  COPY_EXISTING ~25SPELL.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY lazarus_stores = stores END
+  BUT_ONLY
+
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    OUTER_TEXT_SPRINT add_store_item ~~
+    ACTION_PHP_EACH lazarus_stores AS sto_resref => sto_count BEGIN
+      OUTER_TEXT_SPRINT add_store_item ~%add_store_item%    AddStoreItem("%sto_resref%","A7_MBK",1,1)%WNL%~
+    END
+    EXTEND_TOP ~25SPELL.BCS~ ~%MOD_FOLDER%/bcs/ee/tob_25spell.baf~ EVAL
+  END ELSE BEGIN
+    EXTEND_TOP ~25SPELL.BCS~ ~%MOD_FOLDER%/bcs/tob_25spell.baf~
+
+    ACTION_PHP_EACH lazarus_stores AS sto_resref => sto_count BEGIN
+      COPY_EXISTING ~%sto_resref%.STO~ ~override~
+        LPF ADD_STORE_ITEM_EX
+        STR_VAR
+          item_name = ~A7_MBK~
+          position = ~LAST~
+          flags = ~identified~
+        END
+      BUT_ONLY IF_EXISTS
+    END
+  END
+
+  COPY_EXISTING ~gromg08.cre~ ~override~
+    ADD_CRE_ITEM ~a7_crys~ #0 #0 #0 ~identified~ ~inv1 inv2 inv3 inv4 inv5 inv6 inv7 inv8 inv9 inv10 inv11 inv12 inv13 inv14 inv15 inv16~
+  BUT_ONLY
+
+  EXTEND_TOP ~AR5002.BCS~ ~%MOD_FOLDER%/bcs/tob_ar5002.baf~
+  EXTEND_TOP ~AR5008.BCS~ ~%MOD_FOLDER%/bcs/tob_ar5008.baf~
+  EXTEND_BOTTOM ~BOTSMITH.BCS~ ~%MOD_FOLDER%/bcs/tob_botsmith.baf~
+
+  COMPILE ~%MOD_FOLDER%/dlg/dialogs_tob.d~
+END

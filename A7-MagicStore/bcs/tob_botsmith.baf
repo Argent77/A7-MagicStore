@@ -1,0 +1,16 @@
+IF
+  Global("A7STO-TOBForgeItem","GLOBAL",1)
+  Global("ImpForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-TOBQuest","GLOBAL",2)
+    SetGlobal("A7STO-TOBForgeItem","GLOBAL",0)
+    SetGlobal("ImpForgeStuff","GLOBAL",0)
+    SetGlobal("ItemMaker","GLOBAL",32767)
+    EraseJournalEntry(@10000)
+    EraseJournalEntry(@10300)
+    EraseJournalEntry(@10301)
+    AddJournalEntry(@10302,QUEST_DONE)
+    GiveItemCreate("a7_mcsum",Player1,0,0,0)
+    StartDialogNoSet(Player1)
+END

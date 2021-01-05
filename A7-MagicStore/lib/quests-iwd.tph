@@ -1,0 +1,59 @@
+DEFINE_ACTION_FUNCTION INSTALL_QUEST_IWD
+BEGIN
+  ADD_JOURNAL TITLE (@10400) @10401 @10402 @10403 @10404 @10405 @10406
+
+  COPY_EXISTING ~DGERTH.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY dgerth_stores = stores END
+  BUT_ONLY
+
+  ACTION_PHP_EACH dgerth_stores AS sto_resref => sto_count BEGIN
+    COPY_EXISTING ~%sto_resref%.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX
+      STR_VAR
+        item_name = ~A7_MBK~
+        position = ~FIRST~
+        flags = ~identified~
+      END
+    BUT_ONLY IF_EXISTS
+  END
+
+  COPY_EXISTING ~DORRICK.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY dorrick_stores = stores END
+  BUT_ONLY
+
+  ACTION_PHP_EACH dorrick_stores AS sto_resref => sto_count BEGIN
+    COPY_EXISTING ~%sto_resref%.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX
+      STR_VAR
+        item_name = ~A7_CRYS~
+        position = ~LAST~
+        flags = ~identified~
+      END
+    BUT_ONLY IF_EXISTS
+  END
+
+  COPY_EXISTING ~AR3503.ARE~ ~override~
+    PATCH_FOR_EACH cnt_index IN ~3~ ~5~ BEGIN
+      LPF ADD_AREA_ITEM
+      INT_VAR
+        container_to_add_to = cnt_index
+        charges1 = 1
+      STR_VAR
+        item_to_add = ~A7_CNUG~
+      END
+    END
+  BUT_ONLY
+
+  COPY_EXISTING ~AR6006.ARE~ ~override~
+    LPF ADD_AREA_ITEM
+    INT_VAR
+      container_to_add_to = 4
+      charges1 = 1
+    STR_VAR
+      item_to_add = ~A7_CNUG~
+    END
+  BUT_ONLY
+
+  EXTEND_TOP ~AR2113.BCS~ ~%MOD_FOLDER%/bcs/iwd_ar2113.baf~
+  COMPILE ~%MOD_FOLDER%/dlg/dialogs_iwd.d~
+END

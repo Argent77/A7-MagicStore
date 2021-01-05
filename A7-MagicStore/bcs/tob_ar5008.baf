@@ -1,0 +1,44 @@
+// Initializing copper frame treasure
+IF
+  Global("A7STO-TOBQuestFrame","MYAREA",0)
+  OR(2)
+    !Global("A7STO-ItemCreated","GLOBAL",0)
+    PartyHasItem("a7_cfrm")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-TOBQuestFrame","MYAREA",2)
+    Continue()
+END
+
+IF
+  Global("A7STO-TOBQuestFrame","MYAREA",0)
+  Global("A7STO-ItemCreated","GLOBAL",0)
+  !PartyHasItem("a7_cfrm")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-TOBQuestFrame","MYAREA",1)
+    ActionOverride("Picture1",CreateItem("a7_cfrm",0,0,0))
+    Continue()
+END
+
+// Notify if copper frame is found
+IF
+  Global("A7STO-TOBQuestFrame","MYAREA",1)
+  Global("A7STO-TOBQuest","GLOBAL",1)
+  PartyHasItem("a7_cfrm")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-TOBQuestFrame","MYAREA",2)
+    AddJournalEntry(@10300,QUEST)
+    Continue()
+END
+
+IF
+  Global("A7STO-TOBQuestFrame","MYAREA",1)
+  Global("A7STO-TOBQuest","GLOBAL",0)
+  PartyHasItem("a7_cfrm")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-TOBQuestFrame","MYAREA",2)
+    Continue()
+END

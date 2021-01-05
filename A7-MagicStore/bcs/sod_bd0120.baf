@@ -1,0 +1,34 @@
+IF
+  Global("A7STO-ItemCreated","GLOBAL",0)
+  Global("A7STO-SODQuestBook","MYAREA",0)
+  Global("A7STO-SODQuest","GLOBAL",0)
+  PartyHasItem("a7_mbk")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestBook","MYAREA",1)
+    SetGlobal("A7STO-SODQuest","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("A7STO-ItemCreated","GLOBAL",0)
+  Global("A7STO-SODQuestBook","MYAREA",0)
+  !PartyHasItem("a7_mbk")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-SODQuestBook","MYAREA",1)
+    ActionOverride("Alcove6",CreateItem("a7_mbk",0,0,0))
+    Continue()
+END
+
+IF
+  Global("A7STO-ItemCreated","GLOBAL",0)
+  Global("A7STO-SODQuestBook","MYAREA",1)
+  Global("A7STO-SODQuest","GLOBAL",0)
+  PartyHasItem("a7_mbk")
+THEN
+  RESPONSE #100
+  SetGlobal("A7STO-SODQuest","GLOBAL",1)
+  AddJournalEntry(@10000,QUEST)
+  Continue()
+END

@@ -1,0 +1,33 @@
+DEFINE_ACTION_FUNCTION INSTALL_QUEST_SOD
+BEGIN
+  ADD_JOURNAL @10000 @10100 @10101 @10102 @10103 @10104 @10105
+
+  COPY_EXISTING ~bd1000.are~ ~override~
+    LPF fj_are_structure
+    INT_VAR
+      fj_loc_x = 649
+      fj_loc_y = 439
+      fj_type = 8 // non-visible
+      fj_box_left = 634
+      fj_box_top = 390
+      fj_box_right = 652
+      fj_box_bottom = 416
+      fj_vertex_0 = 634 + (416 << 16)
+      fj_vertex_1 = 636 + (399 << 16)
+      fj_vertex_2 = 642 + (390 << 16)
+      fj_vertex_3 = 644 + (390 << 16)
+      fj_vertex_4 = 652 + (401 << 16)
+      fj_vertex_5 = 652 + (412 << 16)
+      fj_vertex_6 = 646 + (412 << 16)
+      fj_vertex_7 = 644 + (416 << 16)
+    STR_VAR
+      fj_structure_type = ~container~
+      fj_name = ~A7STO_Container1~
+    END
+  BUT_ONLY
+
+  EXTEND_TOP ~BD0120.BCS~ ~%MOD_FOLDER%/bcs/sod_bd0120.baf~
+  EXTEND_TOP ~BD1000.BCS~ ~%MOD_FOLDER%/bcs/sod_bd1000.baf~
+
+  COMPILE ~%MOD_FOLDER%/dlg/dialogs_sod.d~
+END

@@ -1,0 +1,65 @@
+DEFINE_ACTION_FUNCTION INSTALL_QUEST_BG1
+BEGIN
+  ADD_JOURNAL @10000 @10001 @10002 @10003 @10004 @10005 @10006
+
+  COPY_EXISTING ~%NashkelMines_L1%.ARE~ ~override~
+    LPF ADD_AREA_ITEM
+    INT_VAR
+      container_to_add_to = 5 // Container 5
+      charges1 = 1
+    STR_VAR
+      item_to_add = ~A7_CNUG~
+    END
+  BUT_ONLY
+
+  COPY_EXISTING ~%NashkelMines_L2%.ARE~ ~override~
+    PATCH_FOR_EACH cnt_index IN ~3~ ~10~ ~14~ BEGIN
+      LPF ADD_AREA_ITEM
+      INT_VAR
+        container_to_add_to = cnt_index
+        charges1 = 1
+      STR_VAR
+        item_to_add = ~A7_CNUG~
+      END
+    END
+  BUT_ONLY
+
+  COPY_EXISTING ~%tutu_var%THALAN.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY thalan_stores = stores END
+  BUT_ONLY
+
+  ACTION_PHP_EACH thalan_stores AS sto_resref => sto_count BEGIN
+    COPY_EXISTING ~%sto_resref%.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX
+      STR_VAR
+        item_name = ~A7_CRYS~
+        position = ~LAST~
+        flags = ~identified~
+      END
+    BUT_ONLY IF_EXISTS
+  END
+
+  COPY_EXISTING ~%tutu_var%BART5.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY bart5_stores = stores END
+  BUT_ONLY
+
+  ACTION_PHP_EACH bart5_stores AS sto_resref => sto_count BEGIN
+    COPY_EXISTING ~%sto_resref%.STO~ ~override~
+      LPF ADD_STORE_ITEM_EX
+      STR_VAR
+        item_name = ~A7_MBK~
+        position = ~FIRST~
+        flags = ~identified~
+      END
+    BUT_ONLY IF_EXISTS
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%tutu_var%%Beregost_FeldepostsInn_L1%.BCS~) BEGIN
+    EXTEND_TOP ~%tutu_var%%Beregost_FeldepostsInn_L1%.BCS~ ~%MOD_FOLDER%/bcs/bg1_ar3351.baf~
+  END ELSE BEGIN
+    COMPILE ~%MOD_FOLDER%/bcs/bg1_ar3351.baf~
+    MOVE ~override/bg1_ar3351.bcs~ ~override/%tutu_var%%Beregost_FeldepostsInn_L1%.BCS~
+  END
+
+  COMPILE ~%MOD_FOLDER%/dlg/dialogs_bg1.d~ EVAL
+END

@@ -1,0 +1,57 @@
+DEFINE_ACTION_FUNCTION INSTALL_QUEST_BG2
+BEGIN
+  ADD_JOURNAL @10000 @10200 @10201 @10202 @10203 @10204
+
+  EXTEND_TOP ~AR0602.BCS~ ~%MOD_FOLDER%/bcs/bg2_ar0602.baf~
+
+  COPY_EXISTING ~BERNARD.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY bernard_stores = stores END
+  BUT_ONLY
+
+  COPY_EXISTING ~SHOP08.DLG~ ~override~
+    LPF GET_DLG_STORES RET_ARRAY shop08_stores = stores END
+  BUT_ONLY
+
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    OUTER_TEXT_SPRINT add_store_item ~~
+    ACTION_PHP_EACH bernard_stores AS sto_resref => sto_count BEGIN
+      OUTER_TEXT_SPRINT add_store_item ~%add_store_item%    AddStoreItem("%sto_resref%","A7_CFRM",1,1)%WNL%~
+    END
+    EXTEND_TOP ~AR0406.BCS~ ~%MOD_FOLDER%/bcs/ee/bg2_ar0406.baf~ EVAL
+
+    OUTER_TEXT_SPRINT add_store_item ~~
+    ACTION_PHP_EACH shop08_stores AS sto_resref => sto_count BEGIN
+      OUTER_TEXT_SPRINT add_store_item ~%add_store_item%    AddStoreItem("%sto_resref%","A7_MBK",1,1)%WNL%~
+    END
+    EXTEND_TOP ~AR0700.BCS~ ~%MOD_FOLDER%/bcs/ee/bg2_ar0700.baf~ EVAL
+  END ELSE BEGIN
+    EXTEND_TOP ~AR0406.BCS~ ~%MOD_FOLDER%/bcs/bg2_ar0406.baf~
+    EXTEND_TOP ~AR0700.BCS~ ~%MOD_FOLDER%/bcs/bg2_ar0700.baf~
+
+    ACTION_PHP_EACH bernard_stores AS sto_resref => sto_count BEGIN
+      COPY_EXISTING ~%sto_resref%.STO~ ~override~
+        LPF ADD_STORE_ITEM_EX
+        STR_VAR
+          item_name = ~A7_CFRM~
+          position = ~LAST~
+          flags = ~identified~
+        END
+      BUT_ONLY IF_EXISTS
+    END
+
+    ACTION_PHP_EACH shop08_stores AS sto_resref => sto_count BEGIN
+      COPY_EXISTING ~%sto_resref%.STO~ ~override~
+        LPF ADD_STORE_ITEM_EX
+        STR_VAR
+          item_name = ~A7_MBK~
+          position = ~LAST~
+          flags = ~identified~
+        END
+      BUT_ONLY IF_EXISTS
+    END
+  END
+  EXTEND_BOTTOM ~AR0334.BCS~ ~%MOD_FOLDER%/bcs/bg2_ar0334.baf~
+  EXTEND_TOP ~AR0701.BCS~ ~%MOD_FOLDER%/bcs/bg2_ar0701.baf~
+
+  COMPILE ~%MOD_FOLDER%/dlg/dialogs_bg2.d~
+END

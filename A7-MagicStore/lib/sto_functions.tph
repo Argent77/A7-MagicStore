@@ -1,0 +1,180 @@
+DEFINE_ACTION_FUNCTION INSTALL_STORES
+RET_ARRAY
+  sto_dlg_array
+  dlg_cre_array
+  cre_are_array
+BEGIN
+  ACTION_CLEAR_ARRAY ~sto_dlg_array~
+  COPY_EXISTING_REGEXP GLOB ~.+\.DLG~ ~override~
+    PATCH_IF (BUFFER_LENGTH >= 0x34) BEGIN
+      READ_ASCII 0 sig (8) NULL
+      PATCH_IF (~%sig%~ STR_EQ ~DLG V1.0~) BEGIN
+        TEXT_SPRINT dlg_resref ~%SOURCE_RES%~
+        TO_UPPER ~dlg_resref~
+        READ_LONG 0x28 ofs_actions
+        READ_LONG 0x2c num_actions
+        FOR (i = num_actions - 1; i >= 0; --i) BEGIN
+          SET ofs = ofs_actions + (i * 8)
+          READ_LONG ofs ofs_script
+          READ_LONG (ofs + 4) len_script
+          READ_ASCII ofs_script script (len_script)
+
+          SET pos = INDEX(CASE_SENSITIVE EXACT_MATCH ~StartStore(~ ~%script%~)
+          PATCH_IF (pos >= 0) BEGIN
+            SET pos2 = INDEX(~[,)]~ ~%script%~ pos)
+            PATCH_IF (pos2 > pos) BEGIN
+              LPF SUBSTRING INT_VAR start = pos length = pos2 - pos STR_VAR string = EVAL ~%script%~ RET substring END
+              INNER_PATCH_SAVE sto_resref ~%substring%~ BEGIN
+                REPLACE_TEXTUALLY ~StartStore("\([^"]+\)".*~ ~\1~
+              END
+              TO_UPPER ~sto_resref~
+              PATCH_IF (FILE_EXISTS_IN_GAME ~%sto_resref%.STO~) BEGIN
+                PATCH_IF (NOT VARIABLE_IS_SET $sto_dlg_array(~%sto_resref%~)) BEGIN
+                  TEXT_SPRINT $sto_dlg_array(~%sto_resref%~) ~%dlg_resref%~
+                  SET $dlg_list(~%dlg_resref%~) = 1
+                END
+                // adding script action 'SetGlobal("A7STO-%sto_resref%","GLOBAL",1) ' to dlg action structure
+                LPF __DLG_INSERT_SCRIPT
+                  INT_VAR
+                    block_idx = i
+                    start_pos = pos
+                  STR_VAR
+                    string = EVAL ~SetGlobal("A7STO-%sto_resref%","GLOBAL",1)%WNL%~
+                END
+                // action offset might have been modified
+                READ_LONG 0x28 ofs_actions
+              END
+            END
+          END
+        END
+      END
+    END
+  BUT_ONLY
+
+  ACTION_SORT_ARRAY_INDICES ~sto_dlg_array~ LEXICOGRAPHICALLY
+
+  ACTION_CLEAR_ARRAY ~dlg_cre_array~
+  COPY_EXISTING_REGEXP GLOB ~.+\.CRE~ ~override~
+    PATCH_IF (BUFFER_LENGTH >= 0x2d4) BEGIN
+      READ_ASCII 0 sig (8) NULL
+      PATCH_IF (~%sig%~ STR_EQ ~CRE V1.0~) BEGIN
+        TEXT_SPRINT cre_resref ~%SOURCE_RES%~
+        TO_UPPER ~cre_resref~
+        READ_ASCII 0x2cc dlg_resref
+        PATCH_IF (NOT ~%dlg_resref%~ STR_EQ ~~) BEGIN
+          TO_UPPER ~dlg_resref~
+          PATCH_IF (VARIABLE_IS_SET $dlg_list(~%dlg_resref%~) && NOT VARIABLE_IS_SET $dlg_cre_array(~%dlg_resref%~)) BEGIN
+            TEXT_SPRINT $dlg_cre_array(~%dlg_resref%~) ~%cre_resref%~
+            SET $cre_list(~%cre_resref%~) = 1
+          END
+        END
+      END
+    END
+  BUT_ONLY
+
+  ACTION_CLEAR_ARRAY ~cre_are_array~
+  COPY_EXISTING_REGEXP GLOB ~.+\.ARE~ ~override~
+    PATCH_IF (BUFFER_LENGTH >= 0x11c) BEGIN
+      READ_ASCII 0 sig (8) NULL
+      PATCH_IF (~%sig%~ STR_EQ ~AREAV1.0~) BEGIN
+        TEXT_SPRINT are_resref ~%SOURCE_RES%~
+        TO_UPPER ~are_resref~
+        READ_LONG 0x54 ofs_actors
+        READ_SHORT 0x58 num_actors
+        FOR (i = 0; i < num_actors; ++i) BEGIN
+          SET ofs = ofs_actors + (i * 0x110)
+          READ_LONG (ofs + 0x28) flags
+          PATCH_IF (flags & BIT0) BEGIN
+            READ_ASCII (ofs + 0x80) cre_resref (8) NULL
+            TO_UPPER ~cre_resref~
+            PATCH_IF (VARIABLE_IS_SET $cre_list(~%cre_resref%~) && NOT VARIABLE_IS_SET $cre_are_array(~%cre_resref%~)) BEGIN
+              TEXT_SPRINT $cre_are_array(~%cre_resref%~) ~%are_resref%~
+            END
+          END
+        END
+      END
+    END
+  BUT_ONLY
+END
+
+
+// Returns the store name of the given store resref
+DEFINE_ACTION_FUNCTION GET_STORE_NAME
+STR_VAR
+  sto_resref = ~~
+RET
+  sto_name
+BEGIN
+  OUTER_TEXT_SPRINT sto_name ~~
+  ACTION_IF (NOT ~%sto_resref%~ STR_EQ ~~) BEGIN
+    COPY_EXISTING ~%sto_resref%.STO~ ~override~
+      LPF GET_STORE_NAME RET sto_name END
+    BUT_ONLY IF_EXISTS
+  END
+END
+
+DEFINE_PATCH_FUNCTION GET_STORE_NAME
+RET
+  sto_name
+BEGIN
+  TEXT_SPRINT sto_name ~~
+  PATCH_IF (BUFFER_LENGTH >= 0x9c) BEGIN
+    READ_ASCII 0 sig (8) NULL
+    PATCH_IF (~%sig%~ STR_EQ ~STORV1.0~) BEGIN
+      READ_LONG 0x0c strref
+      PATCH_IF (strref > 0) BEGIN
+        GET_STRREF strref sto_name
+      END
+    END
+  END
+END
+
+
+// Inserts a script action into the specified dlg action block
+DEFINE_PATCH_FUNCTION __DLG_INSERT_SCRIPT
+INT_VAR
+  offset_base = 0x28  // offset to dlg entries of specified type (default: actions)
+  num_base    = 0x2c  // number of dlg entries of specified type (default: actions)
+  block_idx   = "-1"  // action block index
+  start_pos   = "-1"  // position within the action block
+STR_VAR
+  string = ~~
+BEGIN
+  READ_ASCII 0 sig (8) NULL
+  PATCH_IF (~%sig%~ STR_EQ ~DLG V1.0~ && NOT ~%string%~ STR_EQ ~~) BEGIN
+    READ_LONG offset_base ofs_entries
+    READ_LONG num_base num_entries
+    PATCH_IF (block_idx >= 0 && block_idx < num_entries && start_pos >= 0) BEGIN
+      SET strlen = STRING_LENGTH ~%string%~
+
+      // inserting script action
+      SET ofs = ofs_entries + (block_idx * 8)
+      READ_LONG ofs src_ofs_script
+      READ_LONG (ofs + 4) src_len_script
+      INSERT_BYTES (src_ofs_script + start_pos) strlen
+      WRITE_ASCIIE (src_ofs_script + start_pos) ~%string%~ (strlen)
+      WRITE_LONG (ofs + 4) (src_len_script + strlen)
+
+      // updating global offsets
+      PATCH_FOR_EACH ofs IN ~0x0c~ ~0x14~ ~0x18~ ~0x20~ ~0x28~ BEGIN
+        READ_LONG ofs value
+        PATCH_IF (value > src_ofs_script) BEGIN
+          WRITE_LONG ofs (value + strlen)
+        END
+      END
+
+      // updating state trigger, response trigger and action offsets
+      PATCH_FOR_EACH base_ofs IN ~0x18~ ~0x20~ ~0x28~ BEGIN
+        READ_LONG base_ofs ofs_entries
+        READ_LONG (base_ofs + 4) num_entries
+        FOR (i = 0; i < num_entries; ++i) BEGIN
+          SET ofs = ofs_entries + (i * 8)
+          READ_LONG ofs ofs_script
+          PATCH_IF (ofs_script > src_ofs_script) BEGIN
+            WRITE_LONG ofs (ofs_script + strlen)
+          END
+        END
+      END
+    END
+  END
+END

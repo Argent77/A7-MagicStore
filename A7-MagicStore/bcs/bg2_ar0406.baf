@@ -1,0 +1,35 @@
+// Notify if copper frame has been acquired
+IF
+  Global("A7STO-BG2QuestFrame","GLOBAL",0)
+  PartyHasItem("a7_cfrm")
+  Global("A7STO-BG2QuestCrystal","GLOBAL",2)
+  Global("A7STO-BG2QuestArtifact","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-BG2QuestFrame","GLOBAL",2)
+    AddJournalEntry(@10201,QUEST)
+    Continue()
+END
+
+IF
+  Global("A7STO-BG2QuestFrame","GLOBAL",0)
+  PartyHasItem("a7_cfrm")
+  Global("A7STO-BG2QuestCrystal","GLOBAL",2)
+  Global("A7STO-BG2QuestArtifact","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-BG2QuestFrame","GLOBAL",2)
+    AddJournalEntry(@10200,QUEST)
+    Continue()
+END
+
+IF
+  Global("A7STO-BG2QuestFrame","GLOBAL",0)
+  PartyHasItem("a7_cfrm")
+  !Global("A7STO-BG2QuestCrystal","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-BG2QuestFrame","GLOBAL",2)
+    AddJournalEntry(@10200,QUEST)
+    Continue()
+END

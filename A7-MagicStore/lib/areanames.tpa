@@ -1,0 +1,40 @@
+ACTION_DEFINE_ASSOCIATIVE_ARRAY AREANAME BEGIN END
+
+// Predefined BG1 area names
+ACTION_IF (GAME_IS ~tutu tutu_totsc bgt bgee eet~) BEGIN
+  OUTER_FOR (i = 1000; i < 1011; ++i) BEGIN
+    OUTER_SPRINT EVAL ~label_%i%~ (AT i)
+  END
+  ACTION_FOR_EACH are IN ~AR0100~ ~AR0200~ ~AR0300~ ~AR0600~ ~AR0700~ ~AR0800~ ~AR0900~ ~AR1100~ ~AR1200~ ~AR1300~ ~AR2600~ BEGIN
+    OUTER_TEXT_SPRINT EVAL ~%are%_name~ $AREA(~%are%~)
+  END
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY AREANAME BEGIN
+    ~%AR0100_name%~ => ~%label_1000%~  // NW Baldur's Gate
+    ~%AR0200_name%~ => ~%label_1001%~  // N Baldur's Gate
+    ~%AR0300_name%~ => ~%label_1002%~  // NE Baldur's Gate
+    ~%AR0600_name%~ => ~%label_1003%~  // W Baldur's Gate
+    ~%AR0700_name%~ => ~%label_1004%~  // Central Baldur's Gate
+    ~%AR0800_name%~ => ~%label_1005%~  // E Baldur's Gate
+    ~%AR0900_name%~ => ~%label_1006%~  // Wyrm's Crossing
+    ~%AR1100_name%~ => ~%label_1007%~  // SW Baldur's Gate
+    ~%AR1200_name%~ => ~%label_1008%~  // S Baldur's Gate
+    ~%AR1300_name%~ => ~%label_1009%~  // SE Baldur's Gate
+    ~%AR2600_name%~ => ~%label_1010%~  // Candlekeep
+  END
+END
+
+// Predefined BG2 area names
+ACTION_IF (GAME_IS ~soa tob bgt bg2ee eet~) BEGIN
+  OUTER_FOR (i = 1100; i < 1101; ++i) BEGIN
+    OUTER_SPRINT EVAL ~label_%i%~ (AT i)
+  END
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY AREANAME BEGIN
+    ~AR2200~ => ~%label_1100%~  // Ust Natha
+  END
+END
+
+// OUTER_TEXT_SPRINT output ~DEBUG: content of AREANAME:~
+// ACTION_PHP_EACH AREANAME AS key => value BEGIN
+  // OUTER_TEXT_SPRINT output ~%output%%LNL%  "%key%" => "%value%"~
+// END
+// LOG ~%output%%WNL%~

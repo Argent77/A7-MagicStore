@@ -1,0 +1,19 @@
+// Cromwell's Forge
+IF
+  Global("A7STO-BG2ForgeItem","AR0334",1)
+  Global("ForgeStuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-BG2Quest","GLOBAL",2)
+    SetGlobal("A7STO-BG2ForgeItem","AR0334",0)
+    SetGlobal("ForgeStuff","GLOBAL",0)
+    SetGlobal("ForgeItem","GLOBAL",32767)
+    EraseJournalEntry(@10000)
+    EraseJournalEntry(@10200)
+    EraseJournalEntry(@10201)
+    EraseJournalEntry(@10202)
+    EraseJournalEntry(@10203)
+    AddJournalEntry(@10204,QUEST_DONE)
+    GiveItemCreate("a7_mcsum",Player1,0,0,0)
+    ActionOverride("wsmith01",StartDialogueNoSet([PC]))
+END

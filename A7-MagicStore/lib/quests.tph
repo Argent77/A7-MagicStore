@@ -1,0 +1,117 @@
+INCLUDE ~%MOD_FOLDER%/lib/dlg_functions.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests-bg1.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests-sod.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests-bg2.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests-tob.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests-iwd.tph~
+
+// Installs items and associated quests
+DEFINE_ACTION_FUNCTION INSTALL_QUESTS
+STR_VAR
+  sto_dlg_array = ~sto_dlg_array~
+  dlg_cre_array = ~dlg_cre_array~
+  cre_are_array = ~cre_are_array~
+BEGIN
+  COPY ~%MOD_FOLDER%/bam/a7_icnug.bam~ ~override~
+       ~%MOD_FOLDER%/bam/a7_icfrm.bam~ ~override~
+       ~%MOD_FOLDER%/bam/a7_icrys.bam~ ~override~
+       ~%MOD_FOLDER%/bam/a7_imbk.bam~ ~override~
+
+  ACTION_IF (NOT GAME_IS ~iwdee~) BEGIN
+    COPY ~%MOD_FOLDER%/bam/a7_ccnug.bam~ ~override~
+         ~%MOD_FOLDER%/bam/a7_ccfrm.bam~ ~override~
+  END
+
+  COPY ~%MOD_FOLDER%/itm/a7_cnug.itm~ ~override~
+    SAY NAME1 @3100 // Copper Nuggets
+    SAY NAME2 @3100 // Copper Nuggets
+    SAY UNIDENTIFIED_DESC @3101
+    PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      WRITE_ASCII 0x58 ~~ (8) // remove description image
+    END
+
+  COPY ~%MOD_FOLDER%/itm/a7_cfrm.itm~ ~override~
+    SAY NAME1 @3200 // Ornate Copper Frame
+    SAY NAME2 @3200 // Ornate Copper Frame
+    SAY UNIDENTIFIED_DESC @3201
+    PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      WRITE_ASCII 0x58 ~~ (8) // remove description image
+    END
+
+  COPY ~%MOD_FOLDER%/itm/a7_crys.itm~ ~override~
+    SAY NAME1 @3300 // Shiny Crystal~
+    SAY NAME2 @3300 // Shiny Crystal~
+    SAY UNIDENTIFIED_DESC @3301
+    PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      WRITE_ASCII 0x58 ~~ (8) // remove description image
+    END
+
+  COPY ~%MOD_FOLDER%/itm/a7_mbk.itm~ ~override~
+    SAY NAME1 @3400 // Forgotten Artifacts Vol. 3
+    SAY NAME2 @3400 // Forgotten Artifacts Vol. 3
+    PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      SAY UNIDENTIFIED_DESC @3402
+      WRITE_ASCII 0x58 ~~ (8) // remove description image
+    END ELSE BEGIN
+      SAY UNIDENTIFIED_DESC @3401
+    END
+
+  COPY ~%MOD_FOLDER%/itm/a7_mcsum.itm~ ~override~
+    SAY NAME1 @3000 // Magic Store of Vergadain
+    SAY NAME2 @3000 // Magic Store of Vergadain
+    SAY UNIDENTIFIED_DESC @3001
+    PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      WRITE_ASCII 0x58 ~~ (8) // description image
+    END
+
+  COPY ~%MOD_FOLDER%/bam/a7_imerc.bam~ ~override~
+       ~%MOD_FOLDER%/bam/a7_cmerc.bam~ ~override~
+       ~%MOD_FOLDER%/eff/a7_mcsum.eff~ ~override~
+       ~%MOD_FOLDER%/itm/a7_merc1.itm~ ~override~
+       ~%MOD_FOLDER%/spl/a7_merc1.spl~ ~override~
+  ACTION_FOR_EACH src_file IN ~spgflsh1.vvc~ ~spgflsh1.bam~ ~eff_p64a.wav~ ~eff_m13.wav~ BEGIN
+    ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%src_file%~) BEGIN
+      LAF EXT_OF_FILESPEC STR_VAR filespec = EVAL ~%src_file%~ RET ext END
+      COPY ~%MOD_FOLDER%/%ext%/%src_file%~ ~override~
+    END
+  END
+
+  COPY ~%MOD_FOLDER%/cre/a7_merc.cre~ ~override~
+    SAY NAME1 @3010 // Ghostly Merchant
+    SAY NAME2 @3010 // Ghostly Merchant
+
+  ACTION_IF (GAME_IS ~bgee bg2ee eet iwdee~) BEGIN
+    COPY ~%MOD_FOLDER%/bmp/ee/a7_mercl.bmp~ ~override~
+         ~%MOD_FOLDER%/bmp/ee/a7_mercs.bmp~ ~override~
+  END ELSE BEGIN
+    COPY ~%MOD_FOLDER%/bmp/a7_mercl.bmp~ ~override~
+         ~%MOD_FOLDER%/bmp/a7_mercs.bmp~ ~override~
+  END
+
+  COMPILE ~%MOD_FOLDER%/bcs/a7_merc.baf~
+
+  // compiling dialog
+  LAF GENERATE_DIALOG_RESPONSES STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY responses END
+  OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~~
+  ACTION_PHP_EACH responses AS _ => line BEGIN
+    OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~%A7_MERC_RESPONSE_LIST%%line%%WNL%~
+  END
+  COMPILE ~%MOD_FOLDER%/dlg/a7_merc.d~ EVAL
+
+  // make item available
+  ACTION_IF (GAME_IS ~tutu tutu_totsc bgt bgee eet~) BEGIN
+    LAF INSTALL_QUEST_BG1 END
+  END
+  ACTION_IF (GAME_INCLUDES ~sod~) BEGIN
+    LAF INSTALL_QUEST_SOD END
+  END
+  ACTION_IF (GAME_IS ~soa tob bgt bg2ee eet~) BEGIN
+    LAF INSTALL_QUEST_BG2 END
+  END
+  ACTION_IF (GAME_IS ~tob bgt bg2ee eet~) BEGIN
+    LAF INSTALL_QUEST_TOB END
+  END
+  ACTION_IF (GAME_IS ~iwdee~) BEGIN
+    LAF INSTALL_QUEST_IWD END
+  END
+END

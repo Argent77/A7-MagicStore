@@ -1,0 +1,7 @@
+@1 = ~Magic store of Vergadain~
+@10 = ~Alternate portrait for Ghostly Merchant~
+
+// Error messages
+@100 = ~This game is not supported.~
+@101 = ~Modmerge or DLC Merger is required before mods can be installed on this game.~
+@102 = ~Requires the main component.~

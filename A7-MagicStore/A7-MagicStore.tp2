@@ -1,0 +1,64 @@
+BACKUP ~A7-MagicStore/backup~
+SUPPORT ~https://github.com/Argent77/A7-MagicStore~
+VERSION ~0.9-beta~
+
+// Required by Tutu
+ALLOW_MISSING
+  ~XR2400.ARE~
+  ~XR2600.ARE~
+
+ALWAYS
+  ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN
+    FAIL @101 // Modmerge or DLC Merger is required before mods can be installed on this game.
+  END
+
+  ACTION_DEFINE_ARRAY a7noconvert BEGIN ~setup~ END
+  ACTION_DEFINE_ARRAY a7reload BEGIN ~mod~ END
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      infer_charsets = 1
+    STR_VAR
+      tra_path = EVAL ~%MOD_FOLDER%/languages~
+      noconvert_array = ~a7noconvert~
+      reload_array = ~a7reload~
+  END
+END
+
+README ~A7-MagicStore/readme/readme-%LANGUAGE%.txt~
+       ~A7-MagicStore/readme/readme.txt~
+
+LANGUAGE ~English~
+         ~english~
+         ~A7-MagicStore/languages/english/setup.tra~
+         ~A7-MagicStore/languages/english/mod.tra~
+
+BEGIN @1  // Magic store of Vergadain
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
+DESIGNATED 1
+
+// INCLUDE ~%MOD_FOLDER%/lib/areacodes.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE ~%MOD_FOLDER%/lib/sto_functions.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests.tph~
+
+LAF INSTALL_STORES
+  RET_ARRAY
+    sto_dlg_array
+    dlg_cre_array
+    cre_are_array
+END
+
+LAF INSTALL_QUESTS END
+
+
+BEGIN @10 // Alternate portrait for Ghostly Merchant
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1) @102 // Requires the main component.
+DESIGNATED 10
+
+ACTION_IF (GAME_IS ~bgee bg2ee eet iwdee~) BEGIN
+  COPY ~%MOD_FOLDER%/bmp/alternative/ee/a7_mercl.bmp~ ~override~
+       ~%MOD_FOLDER%/bmp/alternative/ee/a7_mercs.bmp~ ~override~
+END ELSE BEGIN
+  COPY ~%MOD_FOLDER%/bmp/alternative/a7_mercl.bmp~ ~override~
+       ~%MOD_FOLDER%/bmp/alternative/a7_mercs.bmp~ ~override~
+END
