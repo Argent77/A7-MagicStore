@@ -17,6 +17,9 @@ ACTION_IF (GAME_IS ~eet~) BEGIN
   INCLUDE  ~EET/other/cpmvars/eet_cpmvars.tpa~
 END
 
+// needed by scripts
+APPEND ~state.ids~ ~0x80101FEF CD_STATE_NOTVALID~ UNLESS ~CD_STATE_NOTVALID~
+
 // Alternate initialization of BG1 area code mappings for convenience
 // Retrieve game-dependent area resref using $AREA(~ARxxxx~) or %AREA_ARxxxx%
 ACTION_IF (GAME_IS ~bg1 totsc bgee~) BEGIN
