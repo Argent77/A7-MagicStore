@@ -157,7 +157,7 @@ APPEND ~%tutu_var%THALAN~
   END
 END
 
-EXTEND_BOTTOM ~%tutu_var%THALAN~ 1
+EXTEND_BOTTOM ~%tutu_var%THALAN~ %thalan_states%
   + ~Global("A7STO-BG1Quest","GLOBAL",1) Global("A7STO-BG1QuestArtifact","LOCALS",0)~ + @4100 /* A book described the creation of a powerful magical artifact, called a Magic Store. Can you create it for me? */ + Thalan.1
   + ~GlobalLT("A7STO-BG1Quest","GLOBAL",3) Global("A7STO-BG1QuestArtifact","LOCALS",1)~ + @4101 /* I wish to talk about the Magic Store again. */ + Thalan.2
 END

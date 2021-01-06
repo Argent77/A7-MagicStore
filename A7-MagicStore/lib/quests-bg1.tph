@@ -54,12 +54,12 @@ BEGIN
     BUT_ONLY IF_EXISTS
   END
 
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%tutu_var%%Beregost_FeldepostsInn_L1%.BCS~) BEGIN
-    EXTEND_TOP ~%tutu_var%%Beregost_FeldepostsInn_L1%.BCS~ ~%MOD_FOLDER%/bcs/bg1_ar3351.baf~
-  END ELSE BEGIN
-    COMPILE ~%MOD_FOLDER%/bcs/bg1_ar3351.baf~
-    MOVE ~override/bg1_ar3351.bcs~ ~override/%tutu_var%%Beregost_FeldepostsInn_L1%.BCS~
-  END
+  EXTEND_TOP ~%Beregost_FeldepostsInn_L1_BCS%.BCS~ ~%MOD_FOLDER%/bcs/bg1_ar3351.baf~
 
+  OUTER_TEXT_SPRINT thalan_states ~1~
+  ACTION_IF (GAME_IS ~bgt~) BEGIN
+    // BGT contains multiple states to patch
+    OUTER_TEXT_SPRINT thalan_states ~%thalan_states% 35~
+  END
   COMPILE ~%MOD_FOLDER%/dlg/dialogs_bg1.d~ EVAL
 END
