@@ -16,7 +16,7 @@ BEGIN
   ACTION_PHP_EACH EVAL ~%sto_dlg_array%~ AS sto => dlg BEGIN
     LAF GET_STORE_NAME STR_VAR sto_resref = EVAL ~%sto%~ RET sto_name END
     ACTION_IF (~%sto_name%~ STR_EQ ~~ || ~%sto_name%~ STRING_MATCHES_REGEXP ~<Invalid Strref.*~ = 0) BEGIN
-      OUTER_SPRINT sto_name @2005 // Store
+      OUTER_SPRINT sto_name @2020 // Store
     END
 
     OUTER_TEXT_SPRINT are ~~
