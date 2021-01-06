@@ -25,6 +25,7 @@ IF
   Global("A7STO-TOBQuestBook","GLOBAL",1)
   Global("A7STO-TOBQuest","GLOBAL",0)
   PartyHasItem("a7_mbk")
+  AreaCheck("AR5011")
 THEN
   RESPONSE #100
     SetGlobal("A7STO-TOBQuest","GLOBAL",1)
