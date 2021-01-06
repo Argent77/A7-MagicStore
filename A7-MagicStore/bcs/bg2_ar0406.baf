@@ -7,7 +7,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2QuestFrame","GLOBAL",2)
-    AddJournalEntry(@10201,QUEST)
+    AddJournalEntry(@10301,QUEST)
     Continue()
 END
 
@@ -19,7 +19,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2QuestFrame","GLOBAL",2)
-    AddJournalEntry(@10200,QUEST)
+    AddJournalEntry(@10300,QUEST)
     Continue()
 END
 
@@ -30,6 +30,6 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2QuestFrame","GLOBAL",2)
-    AddJournalEntry(@10200,QUEST)
+    AddJournalEntry(@10300,QUEST)
     Continue()
 END

@@ -6,7 +6,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-TOBQuestCrystal","MYAREA",1)
-    AddJournalEntry(@10301,QUEST)
+    AddJournalEntry(@10401,QUEST)
     Continue()
 END
 

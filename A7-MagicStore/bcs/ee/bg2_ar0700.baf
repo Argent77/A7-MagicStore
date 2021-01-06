@@ -28,6 +28,6 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2Quest","GLOBAL",1)
-    AddJournalEntry(@10000,QUEST)
+    AddJournalEntry(@10003,QUEST)
     Continue()
 END

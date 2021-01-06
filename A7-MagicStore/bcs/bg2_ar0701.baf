@@ -33,7 +33,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2QuestCrystal","GLOBAL",2)
-    AddJournalEntry(@10203,QUEST)
+    AddJournalEntry(@10303,QUEST)
     Continue()
 END
 
@@ -48,7 +48,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2QuestCrystal","GLOBAL",2)
-    AddJournalEntry(@10202,QUEST)
+    AddJournalEntry(@10302,QUEST)
     Continue()
 END
 
@@ -62,6 +62,6 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-BG2QuestCrystal","GLOBAL",2)
-    AddJournalEntry(@10202,QUEST)
+    AddJournalEntry(@10302,QUEST)
     Continue()
 END

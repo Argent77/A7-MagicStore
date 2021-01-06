@@ -9,7 +9,7 @@ APPEND ~%tutu_var%TAEROM~
 
   IF ~~ Taerom.1.1
     SAY @4007 /* You might still find some in the Nashkel mines south of here. It's mainly an iron mine now, but in the past it yielded copper ore as well. */
-    ++ @4008 /* Thank you. I'll take a look. */ UNSOLVED_JOURNAL @10001 EXIT
+    ++ @4008 /* Thank you. I'll take a look. */ UNSOLVED_JOURNAL @10101 EXIT
   END
 
   IF ~~ Taerom.1.2
@@ -40,7 +40,7 @@ APPEND ~%tutu_var%TAEROM~
     SAY @4015 /* And here is the copper frame I promised you. It was a pleasure doing business with you. */
     IF ~~ DO ~SetGlobal("A7STO-BG1QuestFrame","GLOBAL",2)
               GiveItemCreate("a7_cfrm",LastTalkedToBy(Myself),1,0,0)
-              EraseJournalEntry(@10001)~ UNSOLVED_JOURNAL @10002 EXIT
+              EraseJournalEntry(@10101)~ UNSOLVED_JOURNAL @10102 EXIT
   END
 
   IF ~~ Taerom.2.3
@@ -48,7 +48,7 @@ APPEND ~%tutu_var%TAEROM~
     = @4016 /* Unfortunately I can't really help you with the crystal. But maybe a friend of mine can. His name is Thalantyr, and he is a talented mage. You can find him in the High Hedge, east of Beregost. */
     IF ~~ DO ~SetGlobal("A7STO-BG1QuestFrame","GLOBAL",2)
               GiveItemCreate("a7_cfrm",LastTalkedToBy(Myself),1,0,0)
-              EraseJournalEntry(@10001)~ UNSOLVED_JOURNAL @10003 EXIT
+              EraseJournalEntry(@10101)~ UNSOLVED_JOURNAL @10103 EXIT
   END
 
   IF ~~ Taerom.3
@@ -97,18 +97,18 @@ APPEND ~%tutu_var%THALAN~
   IF ~~ Thalan.1.2.1
     SAY @4108 /* I need two components for the enchantment, a copper frame and a crystal. Luckily for you I have crystals in stock. They are useful for all kinds of enchantments. */
     IF ~Global("A7STO-BG1QuestFrame","GLOBAL",0) !PartyHasItem("a7_cfrm")~ DO ~SetGlobal("RumorTalkThalan","GLOBAL",1)~ + Thalan.1.2.3
-    IF ~OR(2) !Global("A7STO-BG1QuestFrame","GLOBAL",0) PartyHasItem("a7_cfrm")~ DO ~SetGlobal("RumorTalkThalan","GLOBAL",1)~ UNSOLVED_JOURNAL @10005 + Thalan.1.3
+    IF ~OR(2) !Global("A7STO-BG1QuestFrame","GLOBAL",0) PartyHasItem("a7_cfrm")~ DO ~SetGlobal("RumorTalkThalan","GLOBAL",1)~ UNSOLVED_JOURNAL @10105 + Thalan.1.3
   END
 
   IF ~~ Thalan.1.2.2
     SAY @4109 /* I need two components for the enchantment, a copper frame and a crystal. */
     IF ~Global("A7STO-BG1QuestFrame","GLOBAL",0) !PartyHasItem("a7_cfrm")~ + Thalan.1.2.3
-    IF ~OR(2) !Global("A7STO-BG1QuestFrame","GLOBAL",0) PartyHasItem("a7_cfrm")~ UNSOLVED_JOURNAL @10005 + Thalan.1.3
+    IF ~OR(2) !Global("A7STO-BG1QuestFrame","GLOBAL",0) PartyHasItem("a7_cfrm")~ UNSOLVED_JOURNAL @10105 + Thalan.1.3
   END
 
   IF ~~ Thalan.1.2.3
     SAY @4110 /* For the copper frame I would refer you to Taerom Fuiruim. He runs the Thunderhammer Smithy in Beregost. */
-    IF ~~ DO ~SetGlobal("A7STO-BG1Quest","GLOBAL",2)~ UNSOLVED_JOURNAL @10004 + Thalan.1.3
+    IF ~~ DO ~SetGlobal("A7STO-BG1Quest","GLOBAL",2)~ UNSOLVED_JOURNAL @10104 + Thalan.1.3
   END
 
   IF ~~ Thalan.1.3
@@ -148,12 +148,12 @@ APPEND ~%tutu_var%THALAN~
     IF ~~ DO ~SetGlobal("A7STO-BG1Quest","GLOBAL",3)
               SetGlobal("A7STO-ItemCreated","GLOBAL",1)
               GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),0,0,0)
-              EraseJournalEntry(@10000)
-              EraseJournalEntry(@10001)
               EraseJournalEntry(@10002)
-              EraseJournalEntry(@10003)
-              EraseJournalEntry(@10004)
-              EraseJournalEntry(@10005)~ SOLVED_JOURNAL @10006 EXIT
+              EraseJournalEntry(@10101)
+              EraseJournalEntry(@10102)
+              EraseJournalEntry(@10103)
+              EraseJournalEntry(@10104)
+              EraseJournalEntry(@10105)~ SOLVED_JOURNAL @10106 EXIT
   END
 END
 

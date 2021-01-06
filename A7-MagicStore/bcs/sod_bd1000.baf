@@ -52,11 +52,11 @@ IF
 THEN
   RESPONSE #0
     SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
-    AddJournalEntry(@10101,QUEST)
+    AddJournalEntry(@10201,QUEST)
     Continue()
   RESPONSE #1
     SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
-    AddJournalEntry(@10100,QUEST)
+    AddJournalEntry(@10200,QUEST)
     Continue()
 END
 
@@ -67,7 +67,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-SODQuestFrame","MYAREA",2)
-    AddJournalEntry(@10100,QUEST)
+    AddJournalEntry(@10200,QUEST)
     Continue()
 END
 
@@ -80,11 +80,11 @@ IF
 THEN
   RESPONSE #0
     SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
-    AddJournalEntry(@10103,QUEST)
+    AddJournalEntry(@10203,QUEST)
     Continue()
   RESPONSE #1
     SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
-    AddJournalEntry(@10102,QUEST)
+    AddJournalEntry(@10202,QUEST)
     Continue()
 END
 
@@ -95,7 +95,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-SODQuestCrystal","MYAREA",2)
-    AddJournalEntry(@10102,QUEST)
+    AddJournalEntry(@10202,QUEST)
     Continue()
 END
 

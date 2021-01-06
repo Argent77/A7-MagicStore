@@ -28,9 +28,9 @@ APPEND ~BDSORALI~
   IF ~~ BDSorali.1.2.2
     SAY @5007 /* I will also have to ask for a fee of 2000 gold pieces for the enchantment ritual. */
     + ~PartyHasItem("a7_cfrm") PartyHasItem("a7_crys") PartyGoldGT(1999)~ + @5008 /* I have everything you need. Here you go. */ + BDSorali.3
-    + ~PartyHasItem("a7_cfrm") PartyHasItem("a7_crys") PartyGoldLT(2000)~ + @5009 /* I don't have enough gold right now. I'll be back later. */ UNSOLVED_JOURNAL @10104 + BDSorali.1.3
-    + ~OR(2) !PartyHasItem("a7_cfrm") !PartyHasItem("a7_crys")~ + @5010 /* I don't have all the items required for the artifact. I'll be back later. */ UNSOLVED_JOURNAL @10104 + BDSorali.1.3
-    ++ @5003 /* I've changed my mind. Good day. I must be off. */ UNSOLVED_JOURNAL @10104 + 6
+    + ~PartyHasItem("a7_cfrm") PartyHasItem("a7_crys") PartyGoldLT(2000)~ + @5009 /* I don't have enough gold right now. I'll be back later. */ UNSOLVED_JOURNAL @10204 + BDSorali.1.3
+    + ~OR(2) !PartyHasItem("a7_cfrm") !PartyHasItem("a7_crys")~ + @5010 /* I don't have all the items required for the artifact. I'll be back later. */ UNSOLVED_JOURNAL @10204 + BDSorali.1.3
+    ++ @5003 /* I've changed my mind. Good day. I must be off. */ UNSOLVED_JOURNAL @10204 + 6
   END
 
   IF ~~ BDSorali.1.3
@@ -62,12 +62,12 @@ APPEND ~BDSORALI~
     IF ~~ DO ~SetGlobal("A7STO-SODQuest","GLOBAL",2)
               SetGlobal("A7STO-ItemCreated","GLOBAL",1)
               GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),0,0,0)
-              EraseJournalEntry(@10000)
-              EraseJournalEntry(@10100)
-              EraseJournalEntry(@10101)
-              EraseJournalEntry(@10102)
-              EraseJournalEntry(@10103)
-              EraseJournalEntry(@10104)~ SOLVED_JOURNAL @10105 EXIT
+              EraseJournalEntry(@10003)
+              EraseJournalEntry(@10200)
+              EraseJournalEntry(@10201)
+              EraseJournalEntry(@10202)
+              EraseJournalEntry(@10203)
+              EraseJournalEntry(@10204)~ SOLVED_JOURNAL @10205 EXIT
   END
 END
 

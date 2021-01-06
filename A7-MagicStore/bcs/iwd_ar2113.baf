@@ -5,6 +5,6 @@ IF
 THEN
   RESPONSE #100
   SetGlobal("A7STO-IWDQuest","GLOBAL",1)
-  AddJournalEntry(@10401,QUEST)
+  AddJournalEntry(@10001,QUEST)
   Continue()
 END

@@ -29,7 +29,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7STO-TOBQuestFrame","MYAREA",2)
-    AddJournalEntry(@10300,QUEST)
+    AddJournalEntry(@10400,QUEST)
     Continue()
 END
 

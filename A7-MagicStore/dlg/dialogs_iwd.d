@@ -11,7 +11,7 @@ APPEND ~DCONLAN~
 
   IF ~~ DCONLAN.1.1
     SAY @8003 /* I can't say for sure. There might be found some in the mines of Dorn's Deep to the south. But that's quite a distance to travel, and I don't even know if the dwarves would grant you entrance. I'd rather try my luck with the tombs of the Vale of Shadows first. */
-    ++ @4008 /* Thank you. I'll take a look. */ UNSOLVED_JOURNAL @10402 EXIT
+    ++ @4008 /* Thank you. I'll take a look. */ UNSOLVED_JOURNAL @10500 EXIT
   END
 
   IF ~~ DCONLAN.1.2
@@ -37,7 +37,7 @@ APPEND ~DCONLAN~
     = @4015 /* And here is the copper frame I promised you. It was a pleasure doing business with you. */
     IF ~~ DO ~SetGlobal("A7STO-IWDQuestFrame","GLOBAL",2)
               GiveItemCreate("a7_cfrm",LastTalkedToBy(Myself),1,0,0)
-              EraseJournalEntry(@10402)~ UNSOLVED_JOURNAL @10403 EXIT
+              EraseJournalEntry(@10500)~ UNSOLVED_JOURNAL @10501 EXIT
   END
 
   IF ~~ DCONLAN.3
@@ -96,7 +96,7 @@ APPEND ~DORRICK~
 
   IF ~~ DORRICK.1.2.3
     SAY @8106 /* The second component is a crystal. This is not surprising considering their usefulness for enchanting purposes. I may still have one in stock if you want to take a look. */
-    IF ~~ UNSOLVED_JOURNAL @10404 + DORRICK.1.3
+    IF ~~ UNSOLVED_JOURNAL @10502 + DORRICK.1.3
   END
 
   IF ~~ DORRICK.1.2.4
@@ -107,9 +107,9 @@ APPEND ~DORRICK~
   IF ~~ DORRICK.1.3
     SAY @8108 /* For the enchantment ritual I would also have to ask for 3000 gold pieces. Are you still interested? */
     + ~PartyHasItem("a7_crys") PartyHasItem("a7_cfrm") PartyGoldGT(2999)~ + @4112 /* I have everything you need with me. Please create the artifact. */ + DORRICK.3
-    + ~PartyHasItem("a7_crys") PartyHasItem("a7_cfrm") PartyGoldLT(3000)~ + @4113 /* I don't have enough money. I'll be back later. */ UNSOLVED_JOURNAL @10405 EXIT
-    + ~OR(2) !PartyHasItem("a7_crys") !PartyHasItem("a7_cfrm")~ + @4114 /* I don't have all the components with me. I'll be back later. */ UNSOLVED_JOURNAL @10405 EXIT
-    ++ #607 /* Never mind. Farewell. */ UNSOLVED_JOURNAL @10405 EXIT
+    + ~PartyHasItem("a7_crys") PartyHasItem("a7_cfrm") PartyGoldLT(3000)~ + @4113 /* I don't have enough money. I'll be back later. */ UNSOLVED_JOURNAL @10503 EXIT
+    + ~OR(2) !PartyHasItem("a7_crys") !PartyHasItem("a7_cfrm")~ + @4114 /* I don't have all the components with me. I'll be back later. */ UNSOLVED_JOURNAL @10503 EXIT
+    ++ #607 /* Never mind. Farewell. */ UNSOLVED_JOURNAL @10503 EXIT
   END
 
   IF ~~ DORRICK.2
@@ -135,11 +135,11 @@ APPEND ~DORRICK~
     IF ~~ DO ~SetGlobal("A7STO-IWDQuest","GLOBAL",2)
               SetGlobal("A7STO-ItemCreated","GLOBAL",1)
               GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),0,0,0)
-              EraseJournalEntry(@10401)
-              EraseJournalEntry(@10402)
-              EraseJournalEntry(@10403)
-              EraseJournalEntry(@10404)
-              EraseJournalEntry(@10405)~ SOLVED_JOURNAL @10406 EXIT
+              EraseJournalEntry(@10001)
+              EraseJournalEntry(@10500)
+              EraseJournalEntry(@10501)
+              EraseJournalEntry(@10502)
+              EraseJournalEntry(@10503)~ SOLVED_JOURNAL @10504 EXIT
   END
 
 END

@@ -185,89 +185,104 @@ Dieser Band erläutert die Erschaffung eines Artefakts, mit dem es möglich ist, a
 
 // Journal entries
 // Generic entry
-@10000 = ~Ein kaufmännisches Vermächtnis
-Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, um die notwendigen Verzauberungen durchzuführen.~
+@10000 = ~Ein kaufmännisches Vermächtnis~
 
-// BG1 entries
-@10001 = ~Ein kaufmännisches Vermächtnis
-Taerom Fuiruim von der Donnerhammer Schmiede in Beregost bot mir an, einen Kupferrahmen zu schmieden, wenn ich ihm Kupfererz aus den Minen von Nashkell bringe.~
+@10001 = ~Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, sowie einen Zauberer oder Meisterschmied, um das Artefakt herzustellen.~
 
 @10002 = ~Ein kaufmännisches Vermächtnis
-Taerom Fuiruim von der Donnerhammer Schmiede in Beregost hat mir einen Kupferrahmen aus dem Erz geschmiedet, das ich in den Minen von Nashkell gefunden habe.~
+Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, sowie einen Zauberer oder Meisterschmied, um das Artefakt herzustellen.~
 
 @10003 = ~Ein kaufmännisches Vermächtnis
+
+Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, sowie einen Zauberer oder Meisterschmied, um das Artefakt herzustellen.~
+
+// BG1 entries
+@10101 = ~Ein kaufmännisches Vermächtnis
+Taerom Fuiruim von der Donnerhammer Schmiede in Beregost bot mir an, einen Kupferrahmen zu schmieden, wenn ich ihm Kupfererz aus den Minen von Nashkell bringe.~
+
+@10102 = ~Ein kaufmännisches Vermächtnis
+Taerom Fuiruim von der Donnerhammer Schmiede in Beregost hat mir einen Kupferrahmen aus dem Erz geschmiedet, das ich in den Minen von Nashkell gefunden habe.~
+
+@10103 = ~Ein kaufmännisches Vermächtnis
 Taerom Fuiruim von der Donnerhammer Schmiede in Beregost hat mir einen Kupferrahmen aus dem Erz geschmiedet, das ich in den Minen von Nashkell gefunden habe. Wegen dem Kristall empfahl er mir, den Magier Thalantyr in der Hohen Hecke aufzusuchen.~
 
-@10004 = ~Ein kaufmännisches Vermächtnis
+@10104 = ~Ein kaufmännisches Vermächtnis
 Thalantyr sagte mir, dass er das Artefakt herstellen kann, sofern ich ihm die benötigten Gegenstände besorge. Einen Kristall kann ich bei Thalantyr selbst erwerben. Für den Kupferrahmen sollte ich beim Schmied in Beregost nachfragen.~
 
-@10005 = ~Ein kaufmännisches Vermächtnis
+@10105 = ~Ein kaufmännisches Vermächtnis
 Thalantyr sagte mir, dass er das Artefakt herstellen kann, sofern ich ihm die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall.~
 
 // (quest completed)
-@10006 = ~Ein kaufmännisches Vermächtnis
+@10106 = ~Ein kaufmännisches Vermächtnis
 Thalantyr konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
 
 // SoD entries
-@10100 = ~Ein kaufmännisches Vermächtnis
+@10200 = ~Ein kaufmännisches Vermächtnis
+
 Der Kupferrahmen, den ich in der Nähe des niedergebrannten Gasthauses gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
 
-@10101 = ~Ein kaufmännisches Vermächtnis
+@10201 = ~Ein kaufmännisches Vermächtnis
+
 Der Kupferrahmen, den ich in der Nähe des niedergebrannten Gasthauses gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Magier, der mir das Artefakt herstellen kann.~
 
-@10102 = ~Ein kaufmännisches Vermächtnis
+@10202 = ~Ein kaufmännisches Vermächtnis
+
 Der Kristall, den ich im Bereich der Steinstatuen gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
 
-@10103 = ~Ein kaufmännisches Vermächtnis
+@10203 = ~Ein kaufmännisches Vermächtnis
+
 Der Kristall, den ich im Bereich der Steinstatuen gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Magier, der mir das Artefakt herstellen kann.~
 
-@10104 = ~Ein kaufmännisches Vermächtnis
+@10204 = ~Ein kaufmännisches Vermächtnis
+
 Soralis sagte mir, dass sie wahrscheinlich das Artefakt herstellen kann, wenn ich ihr die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall. Außerdem benötigt sie etwas Gold für den Verzauberungsprozess.~
 
 // (quest completed)
-@10105 = ~Ein kaufmännisches Vermächtnis
+@10205 = ~Ein kaufmännisches Vermächtnis
+
 Soralis konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
 
 // BG2 entries
-@10200 = ~Ein kaufmännisches Vermächtnis
+@10300 = ~Ein kaufmännisches Vermächtnis
+
 Der Kupferrahmen, den ich in der Kupferkrone erworben habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
 
-@10201 = ~Ein kaufmännisches Vermächtnis
+@10301 = ~Ein kaufmännisches Vermächtnis
+
 Der Kupferrahmen, den ich in der Kupferkrone erworben habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Meisterschmied oder Zauberer, der mir dieses Artefakt herstellt.~
 
-@10202 = ~Ein kaufmännisches Vermächtnis
+@10302 = ~Ein kaufmännisches Vermächtnis
+
 Der Kristall, den ich vom Rakshasa erbeutet habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
 
-@10203 = ~Ein kaufmännisches Vermächtnis
+@10303 = ~Ein kaufmännisches Vermächtnis
+
 Der Kristall, den ich vom Rakshasa erbeutet habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde. Jetzt benötige ich nur noch einen Meisterschmied oder Zauberer, der mir dieses Artefakt herstellt.~
 
 // (quest completed)
-@10204 = ~Ein kaufmännisches Vermächtnis
+@10304 = ~Ein kaufmännisches Vermächtnis
+
 Cromwell konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
 
 // ToB entries
-@10300 = ~Ein kaufmännisches Vermächtnis
+@10400 = ~Ein kaufmännisches Vermächtnis
 Der Kupferrahmen, den ich in Kisers Haus gefunden habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
 
-@10301 = ~Ein kaufmännisches Vermächtnis
+@10401 = ~Ein kaufmännisches Vermächtnis
 Der Kristall, den ich von Gromnirs Magier erbeutet habe, kann wahrscheinlich für die Herstellung des Magischen Ladens verwendet werden, der im Buch über vergessene Artefakte beschrieben wurde.~
 
 // (quest completed)
-@10302 = ~Ein kaufmännisches Vermächtnis
+@10402 = ~Ein kaufmännisches Vermächtnis
 Cespenar konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
 
 // IWD entries
-@10400 = ~Ein kaufmännisches Vermächtnis~
+@10500 = ~Conlan, der Schmied aus Kuldahar, bot mir an, einen Kupferrahmen zu schmieden, wenn ich ihm Kupfererz besorgen kann. Er schlug mir vor, danach im Tal der Schatten oder in Dorntief zu suchen.~
 
-@10401 = ~Ein Buch erwähnt die Herstellung eines ungewöhnlichen Artefakts, welches als "Magischer Laden von Vergadain" beschrieben wird. Dem Text nach zu urteilen, erlaubt Euch dieser Gegenstand, alle Händler herbeizurufen, mit denen Ihr in der Vergangenheit Geschäfte abgeschlossen habt. Anscheinend benötigt man einen Kupferrahmen und einen Kristall, um die notwendigen Verzauberungen durchzuführen.~
+@10501 = ~Conlan, der Schmied aus Kuldahar, hat mir einen Kupferrahmen geschmiedet, der für den Magischen Laden benötigt wird.~
 
-@10402 = ~Conlan, der Schmied aus Kuldahar, bot mir an, einen Kupferrahmen zu schmieden, wenn ich ihm Kupfererz besorgen kann. Er schlug mir vor, danach im Tal der Schatten oder in Dorntief zu suchen.~
+@10502 = ~Orrick bestätigte mir, dass er Kristalle zum Verkauf anbietet. Sie werden für den Magischen Laden benötigt.~
 
-@10403 = ~Conlan, der Schmied aus Kuldahar, hat mir einen Kupferrahmen geschmiedet, der für den Magischen Laden benötigt wird.~
-
-@10404 = ~Orrick bestätigte mir, dass er Kristalle zum Verkauf anbietet. Sie werden für den Magischen Laden benötigt.~
-
-@10405 = ~Orrick sagte mir, dass er wahrscheinlich das Artefakt herstellen kann, wenn ich ihm die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall.~
+@10503 = ~Orrick sagte mir, dass er wahrscheinlich das Artefakt herstellen kann, wenn ich ihm die benötigten Gegenstände besorge: einen Kupferrahmen und einen Kristall.~
 
 // (quest completed)
-@10406 = ~Orrick konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
+@10504 = ~Orrick konnte für mich das Artefakt "Magischer Laden von Vergadain" herstellen. Mit ihm habe ich Zugang zu jedem Laden dieser Welt, den ich in der Vergangenheit besucht habe.~
