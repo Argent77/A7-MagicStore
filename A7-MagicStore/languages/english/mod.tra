@@ -16,7 +16,7 @@
 
 
 // Ghostly Merchant dialog
-@2000 = ~The ghostly shape of a man who is dressed like a merchant takes form and turns his attention to you.~
+@2000 = ~The ghostly shape of a man dressed like a merchant takes form and turns his attention to you.~
 @2001 = ~To your surprise he presents you a list of all the stores you have visited in the past and waits for you to make a decision.~
 @2002 = ~The merchant presents you a list of stores and waits for your decision.~
 @2003 = ~I don't want to visit any stores right now.~
@@ -68,14 +68,14 @@ Weight: 0~
 
 @3400 = ~Forgotten Artifacts Vol. 3~
 @3401 = ~Forgotten Artifacts, Volume 3
-By Elameth
+By Karador
 
 This series of books describes various artifacts created by the elven enchanter Elameth, and the dwarven smith, Karador, during the time of cooperation between the two races long time ago in the far north.
 
 This volume outlines the creation of an artifact that can be used to call forth merchants from far away by magical means. The artifact is described as "Magic Store of Vergadain" and requires an enchanted crystal placed inside a copper frame.~
 
 @3402 = ~Forgotten Artifacts, Volume 3
-By Elameth
+By Karador
 
 This series of books describes various artifacts created by the elven enchanter Elameth, and the dwarven smith, Karador, during the time of cooperation between the two races.
 
@@ -92,8 +92,8 @@ This volume outlines the creation of an artifact that can be used to call forth 
 @4005 = ~Certainly, I have some for you.~
 @4006 = ~Actually, I don't want one right now. I'll be back later.~
 @4007 = ~You might still find some in the Nashkel mines south of here. It's mainly an iron mine now, but in the past it yielded copper ore as well.~
-@4008 = ~Thank you. I'll take a look.~
-@4009 = ~Ahh, that's a fine piece of copper you have. For 100 gold pieces I can forge the copper frame right away.~
+@4008 = ~Thank you. I'll take a look around there.~
+@4009 = ~Ahh, that's a fine piece of copper you have. For 100 gold I can forge the copper frame right away.~
 @4010 = ~I don't have enough gold to pay you. Maybe later.~
 @4011 = ~Yes, please do. Here is the gold.~
 @4012 = ~Suit yourself. I'll still be here if you change you mind.~
@@ -113,10 +113,10 @@ This volume outlines the creation of an artifact that can be used to call forth 
 @4105 = ~I've changed my mind. I'm sorry to have bothered you, and will leave immediately.~
 @4106 = ~Then do not waste my time further.~
 @4107 = ~Hmm, that's quite a curious read. The ritual sounds difficult to perform, but I have never shied away from a challenge.~
-@4108 = ~I need two components for the enchantment, a copper frame and a crystal. Luckily for you I have crystals in stock. They are useful for all kinds of enchantments.~
+@4108 = ~I need two components for the enchantment, a copper frame and a crystal. Luckily for you I have crystals for sale. They are useful for all kinds of enchantments.~
 @4109 = ~I need two components for the enchantment, a copper frame and a crystal.~
 @4110 = ~For the copper frame I would refer you to Taerom Fuiruim. He runs the Thunderhammer Smithy in Beregost.~
-@4111 = ~If you can provide me with the required components I can create the Magic Store for you. For the actual enchantment process I will also have to ask for 2000 gold pieces. What do you say?~
+@4111 = ~If you can provide me with the required components I can create the Magic Store for you. For the actual enchantment process I will also have to ask for 2,000 gold pieces. What do you say?~
 @4112 = ~I have everything you need with me. Please create the artifact.~
 @4113 = ~I don't have enough money. I'll be back later.~
 @4114 = ~I don't have all the components with me. I'll be back later.~
@@ -135,7 +135,7 @@ This volume outlines the creation of an artifact that can be used to call forth 
 @5004 = ~I can't help you without the book. Come back when you have it.~
 @5005 = ~Hmm, from what I can see I require two components for the enchantment, a copper frame and a crystal.~
 @5006 = ~Unfortunately I don't know where to find these. You might want to check out the merchants, or search the area for hidden treasures. This region has been pretty busy lately with the crusade going on.~
-@5007 = ~I will also have to ask for a fee of 2000 gold pieces for the enchantment ritual.~
+@5007 = ~I will also have to ask for a fee of 2,000 gold pieces for the enchantment ritual.~
 @5008 = ~I have everything you need. Here you go.~
 @5009 = ~I don't have enough gold right now. I'll be back later.~
 @5010 = ~I don't have all the items required for the artifact. I'll be back later.~
@@ -166,20 +166,20 @@ This volume outlines the creation of an artifact that can be used to call forth 
 @8000 = ~That should be no problem. I rarely have the opportunity to work with copper, since it's mainly used for trinkets and adornments. But a copper frame should be easy enough to forge.~
 @8001 = ~Unfortunately I don't have any copper ore in stock. The next shipment of ore is long overdue, but with the abnormal weather and the strange goings-on I don't expect it anytime soon.~
 @8002 = ~Actually, I have some copper ore with me.~
-@8003 = ~I can't say for sure. There might be found some in the mines of Dorn's Deep to the south. But that's quite a distance to travel, and I'm not even sure if the dwarves would grant you entrance. I'd suggest to try your luck with the tombs of the Vale of Shadows first.~
+@8003 = ~I can't say for sure. There might be found some in the mines of Dorn's Deep to the south. But that's quite a distance to travel, and I'm not even sure the dwarves would grant you entrance. I'd suggest to try your luck with the tombs of the Vale of Shadows first.~
 @8004 = ~Very good. For 100 gold I can forge the copper frame right away.~
 @8005 = ~Alright. Come back when you've changed your mind.~
 // Orrick lines
 @8100 = ~It could be, if the book speaks true. May I take a look?~
 @8101 = ~Well, without the book I can do nothing for you. Come back again when you have it.~
 @8102 = ~Ah, this book dates from the time of the cooperation between elves and dwarves. I think it can be believed what is stated there.~
-@8103 = ~Fortunately, the ritual is outlined in great detail. I believe it is possible to create such an artifact. I would need two components for the initial enchantment though.~
+@8103 = ~Fortunately, the ritual is outlined in great detail. I believe it is possible to create such an artifact. I would need two components for the enchantment ritual though.~
 @8104 = ~The first one is a copper frame. You might want to ask Conlan the Smith about it.~
 @8105 = ~The first one is a copper frame.~
 @8106 = ~The second component is a crystal. This is not surprising considering their usefulness for enchanting purposes. I may still have one in stock if you want to take a look.~
 @8107 = ~The second component is a crystal. This is not surprising considering their usefulness for enchanting purposes.~
-@8108 = ~For the enchantment ritual itself I would also have to ask for 3000 gold pieces. Are you still interested?~
-@8109 = ~Certainly. Do you have the copper frame and crystal ready? I would also have to ask for 3000 gold pieces for the enchantment ritual.~
+@8108 = ~For the enchantment ritual itself I would also have to ask for 3,000 gold pieces. Are you still interested?~
+@8109 = ~Certainly. Do you have the copper frame and crystal ready? I would also have to ask for 3,000 gold pieces for the enchantment ritual.~
 @8110 = ~Excellent. Just give me a moment to cast the enchantment spell...~
 @8111 = ~...And it is done. I hope you enjoy it. Artifacts of that quality are rarely seen in this day and age.~
 
@@ -274,7 +274,7 @@ The crystal looted from one of Gromnir's mages looks like it can be used to cons
 
 // (quest completed)
 @10402 = ~A mercantile legacy
-Cespenar has successfully assembled the Magic Store artifact for me. With it I can freely access any stores I have visited in the past.~
+Cespenar has successfully assembled the artifact "Magic Store of Vergadain" for me. With it I can freely access any stores I have visited in the past.~
 
 // IWD entries
 @10500 = ~Conlan in Kuldahar offered me to forge a copper frame if I provide him with copper ore. He suggested to look for it in the Vale of Shadows or Dorn's Deep.~
