@@ -28,7 +28,8 @@ BEGIN
                 REPLACE_TEXTUALLY ~StartStore("\([^"]+\)".*~ ~\1~
               END
               TO_UPPER ~sto_resref~
-              PATCH_IF (FILE_EXISTS_IN_GAME ~%sto_resref%.STO~) BEGIN
+              LPF __STORE_IS_VALID STR_VAR sto_resref RET success END
+              PATCH_IF (success) BEGIN
                 PATCH_IF (NOT VARIABLE_IS_SET $sto_dlg_array(~%sto_resref%~)) BEGIN
                   TEXT_SPRINT $sto_dlg_array(~%sto_resref%~) ~%dlg_resref%~
                   SET $dlg_list(~%dlg_resref%~) = 1
@@ -175,6 +176,35 @@ BEGIN
           END
         END
       END
+    END
+  END
+END
+
+
+// Checks if specified store resource matches the requirements
+DEFINE_PATCH_FUNCTION __STORE_IS_VALID
+STR_VAR
+  sto_resref = ~~
+RET
+  success
+BEGIN
+  SET success = 0
+  PATCH_IF (FILE_EXISTS_IN_GAME ~%sto_resref%.STO~) BEGIN
+    INNER_ACTION BEGIN
+      COPY_EXISTING ~%sto_resref%.STO~ ~override~
+        PATCH_IF (BUFFER_LENGTH >= 0x9c) BEGIN
+          READ_ASCII 0 sig (8) NULL
+          READ_LONG 0x10 flags
+          READ_LONG 0x14 markup_sell
+          READ_LONG 0x18 markup_buy
+          PATCH_IF (~%sig%~ STR_EQ ~STORV1.0~ &&
+                    (flags & 3) != 0 &&
+                    markup_sell > 0 &&
+                    markup_buy > 0) BEGIN
+            SET success = 1
+          END
+        END
+      BUT_ONLY
     END
   END
 END
