@@ -5,7 +5,7 @@
 
 The game contains a great number of stores for your shopping needs. However, finding or returning to a store can take a lot of time or is sometimes not even possible.
 
-This mod provides a solution for this problem. It allows you to acquire a magical artifact that summons a ghostly merchant who offers you to visit any store you have visited in the past.
+This mod allows you to acquire a magical artifact that provides the means to visit any store you have visited in the past. Getting your hands on this unique artifact involves a small quest of one kind or another.
 
 Getting your hands on this unique artifact may involve a small quest of one kind or another.
 

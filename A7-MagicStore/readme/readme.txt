@@ -15,12 +15,11 @@ Overview
 The game contains a great number of stores for your shopping needs. However, finding or returning
 to a store can take a lot of time or is sometimes not even possible.
 
-This mod provides a solution for this problem. It allows you to acquire a magical artifact that
-summons a ghostly merchant who offers you to visit any store you have visited in the past.
+This mod allows you to acquire a magical artifact that provides the means to visit any store you
+have visited in the past. Getting your hands on this unique artifact involves a small quest of
+one kind or another.
 
-Getting your hands on this unique artifact may involve a small quest of one kind or another.
-
-This mod supports original BG2, Tutu, BGT, BG:EE (with or without SoD), BG2:EE, EET and IWD:EE.
+The mod supports original BG2, Tutu, BGT, BG:EE (with or without SoD), BG2:EE, EET and IWD:EE.
 
 
 Installation
@@ -38,7 +37,7 @@ This mod tracks vanilla game stores as well as stores added by mods. It is recom
 it after content-adding mods (such as NPC or quest mods).
 
 There are no compatibility issues known with other mods. However, because stores are scanned and
-processed automatically it is possible to access plot-depending stores that are supposed to be
+processed automatically it is possible to access plot-dependent stores that are supposed to be
 accessible only for a limited period of time as well as stores which are replaced by improved
 versions at a certain point in the game or quest stage.
 
@@ -64,7 +63,7 @@ BG2:ToB: Somewhere in Saradush.
 IWD:EE:  Somewhere in Kuldahar.
 
 Only one Magic Store can be acquired in the whole game. For example, if you acquired the Magic
-Store during the BG1 campaign you can't get another one during the SoD, BG2:SoA or BG2:ToB
+Store in EET during the BG1 campaign you can't get another one during the SoD, BG2:SoA or BG2:ToB
 campaigns.
 
 
