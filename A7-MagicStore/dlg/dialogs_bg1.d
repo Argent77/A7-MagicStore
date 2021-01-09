@@ -147,7 +147,7 @@ APPEND ~%tutu_var%THALAN~
     = @4119 /* ...And it is done. I leave it to your intellectual abilities to figure out how to make the item work.  Please go now. I feel a bit weary. */
     IF ~~ DO ~SetGlobal("A7STO-BG1Quest","GLOBAL",3)
               SetGlobal("A7STO-ItemCreated","GLOBAL",1)
-              GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),0,0,0)
+              GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),3,0,0)
               EraseJournalEntry(@10002)
               EraseJournalEntry(@10101)
               EraseJournalEntry(@10102)

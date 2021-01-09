@@ -61,7 +61,7 @@ APPEND ~BDSORALI~
     = @5015 /* ...And that's it. I'm certain the item will function flawlessly. */
     IF ~~ DO ~SetGlobal("A7STO-SODQuest","GLOBAL",2)
               SetGlobal("A7STO-ItemCreated","GLOBAL",1)
-              GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),0,0,0)
+              GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),3,0,0)
               EraseJournalEntry(@10003)
               EraseJournalEntry(@10200)
               EraseJournalEntry(@10201)

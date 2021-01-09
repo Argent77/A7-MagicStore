@@ -14,6 +14,6 @@ THEN
     EraseJournalEntry(@10302)
     EraseJournalEntry(@10303)
     AddJournalEntry(@10304,QUEST_DONE)
-    GiveItemCreate("a7_mcsum",Player1,0,0,0)
+    GiveItemCreate("a7_mcsum",Player1,3,0,0)
     ActionOverride("wsmith01",StartDialogueNoSet([PC]))
 END

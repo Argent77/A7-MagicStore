@@ -11,6 +11,6 @@ THEN
     EraseJournalEntry(@10400)
     EraseJournalEntry(@10401)
     AddJournalEntry(@10402,QUEST_DONE)
-    GiveItemCreate("a7_mcsum",Player1,0,0,0)
+    GiveItemCreate("a7_mcsum",Player1,3,0,0)
     StartDialogNoSet(Player1)
 END

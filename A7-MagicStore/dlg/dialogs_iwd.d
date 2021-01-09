@@ -134,7 +134,7 @@ APPEND ~DORRICK~
     SAY @8111 /* ...And it is done. I hope you enjoy it. Artifacts of this quality are rarely seen in this day and age. */
     IF ~~ DO ~SetGlobal("A7STO-IWDQuest","GLOBAL",2)
               SetGlobal("A7STO-ItemCreated","GLOBAL",1)
-              GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),0,0,0)
+              GiveItemCreate("a7_mcsum",LastTalkedToBy(Myself),3,0,0)
               EraseJournalEntry(@10001)
               EraseJournalEntry(@10500)
               EraseJournalEntry(@10501)

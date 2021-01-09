@@ -8,7 +8,7 @@ THEN
     SetGlobal("A7STO-ImportItem","AR0602",1)
     TakePartyItem("A7_MCSUM")
     DestroyItem("A7_MCSUM")
-    ActionOverride("Shelf2",CreateItem("A7_MCSUM",0,0,0))
+    ActionOverride("Shelf2",CreateItem("A7_MCSUM",3,0,0))
     Continue()
 END
 
