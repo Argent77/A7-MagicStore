@@ -1,8 +1,8 @@
 DEFINE_ACTION_FUNCTION INSTALL_STORES
 RET_ARRAY
-  sto_dlg_array
-  dlg_cre_array
-  cre_are_array
+  sto_dlg_array // structure: array { [key=count, value=subarray { 0=dlg_1, 1=dlg_2, ..., (count-1)=dlg_n }], ... }
+  dlg_cre_array // structure: array { [key=count, value=subarray { 0=cre_1, 1=cre_2, ..., (count-1)=cre_n }], ... }
+  cre_are_array // structure: array { [key=cre, value=are], ... }
 BEGIN
   ACTION_CLEAR_ARRAY ~sto_dlg_array~
   COPY_EXISTING_REGEXP GLOB ~.+\.DLG~ ~override~
@@ -31,9 +31,16 @@ BEGIN
               LPF __STORE_IS_VALID STR_VAR sto_resref RET success END
               PATCH_IF (success) BEGIN
                 PATCH_IF (NOT VARIABLE_IS_SET $sto_dlg_array(~%sto_resref%~)) BEGIN
-                  TEXT_SPRINT $sto_dlg_array(~%sto_resref%~) ~%dlg_resref%~
+                  SET $sto_dlg_array(~%sto_resref%~) = 0
+                END
+                LPF __GET_ARRAY_INDEX INT_VAR size = $sto_dlg_array(~%sto_resref%~) STR_VAR array = EVAL ~%sto_dlg_array%_%sto_resref%~ value = EVAL ~%dlg_resref%~ RET index END
+                PATCH_IF (index < 0) BEGIN
+                  SET idx = $sto_dlg_array(~%sto_resref%~)
+                  TEXT_SPRINT $sto_dlg_array(~%sto_resref%~ ~%idx%~) ~%dlg_resref%~
+                  SET $sto_dlg_array(~%sto_resref%~) += 1
                   SET $dlg_list(~%dlg_resref%~) = 1
                 END
+
                 // adding script action 'SetGlobal("A7STO-%sto_resref%","GLOBAL",1) ' to dlg action structure
                 LPF __DLG_INSERT_SCRIPT
                   INT_VAR
@@ -64,9 +71,17 @@ BEGIN
         READ_ASCII 0x2cc dlg_resref
         PATCH_IF (NOT ~%dlg_resref%~ STR_EQ ~~) BEGIN
           TO_UPPER ~dlg_resref~
-          PATCH_IF (VARIABLE_IS_SET $dlg_list(~%dlg_resref%~) && NOT VARIABLE_IS_SET $dlg_cre_array(~%dlg_resref%~)) BEGIN
-            TEXT_SPRINT $dlg_cre_array(~%dlg_resref%~) ~%cre_resref%~
-            SET $cre_list(~%cre_resref%~) = 1
+          PATCH_IF (VARIABLE_IS_SET $dlg_list(~%dlg_resref%~)) BEGIN
+            PATCH_IF (NOT VARIABLE_IS_SET $dlg_cre_array(~%dlg_resref%~)) BEGIN
+              SET $dlg_cre_array(~%dlg_resref%~) = 0
+            END
+            LPF __GET_ARRAY_INDEX INT_VAR size = $dlg_cre_array(~%dlg_resref%~) STR_VAR array = EVAL ~%dlg_cre_array%_%dlg_resref%~ value = EVAL ~%cre_resref%~ RET index END
+            PATCH_IF (index < 0) BEGIN
+              SET idx = $dlg_cre_array(~%dlg_resref%~)
+              TEXT_SPRINT $dlg_cre_array(~%dlg_resref%~ ~%idx%~) ~%cre_resref%~
+              SET $dlg_cre_array(~%dlg_resref%~) += 1
+              SET $cre_list(~%cre_resref%~) = 1
+            END
           END
         END
       END
@@ -205,6 +220,30 @@ BEGIN
           END
         END
       BUT_ONLY
+    END
+  END
+END
+
+
+// Returns the index of the specified array entry
+DEFINE_PATCH_FUNCTION __GET_ARRAY_INDEX
+INT_VAR
+  size = 0    // number of (sub)array items
+STR_VAR
+  array = ~~  // name of the (sub)array; must be an indexed array
+  value = ~~  // value to match
+RET
+  index // index of existing value, -1 if value doesn't exist
+BEGIN
+  SET index = "-1"
+
+  FOR (i = 0; i < size; ++i) BEGIN
+    PATCH_IF (VARIABLE_IS_SET $EVAL ~%array%~(~%i%~)) BEGIN
+      TEXT_SPRINT v $EVAL ~%array%~(~%i%~)
+      PATCH_IF (~%value%~ STR_EQ ~%value%~) BEGIN
+        SET index = i
+        SET i = size
+      END
     END
   END
 END

@@ -13,69 +13,92 @@ BEGIN
   LAF GET_ARE_NAMES RET_ARRAY are_names END
 
   ACTION_CLEAR_ARRAY ~responses~
-  ACTION_PHP_EACH EVAL ~%sto_dlg_array%~ AS sto => dlg BEGIN
-    LAF GET_STORE_NAME STR_VAR sto_resref = EVAL ~%sto%~ RET sto_name END
-    ACTION_IF (~%sto_name%~ STR_EQ ~~ || ~%sto_name%~ STRING_MATCHES_REGEXP ~<Invalid Strref.*~ = 0) BEGIN
-      OUTER_SPRINT sto_name @2020 // Store
-    END
+  ACTION_PHP_EACH EVAL ~%sto_dlg_array%~ AS sto_resref => _ BEGIN
+    ACTION_IF (NOT VARIABLE_IS_SET $stores(~%sto_resref%~)) BEGIN
+      OUTER_SET $stores(~%sto_resref%~) = 1
 
-    OUTER_TEXT_SPRINT are ~~
-    OUTER_TEXT_SPRINT are_base ~~
-    OUTER_TEXT_SPRINT are_name ~~
-    OUTER_TEXT_SPRINT cre ~~
-    OUTER_TEXT_SPRINT cre_name ~~
-    ACTION_IF (VARIABLE_IS_SET $EVAL ~%dlg_cre_array%~(~%dlg%~)) BEGIN
-      OUTER_TEXT_SPRINT cre $EVAL ~%dlg_cre_array%~(~%dlg%~)
-      LAF GET_CRE_NAME STR_VAR cre_resref = EVAL ~%cre%~ RET cre_name END
-      ACTION_IF (VARIABLE_IS_SET $EVAL ~%cre_are_array%~(~%cre%~)) BEGIN
-        OUTER_TEXT_SPRINT are $EVAL ~%cre_are_array%~(~%cre%~)
-        LAF FIND_NAMED_AREA
-          STR_VAR are_resref = EVAL ~%are%~
-          RET are_base = resref
+      LAF GET_STORE_NAME STR_VAR sto_resref RET sto_name END
+      ACTION_IF (~%sto_name%~ STR_EQ ~~ || ~%sto_name%~ STRING_MATCHES_REGEXP ~<Invalid Strref.*~ = 0) BEGIN
+        OUTER_SPRINT sto_name @2020 // Store
+      END
+
+      OUTER_TEXT_SPRINT cre_resref ~~
+      OUTER_TEXT_SPRINT cre_name ~~
+      OUTER_TEXT_SPRINT are_resref ~~
+      OUTER_TEXT_SPRINT are_base ~~
+      OUTER_TEXT_SPRINT are_name ~~
+
+      OUTER_SET dlg_num = $EVAL ~%sto_dlg_array%~(~%sto_resref%~)
+      OUTER_FOR (i = 0; i < dlg_num; ++i) BEGIN
+        OUTER_TEXT_SPRINT dlg_resref $EVAL ~%sto_dlg_array%~(~%sto_resref%~ ~%i%~)
+        ACTION_IF (VARIABLE_IS_SET $EVAL ~%dlg_cre_array%~(~%dlg_resref%~)) BEGIN
+          OUTER_SET cre_num = $EVAL ~%dlg_cre_array%~(~%dlg_resref%~)
+          OUTER_FOR (j = 0; j < cre_num; ++j) BEGIN
+            OUTER_TEXT_SPRINT cre_resref $EVAL ~%dlg_cre_array%~(~%dlg_resref%~ ~%j%~)
+            OUTER_TEXT_SPRINT cre_name ~~
+            OUTER_TEXT_SPRINT are_resref ~~
+            OUTER_TEXT_SPRINT are_base ~~
+            OUTER_TEXT_SPRINT are_name ~~
+            LAF GET_CRE_NAME STR_VAR cre_resref RET cre_name END
+            ACTION_IF (VARIABLE_IS_SET $EVAL ~%cre_are_array%~(~%cre_resref%~)) BEGIN
+              OUTER_TEXT_SPRINT are_resref $EVAL ~%cre_are_array%~(~%cre_resref%~)
+              LAF FIND_NAMED_AREA
+                STR_VAR are_resref
+                RET are_base = resref
+              END
+              ACTION_IF (NOT ~%are_base%~ STR_EQ ~~) BEGIN
+                OUTER_TEXT_SPRINT are_name $are_names(~%are_base%~)
+              END
+            END
+            ACTION_IF (NOT ~%are_name%~ STR_EQ ~~) BEGIN
+              OUTER_SET j = cre_num
+            END
+          END
         END
-        ACTION_IF (NOT ~%are_base%~ STR_EQ ~~) BEGIN
-          OUTER_TEXT_SPRINT are_name $are_names(~%are_base%~)
-        END
-      END
-    END
-
-    // Skip stores in dummy areas entirely
-    ACTION_IF (~%are_name%~ STR_EQ ~~ || NOT ~%are_name%~ STR_EQ ~%are_base%~) BEGIN
-      // Prevent invalid strings from messing up the dialog box
-      ACTION_FOR_EACH name_var IN ~sto_name~ ~cre_name~ ~are_name~ BEGIN
-        OUTER_TEXT_SPRINT name EVAL ~%%name_var%%~
-        ACTION_IF (STRING_LENGTH ~%name%~ > 80) BEGIN
-          LAF SUBSTRING INT_VAR start = 0 length = 80 STR_VAR string = EVAL ~%name%~ RET substring END
-          OUTER_TEXT_SPRINT EVAL ~%name_var%~ ~%substring%...~
+        ACTION_IF (NOT ~%cre_n%~ STR_EQ ~~ && NOT ~%are_name%~ STR_EQ ~~) BEGIN
+          OUTER_SET i = dlg_num
         END
       END
 
-      // generating response string
-      OUTER_TEXT_SPRINT store_name ~%sto_name%~
-      OUTER_TEXT_SPRINT creature_name ~%cre_name%~
-      OUTER_TEXT_SPRINT area_name ~%are_name%~
+      // Skip stores in dummy areas entirely
+      ACTION_IF (~%are_name%~ STR_EQ ~~ || NOT ~%are_name%~ STR_EQ ~%are_base%~) BEGIN
+        // Prevent invalid strings from messing up the dialog box
+        ACTION_FOR_EACH name_var IN ~sto_name~ ~cre_name~ ~are_name~ BEGIN
+          OUTER_TEXT_SPRINT name EVAL ~%%name_var%%~
+          ACTION_IF (STRING_LENGTH ~%name%~ > 80) BEGIN
+            LAF SUBSTRING INT_VAR start = 0 length = 80 STR_VAR string = EVAL ~%name%~ RET substring END
+            OUTER_TEXT_SPRINT EVAL ~%name_var%~ ~%substring%...~
+          END
+        END
 
-      OUTER_TEXT_SPRINT key ~%sto_name%:%cre%:%are%~
-      ACTION_IF (VARIABLE_IS_SET $count_array(~%key%~)) BEGIN
-        OUTER_SET $count_array(~%key%~) += 1
-        OUTER_SET idx = $count_array(~%key%~)
-        OUTER_TEXT_SPRINT store_name ~%store_name% (%idx%)~
-      END ELSE BEGIN
-        OUTER_SET $count_array(~%key%~) = 1
+        // generating response string
+        OUTER_TEXT_SPRINT store_name ~%sto_name%~
+        OUTER_TEXT_SPRINT creature_name ~%cre_name%~
+        OUTER_TEXT_SPRINT area_name ~%are_name%~
+
+        OUTER_TEXT_SPRINT key ~%sto_name%:%cre_resref%:%are_resref%~
+        ACTION_IF (VARIABLE_IS_SET $count_array(~%key%~)) BEGIN
+          // add suffix to multiple stores of same name from same merchant to tell apart
+          OUTER_SET $count_array(~%key%~) += 1
+          OUTER_SET idx = $count_array(~%key%~)
+          OUTER_TEXT_SPRINT store_name ~%store_name% (%idx%)~
+        END ELSE BEGIN
+          OUTER_SET $count_array(~%key%~) = 1
+        END
+
+        ACTION_IF (~%area_name%~ STR_EQ ~~ && ~%creature_name%~ STR_EQ ~~) BEGIN
+          OUTER_SPRINT response @2010 // "%store_name%".
+        END ELSE ACTION_IF (~%area_name%~ STR_EQ ~~) BEGIN
+          OUTER_SPRINT response @2011 // "%store_name%" by %creature_name%.
+        END ELSE ACTION_IF (~%creature_name%~ STR_EQ ~~) BEGIN
+          OUTER_SPRINT response @2012 // "%store_name%" in "%area_name%".
+        END ELSE BEGIN
+          OUTER_SPRINT response @2013 // "%store_name%" by %creature_name%, in "%area_name%".
+        END
+
+        // generating dialog response command
+        OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0)~ + ~%response%~ DO ~StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
       END
-
-      ACTION_IF (~%area_name%~ STR_EQ ~~ && ~%creature_name%~ STR_EQ ~~) BEGIN
-        OUTER_SPRINT response @2010 // "%store_name%".
-      END ELSE ACTION_IF (~%area_name%~ STR_EQ ~~) BEGIN
-        OUTER_SPRINT response @2011 // "%store_name%" by %creature_name%.
-      END ELSE ACTION_IF (~%creature_name%~ STR_EQ ~~) BEGIN
-        OUTER_SPRINT response @2012 // "%store_name%" in "%area_name%".
-      END ELSE BEGIN
-        OUTER_SPRINT response @2013 // "%store_name%" by %creature_name%, in "%area_name%".
-      END
-
-      // generating dialog response command
-      OUTER_TEXT_SPRINT $responses(~%sto%~) ~~~~~  + ~!Global("A7STO-%sto%","GLOBAL",0)~ + ~%response%~ DO ~StartStore("%sto%",LastTalkedToBy(Myself))~ EXIT~~~~~
     END
   END
 END
