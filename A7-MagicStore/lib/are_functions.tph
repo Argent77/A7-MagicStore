@@ -64,12 +64,6 @@ BEGIN
       END
     END
   END
-
-  // OUTER_TEXT_SPRINT output ~DEBUG: content of are_names:~
-  // ACTION_PHP_EACH are_names AS key => value BEGIN
-    // OUTER_TEXT_SPRINT output ~%output%%LNL%  "%key%" => "%value%"~
-  // END
-  // LOG ~%output%%WNL%~
 END
 
 
@@ -92,12 +86,10 @@ BEGIN
       INSERT_BYTES 0 indent
       FOR (i = 0; i < indent; ++i) BEGIN WRITE_BYTE i 0x20 END
     END
-    // LOG ~%space%DEBUG: function FIND_NAMED_AREA("%are_resref%", "%are_parent%")~
 
     ACTION_IF (NOT ~%array_name%~ STR_EQ ~~ && VARIABLE_IS_SET $EVAL ~%array_name%~(~%are_resref%~)) BEGIN
       OUTER_TEXT_SPRINT resref ~%are_resref%~
       OUTER_TEXT_SPRINT name $EVAL ~%array_name%~(~%resref%~)
-      // LOG ~%space%DEBUG: found name in array for %resref%: %name%~
     END
 
     // collecting travel destinations
@@ -137,8 +129,4 @@ BEGIN
       END
     END
   END
-
-  // ACTION_IF (NOT ~%resref%~ STR_EQ ~~) BEGIN
-    // LOG ~%space%DEBUG: Area found: "%resref%" at level %level%~
-  // END
 END

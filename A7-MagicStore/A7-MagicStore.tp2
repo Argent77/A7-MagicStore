@@ -42,7 +42,6 @@ BEGIN @1  // Magic store of Vergadain
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
 DESIGNATED 1
 
-// INCLUDE ~%MOD_FOLDER%/lib/areacodes.tpa~
 INCLUDE ~%MOD_FOLDER%/lib/init.tph~
 INCLUDE ~%MOD_FOLDER%/lib/sto_functions.tph~
 INCLUDE ~%MOD_FOLDER%/lib/quests.tph~

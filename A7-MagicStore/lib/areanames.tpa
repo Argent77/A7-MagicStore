@@ -32,9 +32,3 @@ ACTION_IF (GAME_IS ~soa tob bgt bg2ee eet~) BEGIN
     ~AR2200~ => ~%label_1100%~  // Ust Natha
   END
 END
-
-// OUTER_TEXT_SPRINT output ~DEBUG: content of AREANAME:~
-// ACTION_PHP_EACH AREANAME AS key => value BEGIN
-  // OUTER_TEXT_SPRINT output ~%output%%LNL%  "%key%" => "%value%"~
-// END
-// LOG ~%output%%WNL%~
