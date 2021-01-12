@@ -95,6 +95,13 @@ BEGIN
       PATCH_IF (~%sig%~ STR_EQ ~AREAV1.0~) BEGIN
         TEXT_SPRINT are_resref ~%SOURCE_RES%~
         TO_UPPER ~are_resref~
+
+        // used later
+        READ_ASCII 0x94 bcs_resref (8) NULL
+        PATCH_IF (FILE_EXISTS_IN_GAME ~%bcs_resref%.BCS~) BEGIN
+          TEXT_SPRINT $are_bcs_array(~%are_resref%~) ~%bcs_resref%~
+        END
+
         READ_LONG 0x54 ofs_actors
         READ_SHORT 0x58 num_actors
         FOR (i = 0; i < num_actors; ++i) BEGIN
@@ -105,12 +112,30 @@ BEGIN
             TO_UPPER ~cre_resref~
             PATCH_IF (VARIABLE_IS_SET $cre_list(~%cre_resref%~) && NOT VARIABLE_IS_SET $cre_are_array(~%cre_resref%~)) BEGIN
               TEXT_SPRINT $cre_are_array(~%cre_resref%~) ~%are_resref%~
+              SET $cre_list(~%cre_resref%~) = 0
             END
           END
         END
       END
     END
   BUT_ONLY
+
+  // scanning area scripts for pending actors
+  ACTION_PHP_EACH are_bcs_array AS are_resref => bcs_resref BEGIN
+    COPY_EXISTING ~%bcs_resref%.BCS~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        PATCH_PHP_EACH cre_list AS cre_resref => pending BEGIN
+          PATCH_IF (pending) BEGIN
+            PATCH_IF (INDEX_BUFFER(~CreateCreature[^(]*("%cre_resref%",~) > 0 &&
+                      NOT VARIABLE_IS_SET $cre_are_array(~%cre_resref%~)) BEGIN
+              TEXT_SPRINT $cre_are_array(~%cre_resref%~) ~%are_resref%~
+              SET $cre_list(~%cre_resref%~) = 0
+            END
+          END
+        END
+      END
+    BUT_ONLY IF_EXISTS
+  END
 END
 
 
