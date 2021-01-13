@@ -55,7 +55,7 @@ BEGIN
             END
           END
         END
-        ACTION_IF (NOT ~%cre_n%~ STR_EQ ~~ && NOT ~%are_name%~ STR_EQ ~~) BEGIN
+        ACTION_IF (NOT ~%cre_name%~ STR_EQ ~~ && NOT ~%are_name%~ STR_EQ ~~) BEGIN
           OUTER_SET i = dlg_num
         END
       END
