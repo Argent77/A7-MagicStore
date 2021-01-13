@@ -15,6 +15,5 @@ END
 
 IF ~!Global("A7STO_MerchantSummoned","GLOBAL",0)~ Stores.1
   SAY @2002 /* The merchant presents you a list of stores and waits for your decision. */
-  ++ @2003 /* I don't want to visit any stores right now. */ EXIT
-  %A7_MERC_RESPONSE_LIST%
+  COPY_TRANS SAFE ~A7_MERC~ Intro.2
 END
