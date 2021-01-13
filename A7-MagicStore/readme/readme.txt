@@ -26,15 +26,18 @@ Installation
 ~~~~~~~~~~~~
 
 This is a WeiDU mod, that means it is very easy to install. Simply unpack the downloaded archive
-into your game directory and run "setup-A7-MagicStore.exe". Follow the instructions and you
-are ready to start.
+into your game directory and run either "setup-A7-MagicStore.exe" (Windows) or
+"setup-A7-MagicStore.command" (macOS). Follow the instructions and you are ready to start.
+
+To uninstall, run "setup-A7-MagicStore.exe" (Windows) or "setup-A7-MagicStore.command" (macOS)
+again and follow the prompts.
 
 
 Installation order & mod compatibility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This mod tracks vanilla game stores as well as stores added by mods. It is recommended to install
-it after content-adding mods (such as NPC or quest mods).
+it after content-adding mods (such as NPC or quest mods) to ensure all stores are considered.
 
 There are no compatibility issues known with other mods. However, because stores are scanned and
 processed automatically it is possible to access plot-dependent stores that are supposed to be
