@@ -69,21 +69,7 @@ BEGIN
         TEXT_SPRINT cre_resref ~%SOURCE_RES%~
         TO_UPPER ~cre_resref~
         READ_ASCII 0x2cc dlg_resref
-        PATCH_IF (NOT ~%dlg_resref%~ STR_EQ ~~) BEGIN
-          TO_UPPER ~dlg_resref~
-          PATCH_IF (VARIABLE_IS_SET $dlg_list(~%dlg_resref%~)) BEGIN
-            PATCH_IF (NOT VARIABLE_IS_SET $dlg_cre_array(~%dlg_resref%~)) BEGIN
-              SET $dlg_cre_array(~%dlg_resref%~) = 0
-            END
-            LPF __GET_ARRAY_INDEX INT_VAR size = $dlg_cre_array(~%dlg_resref%~) STR_VAR array = EVAL ~%dlg_cre_array%_%dlg_resref%~ value = EVAL ~%cre_resref%~ RET index END
-            PATCH_IF (index < 0) BEGIN
-              SET idx = $dlg_cre_array(~%dlg_resref%~)
-              TEXT_SPRINT $dlg_cre_array(~%dlg_resref%~ ~%idx%~) ~%cre_resref%~
-              SET $dlg_cre_array(~%dlg_resref%~) += 1
-              SET $cre_list(~%cre_resref%~) = 1
-            END
-          END
-        END
+        LPM __SCAN_DLG_CRE
       END
     END
   BUT_ONLY
@@ -110,6 +96,11 @@ BEGIN
           PATCH_IF (flags & BIT0) BEGIN
             READ_ASCII (ofs + 0x80) cre_resref (8) NULL
             TO_UPPER ~cre_resref~
+
+            // special check: is dialog defined in ARE > Actor structure?
+            READ_ASCII (ofs + 0x48) dlg_resref (8) NULL
+            LPM __SCAN_DLG_CRE
+
             PATCH_IF (VARIABLE_IS_SET $cre_list(~%cre_resref%~) && NOT VARIABLE_IS_SET $cre_are_array(~%cre_resref%~)) BEGIN
               TEXT_SPRINT $cre_are_array(~%cre_resref%~) ~%are_resref%~
               SET $cre_list(~%cre_resref%~) = 0
@@ -171,7 +162,35 @@ BEGIN
 END
 
 
-// Inserts a script action into the specified dlg action block
+// Used internally. A macro that scans for DLG/CRE associations.
+// Expected variables:
+// - cre_resref, dlg_resref: Strings containing CRE or DLG resref
+// - dlg_cre_array: Associative array: DLG resref => CRE resref
+// - dlg_list: Associative array: DLG resref => numeric value
+// - cre_list: Associative array: CRE resref => numeric value
+DEFINE_PATCH_MACRO __SCAN_DLG_CRE
+BEGIN
+  LOCAL_SET idx = 0
+
+  PATCH_IF (NOT ~%dlg_resref%~ STR_EQ ~~) BEGIN
+    TO_UPPER ~dlg_resref~
+    PATCH_IF (VARIABLE_IS_SET $dlg_list(~%dlg_resref%~)) BEGIN
+      PATCH_IF (NOT VARIABLE_IS_SET $dlg_cre_array(~%dlg_resref%~)) BEGIN
+        SET $dlg_cre_array(~%dlg_resref%~) = 0
+      END
+      LPF __GET_ARRAY_INDEX INT_VAR size = $dlg_cre_array(~%dlg_resref%~) STR_VAR array = EVAL ~%dlg_cre_array%_%dlg_resref%~ value = EVAL ~%cre_resref%~ RET index END
+      PATCH_IF (index < 0) BEGIN
+        SET idx = $dlg_cre_array(~%dlg_resref%~)
+        TEXT_SPRINT $dlg_cre_array(~%dlg_resref%~ ~%idx%~) ~%cre_resref%~
+        SET $dlg_cre_array(~%dlg_resref%~) += 1
+        SET $cre_list(~%cre_resref%~) = 1
+      END
+    END
+  END
+END
+
+
+// Used internally. Inserts a script action into the specified dlg action block.
 DEFINE_PATCH_FUNCTION __DLG_INSERT_SCRIPT
 INT_VAR
   offset_base = 0x28  // offset to dlg entries of specified type (default: actions)
@@ -221,7 +240,7 @@ BEGIN
 END
 
 
-// Checks if specified store resource matches the requirements
+// Used internally. Checks if specified store resource matches the requirements.
 DEFINE_PATCH_FUNCTION __STORE_IS_VALID
 STR_VAR
   sto_resref = ~~
@@ -250,7 +269,7 @@ BEGIN
 END
 
 
-// Returns the index of the specified array entry
+// Used internally. Returns the index of the specified array entry.
 DEFINE_PATCH_FUNCTION __GET_ARRAY_INDEX
 INT_VAR
   size = 0    // number of (sub)array items
