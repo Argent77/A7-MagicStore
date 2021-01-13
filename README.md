@@ -7,8 +7,6 @@ The game contains a great number of stores for your shopping needs. However, fin
 
 This mod allows you to acquire a magical artifact that provides the means to visit any store you have visited in the past. Getting your hands on this unique artifact involves a small quest of one kind or another.
 
-Getting your hands on this unique artifact may involve a small quest of one kind or another.
-
 The mod supports the following games and game variants:
 - Original BG2
 - Tutu/EasyTutu
