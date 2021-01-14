@@ -21,6 +21,18 @@ ACTION_IF (GAME_IS ~tutu tutu_totsc bgt bgee eet~) BEGIN
     ~%AR1300_name%~ => ~%label_1009%~  // SE Baldur's Gate
     ~%AR2600_name%~ => ~%label_1010%~  // Candlekeep
   END
+
+  // EE-specific
+  ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+    OUTER_FOR (i = 1050; i < 1051; ++i) BEGIN
+      OUTER_SPRINT EVAL ~label_%i%~ (AT i)
+      ACTION_DEFINE_ASSOCIATIVE_ARRAY AREANAME BEGIN
+        ~OH9310~ => ~%label_1050%~  // The Black Pits
+        ~OH9350~ => ~%label_1050%~  // The Black Pits
+        ~OH9360~ => ~%label_1050%~  // The Black Pits
+      END
+    END
+  END
 END
 
 // Predefined BG2 area names
@@ -30,5 +42,20 @@ ACTION_IF (GAME_IS ~soa tob bgt bg2ee eet~) BEGIN
   END
   ACTION_DEFINE_ASSOCIATIVE_ARRAY AREANAME BEGIN
     ~AR2200~ => ~%label_1100%~  // Ust Natha
+  END
+
+  // EE-specific
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    OUTER_FOR (i = 1150; i < 1152; ++i) BEGIN
+      OUTER_SPRINT EVAL ~label_%i%~ (AT i)
+      ACTION_DEFINE_ASSOCIATIVE_ARRAY AREANAME BEGIN
+        ~OH6460~ => ~%label_1150%~  // Black Pits of Thay
+        ~OH8000~ => ~%label_1151%~  // The Black Pits II
+        ~OH8100~ => ~%label_1151%~  // The Black Pits II
+        ~OH8200~ => ~%label_1151%~  // The Black Pits II
+        ~OH8300~ => ~%label_1151%~  // The Black Pits II
+        ~OH8400~ => ~%label_1151%~  // The Black Pits II
+      END
+    END
   END
 END

@@ -11,8 +11,11 @@
 @1008 = ~S Baldur's Gate~
 @1009 = ~SO Baldur's Gate~
 @1010 = ~Kerzenburg~  // for "Tutorial" Candlekeep
+@1050 = ~Die schwarzen Gruben~
 // BG2
 @1100 = ~Ust Natha~
+@1150 = ~Schwarze Gruben von Tay~
+@1151 = ~Die schwarzen Gruben 2~
 
 
 // Ghostly Merchant dialog

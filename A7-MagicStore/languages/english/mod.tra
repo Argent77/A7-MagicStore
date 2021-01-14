@@ -11,8 +11,11 @@
 @1008 = ~S Baldur's Gate~
 @1009 = ~SE Baldur's Gate~
 @1010 = ~Candlekeep~  // for "Tutorial" Candlekeep
+@1050 = ~The Black Pits~
 // BG2
 @1100 = ~Ust Natha~
+@1150 = ~Black Pits of Thay~
+@1151 = ~The Black Pits II~
 
 
 // Ghostly Merchant dialog
