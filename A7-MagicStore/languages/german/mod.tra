@@ -1,15 +1,15 @@
 // Predefined area names (everything else is taken from worldmap names)
 // BG1
-@1000 = ~NW Baldur's Gate~
-@1001 = ~N Baldur's Gate~
-@1002 = ~NO Baldur's Gate~
-@1003 = ~W Baldur's Gate~
-@1004 = ~Baldur's Gate Zentrum~
-@1005 = ~O Baldur's Gate~
+@1000 = ~NW Baldurs Tor~
+@1001 = ~N Baldurs Tor~
+@1002 = ~NO Baldurs Tor~
+@1003 = ~W Baldurs Tor~
+@1004 = ~Baldurs Tor Zentrum~
+@1005 = ~O Baldurs Tor~
 @1006 = ~Lindwurmsquerung~
-@1007 = ~SW Baldur's Gate~
-@1008 = ~S Baldur's Gate~
-@1009 = ~SO Baldur's Gate~
+@1007 = ~SW Baldurs Tor~
+@1008 = ~S Baldurs Tor~
+@1009 = ~SO Baldurs Tor~
 @1010 = ~Kerzenburg~  // for "Tutorial" Candlekeep
 @1050 = ~Die schwarzen Gruben~
 // BG2
