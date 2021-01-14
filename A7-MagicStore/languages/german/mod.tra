@@ -20,6 +20,7 @@
 @2001 = ~Zu Eurer Überraschung präsentiert er Euch eine Liste aller Läden, die Ihr in der Vergangenheit besucht habt und wartet auf Eure Entscheidung.~
 @2002 = ~Der Händler überreicht Euch eine Liste aller Läden, die Ihr bereits besucht habt, und wartet auf Eure Entscheidung.~
 @2003 = ~Ich möchte im Moment keinen Laden besuchen.~
+@2004 = ~Der Händler wendet sich Euch zu. Er versucht, Euch eine Liste von Läden zu präsentieren, wird aber zu sehr von der feindlichen Atmosphäre um Euch herum abgelenkt.~
 
 // Store response templates
 @2010 = ~"%store_name%".~
