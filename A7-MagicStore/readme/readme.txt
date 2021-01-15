@@ -5,8 +5,8 @@ Version:    1.0
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
-Discussion: https://www.gibberlings3.net/forums/
-            https://forums.beamdog.com/
+Discussion: https://www.gibberlings3.net/forums/topic/32357-magic-store-of-vergadain-visit-any-store-anywhere-and-anytime
+            https://forums.beamdog.com/discussion/81331/mod-magic-store-of-vergadain-visit-any-store-anywhere-and-anytime
 
 
 Overview
