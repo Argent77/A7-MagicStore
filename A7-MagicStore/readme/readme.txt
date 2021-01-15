@@ -1,7 +1,7 @@
-Magic Store
-~~~~~~~~~~~
+Magic Store of Vergadain
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    0.9-beta
+Version:    1.0
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -87,7 +87,7 @@ Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 Copyright Notice
 ~~~~~~~~~~~~~~~~
 
-The mod "Magic Store" is licensed under the "Creative Commons Attribution-NonCommercial-
+The mod "Magic Store of Vergadain" is licensed under the "Creative Commons Attribution-NonCommercial-
 ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 

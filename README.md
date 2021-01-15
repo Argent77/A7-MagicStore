@@ -1,4 +1,4 @@
-# Magic Store
+# Magic Store of Vergadain
 *A magical artifact that allows access to stores from all over the world.*
 
 ## Overview
