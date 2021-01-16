@@ -12,6 +12,41 @@ RET_ARRAY
 BEGIN
   LAF GET_ARE_NAMES RET_ARRAY are_names END
 
+  // loading table for special stores
+  // supported game ids: bg1, sod, soa, tob, iwd
+  // multiple actions or triggers can be separated by semicolon
+  // string ref: prefix '@' for tra reference; prefix '#' or no prefix for game strrefs; use default table value to skip
+  COPY ~%MOD_FOLDER%/2da/special.2da~ ~%MOD_FOLDER%/2da/special.2da~
+    COUNT_2DA_ROWS 5 num_rows
+    FOR (row = 0; row < num_rows; ++row) BEGIN
+      READ_2DA_ENTRY 1 0 1 default
+      READ_2DA_ENTRY row 0 5 resref
+      READ_2DA_ENTRY row 1 5 game
+      READ_2DA_ENTRY row 2 5 trigger
+      READ_2DA_ENTRY row 3 5 action
+      READ_2DA_ENTRY row 4 5 str_val
+      TO_UPPER ~resref~
+      TEXT_SPRINT $table_special(~%resref%~) ~%game%~
+      TEXT_SPRINT $table_special(~%resref%~ ~trigger~) ~%trigger%~
+      TEXT_SPRINT $table_special(~%resref%~ ~action~) ~%action%~
+      TEXT_SPRINT $table_special(~%resref%~ ~message~) ~~
+      PATCH_IF (NOT ~%str_val%~ STR_EQ ~%default%~) BEGIN
+        PATCH_IF (IS_AN_INT ~str_val~ && str_val > 0 && str_val < NEXT_STRREF) BEGIN
+          GET_STRREF str_val string
+          TEXT_SPRINT $table_special(~%resref%~ ~message~) ~%string%~
+        END ELSE PATCH_IF (~%str_val%~ STRING_MATCHES_REGEXP ~#[0-9]+~ = 0) BEGIN
+          INNER_PATCH_SAVE str_va ~%str_val%~ BEGIN DELETE_BYTES 0 1 END
+          GET_STRREF str_val string
+          TEXT_SPRINT $table_special(~%resref%~ ~message~) ~%string%~
+        END ELSE PATCH_IF (~%str_val%~ STRING_MATCHES_REGEXP ~@[0-9]+~ = 0) BEGIN
+          INNER_PATCH_SAVE str_val ~%str_val%~ BEGIN DELETE_BYTES 0 1 END
+          SPRINT string (AT str_val)
+          TEXT_SPRINT $table_special(~%resref%~ ~message~) ~%string%~
+        END
+      END
+    END
+  BUT_ONLY IF_EXISTS
+
   ACTION_CLEAR_ARRAY ~responses~
   ACTION_PHP_EACH EVAL ~%sto_dlg_array%~ AS sto_resref => _ BEGIN
     ACTION_IF (NOT VARIABLE_IS_SET $stores(~%sto_resref%~)) BEGIN
@@ -96,8 +131,35 @@ BEGIN
           OUTER_SPRINT response @2013 // "%store_name%" by %creature_name%, in "%area_name%".
         END
 
+        // Handling special stores
+        OUTER_TEXT_SPRINT trigger_extra ~~
+        OUTER_TEXT_SPRINT action_extra ~~
+        OUTER_TEXT_SPRINT message ~~
+        ACTION_IF (VARIABLE_IS_SET $table_special(~%sto_resref%~)) BEGIN
+          OUTER_TEXT_SPRINT game $table_special(~%sto_resref%~)
+          ACTION_TO_UPPER ~game~
+          ACTION_MATCH ~%game%~ WITH
+            ~BG1~ BEGIN OUTER_SET is_game = GAME_IS ~tutu tutu_totsc bgt bgee eet~ END
+            ~SOD~ BEGIN OUTER_SET is_game = GAME_INCLUDES ~sod~ END
+            ~SOA~ BEGIN OUTER_SET is_game = GAME_IS ~soa tob bgt bg2ee eet~ END
+            ~TOB~ BEGIN OUTER_SET is_game = GAME_IS ~tob bgt bg2ee eet~ END
+            ~IWD~ BEGIN OUTER_SET is_game = GAME_IS ~iwdee~ END
+            DEFAULT OUTER_SET is_game = 0
+          END
+          ACTION_IF (is_game) BEGIN
+            OUTER_TEXT_SPRINT trigger_extra $table_special(~%sto_resref%~ ~trigger~)
+            OUTER_PATCH_SAVE trigger_extra ~%trigger_extra%~ BEGIN REPLACE_TEXTUALLY ~;~ ~ ~ END
+            OUTER_TEXT_SPRINT action_extra $table_special(~%sto_resref%~ ~action~)
+            OUTER_PATCH_SAVE action_extra ~%action_extra%~ BEGIN REPLACE_TEXTUALLY ~;~ ~ ~ END
+            OUTER_TEXT_SPRINT message $table_special(~%sto_resref%~ ~message~)
+            ACTION_IF (NOT ~%message%~ STR_EQ ~~) BEGIN
+              OUTER_TEXT_SPRINT message ~ (%message%)~
+            END
+          END
+        END
+
         // generating dialog response command
-        OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0)~ + ~%response%~ DO ~StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
+        OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ DO ~%action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
       END
     END
   END

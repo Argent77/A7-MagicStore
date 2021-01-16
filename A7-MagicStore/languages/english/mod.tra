@@ -26,12 +26,15 @@
 @2004 = ~The merchant turns his attention to you. He attempts to present you a list of stores but is too distracted by the hostile atmosphere around you.~
 
 // Store response templates
-@2010 = ~"%store_name%".~
-@2011 = ~"%store_name%" by %creature_name%.~
-@2012 = ~"%store_name%" in "%area_name%".~
-@2013 = ~"%store_name%" by %creature_name%, in "%area_name%".~
+@2010 = ~"%store_name%"~
+@2011 = ~"%store_name%" by %creature_name%~
+@2012 = ~"%store_name%" in "%area_name%"~
+@2013 = ~"%store_name%" by %creature_name%, in "%area_name%"~
 
 @2020 = ~Store~ // default name for unnamed stores
+
+// custom messages for special stores (see 2da/special.2da); added after response string in parentheses
+@2100 = ~for 50 gold~ // Ribald's special store
 
 
 // Items
