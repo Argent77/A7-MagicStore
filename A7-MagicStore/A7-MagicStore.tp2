@@ -38,8 +38,9 @@ LANGUAGE ~Deutsch~
          ~A7-MagicStore/languages/german/setup.tra~
          ~A7-MagicStore/languages/german/mod.tra~
 
-BEGIN @1  // Magic store of Vergadain
+BEGIN @2  // Fee required
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
+SUBCOMPONENT @1 // Magic store of Vergadain
 DESIGNATED 1
 
 INCLUDE ~%MOD_FOLDER%/lib/init.tph~
@@ -53,11 +54,31 @@ LAF INSTALL_STORES
     cre_are_array
 END
 
-LAF INSTALL_QUESTS END
+LAF INSTALL_QUESTS INT_VAR enable_fee = 1 END
+
+
+BEGIN @3  // Free of charge
+REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
+SUBCOMPONENT @1 // Magic store of Vergadain
+DESIGNATED 2
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE ~%MOD_FOLDER%/lib/sto_functions.tph~
+INCLUDE ~%MOD_FOLDER%/lib/quests.tph~
+
+LAF INSTALL_STORES
+  RET_ARRAY
+    sto_dlg_array
+    dlg_cre_array
+    cre_are_array
+END
+
+LAF INSTALL_QUESTS INT_VAR enable_fee = 0 END
 
 
 BEGIN @10 // Alternate portrait for Ghostly Merchant
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1) @102 // Requires the main component.
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
 DESIGNATED 10
 
 ACTION_IF (GAME_IS ~bgee bg2ee eet iwdee~) BEGIN

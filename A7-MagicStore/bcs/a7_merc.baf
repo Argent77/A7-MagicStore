@@ -9,6 +9,7 @@ END
 
 IF
   Global("A7STO_MERC","LOCALS",0)
+  Global("A7STO-INIT","LOCALS",0)
   GlobalTimerNotExpired("A7STO_STEAL_TIMER","GLOBAL")
   See([PC])
 THEN
@@ -20,8 +21,31 @@ THEN
     DisplayStringHead(Myself,@3012) // I don't deal with thieving scoundrels.
 END
 
+// game/campaign-specific fee initialization
+%A7_MERC_INIT_FEE%
+
+// default fee initialization
 IF
   Global("A7STO_MERC","LOCALS",0)
+  Global("A7STO-INIT","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-INIT","LOCALS",1)
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  Global("A7STO-TOKEN","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO-TOKEN","LOCALS",1)
+    SetTokenGlobal("A7STO-FEE","LOCALS","A7STO_FEE")
+    Continue()
+END
+
+IF
+  Global("A7STO_MERC","LOCALS",0)
+  Global("A7STO-INIT","LOCALS",1)
   See(LastSummonerOf(Myself))
   !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
 THEN
@@ -35,6 +59,7 @@ END
 
 IF
   Global("A7STO_MERC","LOCALS",0)
+  Global("A7STO-INIT","LOCALS",1)
   See([PC])
   !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
 THEN
@@ -48,58 +73,7 @@ END
 
 IF
   Global("A7STO_MERC","LOCALS",0)
-  See(SecondNearest([PC]))
-  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
-THEN
-  RESPONSE #100
-    SetGlobal("A7STO_MERC","LOCALS",1)
-    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
-    FaceObject(LastSeenBy(Myself))
-    Wait(1)
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-
-IF
-  Global("A7STO_MERC","LOCALS",0)
-  See(ThirdNearest([PC]))
-  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
-THEN
-  RESPONSE #100
-    SetGlobal("A7STO_MERC","LOCALS",1)
-    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
-    FaceObject(LastSeenBy(Myself))
-    Wait(1)
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-
-IF
-  Global("A7STO_MERC","LOCALS",0)
-  See(FourthNearest([PC]))
-  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
-THEN
-  RESPONSE #100
-    SetGlobal("A7STO_MERC","LOCALS",1)
-    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
-    FaceObject(LastSeenBy(Myself))
-    Wait(1)
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-
-IF
-  Global("A7STO_MERC","LOCALS",0)
-  See(FifthNearest([PC]))
-  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
-THEN
-  RESPONSE #100
-    SetGlobal("A7STO_MERC","LOCALS",1)
-    SetGlobalTimer("A7STO_MERC_TIMER","LOCALS",3)
-    FaceObject(LastSeenBy(Myself))
-    Wait(1)
-    StartDialogNoSet(LastSeenBy(Myself))
-END
-
-IF
-  Global("A7STO_MERC","LOCALS",0)
+  Global("A7STO-INIT","LOCALS",1)
   Delay(1)
 THEN
   RESPONSE #100

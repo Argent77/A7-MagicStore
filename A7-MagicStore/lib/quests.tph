@@ -7,6 +7,8 @@ INCLUDE ~%MOD_FOLDER%/lib/quests-iwd.tph~
 
 // Installs items and associated quests
 DEFINE_ACTION_FUNCTION INSTALL_QUESTS
+INT_VAR
+  enable_fee = 0
 STR_VAR
   sto_dlg_array = ~sto_dlg_array~
   dlg_cre_array = ~dlg_cre_array~
@@ -88,10 +90,33 @@ BEGIN
          ~%MOD_FOLDER%/bmp/a7_mercs.bmp~ ~override~
   END
 
-  COMPILE ~%MOD_FOLDER%/bcs/a7_merc.baf~
+  // installing merchant script
+  OUTER_TEXT_SPRINT A7_MERC_INIT_FEE ~~
+  ACTION_IF (enable_fee) BEGIN
+    LAF GET_GAMES RET_ARRAY games END
+    LAF GET_FEES INT_VAR enable_fee STR_VAR games RET_ARRAY fees END
+    LAF GET_GAME_CONDITIONS INT_VAR enable_fee STR_VAR games RET_ARRAY conditions END
+    ACTION_PHP_EACH games AS game => available BEGIN
+      ACTION_IF (available && NOT $conditions(~%game%~) STR_EQ ~~) BEGIN
+        OUTER_SET fee = $fees(~%game%~)
+        OUTER_TEXT_SPRINT triggers $conditions(~%game%~)
+        OUTER_TEXT_SPRINT actions ~SetGlobal("A7STO-FEE","LOCALS",%fee%)~
+        OUTER_TEXT_SPRINT script ~IF Global("A7STO_MERC","LOCALS",0) Global("A7STO-INIT","LOCALS",0) %triggers% THEN RESPONSE #100 SetGlobal("A7STO-INIT","LOCALS",1) %actions% END~
+        OUTER_TEXT_SPRINT A7_MERC_INIT_FEE ~%A7_MERC_INIT_FEE%%script%%WNL%~
+      END
+    END
+  END
+  COMPILE ~%MOD_FOLDER%/bcs/a7_merc.baf~ EVAL
 
   // compiling dialog
-  LAF GENERATE_DIALOG_RESPONSES STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY responses END
+  ACTION_IF (enable_fee) BEGIN
+    OUTER_TEXT_SPRINT A7_MERC_STATE_INTRO ~SAY @2005~
+    OUTER_TEXT_SPRINT A7_MERC_STATE ~SAY @2006~
+  END ELSE BEGIN
+    OUTER_TEXT_SPRINT A7_MERC_STATE_INTRO ~SAY @2001~
+    OUTER_TEXT_SPRINT A7_MERC_STATE ~SAY @2002~
+  END
+  LAF GENERATE_DIALOG_RESPONSES INT_VAR enable_fee STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY responses END
   OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~~
   ACTION_PHP_EACH responses AS _ => line BEGIN
     OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~%A7_MERC_RESPONSE_LIST%%line%%WNL%~

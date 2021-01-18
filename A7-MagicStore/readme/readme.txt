@@ -57,6 +57,16 @@ The Magic Store keeps track of the stores you visit throughout the game, so you 
 at any time and place even if the original store becomes unavailable. Activating the artifact
 summons a ghostly merchant who offers a list of available stores for your shopping needs.
 
+The store can be installed in two variants:
+1) Fee required
+The ghostly merchant will charge you a fee whenever you wish to access a store. The amount depends
+on the current game or campaign.
+It starts with 25 gold in BG1 and doubles with each campaign: 50 gold in SoD, 100 gold in BG2:SoA
+and 200 gold in BG2:ToB. In IWD:EE the fee is always 50 gold.
+
+2) Free of charge
+The ghostly merchant won't charge you when you wish to access a store.
+
 Each game campaign provides their own small quest to get access to the Magic Store of Vergadain.
 The quest usually starts by acquiring a book about forgotten artifacts. It can be found in:
 BG1:     Somewhere in Beregost.

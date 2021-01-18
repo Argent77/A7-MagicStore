@@ -31,3 +31,143 @@ END ELSE ACTION_IF (GAME_IS ~bgt~) BEGIN
 END ELSE ACTION_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
   INCLUDE ~%MOD_FOLDER%/lib/areacodes-tutu.tpa~
 END
+
+
+// Returns available games/campaigns in the current game installation.
+DEFINE_DIMORPHIC_FUNCTION GET_GAMES
+RET_ARRAY
+  games   // associated array: $games(~%GAME%~) = boolean (0: not available, 1: available)
+BEGIN
+  ACTION_CLEAR_ARRAY ~games~
+  ACTION_FOR_EACH game IN ~BG1~ ~SOD~ ~SOA~ ~TOB~ ~IWD~ BEGIN
+    ACTION_MATCH ~%game%~ WITH
+      ~BG1~ BEGIN OUTER_SET $games(~%game%~) = GAME_IS ~tutu tutu_totsc bgt bgee eet~ END
+      ~SOD~ BEGIN OUTER_SET $games(~%game%~) = GAME_INCLUDES ~sod~ END
+      ~SOA~ BEGIN OUTER_SET $games(~%game%~) = GAME_IS ~soa tob bgt bg2ee eet~ END
+      ~TOB~ BEGIN OUTER_SET $games(~%game%~) = GAME_IS ~tob bgt bg2ee eet~ END
+      ~IWD~ BEGIN OUTER_SET $games(~%game%~) = GAME_IS ~iwdee~ END
+      DEFAULT
+    END
+  END
+END
+
+
+// Returns script triggers needed to identify game campaigns in the current game installation.
+// Defined as action and patch function.
+DEFINE_DIMORPHIC_FUNCTION GET_GAME_CONDITIONS
+INT_VAR
+  enable_fee = 0
+STR_VAR
+  games = ~~  // name of associative array: $games(~%game%~) = boolean
+RET_ARRAY
+  conditions  // associative array: $conditions(~%game%~) = ~script triggers~
+BEGIN
+  ACTION_CLEAR_ARRAY ~conditions~
+
+  ACTION_IF (~%games%~ STR_EQ ~~) BEGIN
+    OUTER_TEXT_SPRINT games ~games~
+    OUTER_SET $EVAL ~%games%~(~BG1~) = 1
+    OUTER_SET $EVAL ~%games%~(~SOD~) = 1
+    OUTER_SET $EVAL ~%games%~(~SOA~) = 1
+    OUTER_SET $EVAL ~%games%~(~TOB~) = 1
+    OUTER_SET $EVAL ~%games%~(~IWD~) = 1
+  END
+
+  // BG1
+  OUTER_SET is_bg1 = VARIABLE_IS_SET $EVAL ~%games%~(~BG1~) && $EVAL ~%games%~(~BG1~) != 0
+  ACTION_IF (is_bg1 && enable_fee && GAME_IS ~bgt~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~BG1~) ~GlobalLT("Chapter","GLOBAL",8) GlobalLT("EndOfBG1","GLOBAL",2)~
+  END ELSE ACTION_IF (is_bg1 && enable_fee && GAME_IS ~bgee eet~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~BG1~) ~GlobalLT("Chapter","GLOBAL",8)~
+  END ELSE ACTION_IF (is_bg1) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~BG1~) ~~
+  END
+
+  // SOD
+  OUTER_SET is_sod = VARIABLE_IS_SET $EVAL ~%games%~(~SOD~) && $EVAL ~%games%~(~SOD~) != 0
+  ACTION_IF (is_sod && enable_fee && GAME_IS ~eet~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOD~) ~GlobalGT("Chapter","GLOBAL",7) GlobalLT("Chapter","GLOBAL",13)~
+  END ELSE ACTION_IF (is_sod && enable_fee && GAME_INCLUDES ~sod~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOD~) ~GlobalGT("Chapter","GLOBAL",7)~
+  END ELSE ACTION_IF (is_sod) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOD~) ~~
+  END
+
+  // SOA
+  OUTER_SET is_soa = VARIABLE_IS_SET $EVAL ~%games%~(~SOA~) && $EVAL ~%games%~(~SOA~) != 0
+  ACTION_IF (is_soa && enable_fee && GAME_IS ~bgt~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOA~) ~GlobalLT("Chapter","GLOBAL",8) GlobalGT("EndOfBG1","GLOBAL",1)~
+  END ELSE ACTION_IF (is_soa && enable_fee && GAME_IS ~eet~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOA~) ~GlobalGT("Chapter","GLOBAL",12) GlobalLT("Chapter","GLOBAL",20)~
+  END ELSE ACTION_IF (is_soa && enable_fee && GAME_IS ~soa tob bg2ee~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOA~) ~GlobalLT("Chapter","GLOBAL",8)~
+  END ELSE ACTION_IF (is_soa) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~SOA~) ~~
+  END
+
+  // TOB
+  OUTER_SET is_tob = VARIABLE_IS_SET $EVAL ~%games%~(~TOB~) && $EVAL ~%games%~(~TOB~) != 0
+  ACTION_IF (is_tob && enable_fee && GAME_IS ~bgt~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~TOB~) ~GlobalGT("Chapter","GLOBAL",7) GlobalGT("EndOfBG1","GLOBAL",1)~
+  END ELSE ACTION_IF (is_tob && enable_fee && GAME_IS ~eet~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~TOB~) ~GlobalGT("Chapter","GLOBAL",19)~
+  END ELSE ACTION_IF (is_tob && enable_fee && GAME_IS ~soa tob bg2ee~) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~TOB~) ~GlobalGT("Chapter","GLOBAL",7)~
+  END ELSE ACTION_IF (is_tob) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~TOB~) ~~
+  END
+
+  // IWD
+  OUTER_SET is_iwd = VARIABLE_IS_SET $EVAL ~%games%~(~IWD~) && $EVAL ~%games%~(~IWD~) != 0
+  ACTION_IF (is_iwd) BEGIN
+    OUTER_TEXT_SPRINT $conditions(~IWD~) ~~
+  END
+END
+
+
+// Returns the store access fees for all available games/campaigns defined by the "games" variable.
+DEFINE_DIMORPHIC_FUNCTION GET_FEES
+INT_VAR
+  enable_fee = 0
+STR_VAR
+  games = ~~  // name of associative array: $games(~%game%~) = boolean
+RET_ARRAY
+  fees
+BEGIN
+  ACTION_CLEAR_ARRAY ~fees~
+  OUTER_SET def_value = 0
+
+  ACTION_IF (~%games%~ STR_EQ ~~) BEGIN
+    OUTER_TEXT_SPRINT games ~games~
+    OUTER_SET $EVAL ~%games%~(~BG1~) = 1
+    OUTER_SET $EVAL ~%games%~(~SOD~) = 1
+    OUTER_SET $EVAL ~%games%~(~SOA~) = 1
+    OUTER_SET $EVAL ~%games%~(~TOB~) = 1
+    OUTER_SET $EVAL ~%games%~(~IWD~) = 1
+  END
+
+  ACTION_IF (enable_fee) BEGIN
+    COPY ~%MOD_FOLDER%/2da/fee.2da~ ~%MOD_FOLDER%/2da/fee.2da~
+      COUNT_2DA_ROWS 1 num_rows
+      READ_2DA_ENTRY 1 0 1 def_value
+      FOR (row = 3; row < num_rows; ++row) BEGIN
+        READ_2DA_ENTRY row 0 1 game
+        TO_UPPER ~game~
+        PATCH_IF (VARIABLE_IS_SET $EVAL ~%games%~(~%game%~) && $EVAL ~%games%~(~%game%~) != 0) BEGIN
+          READ_2DA_ENTRY row 1 1 value
+          PATCH_IF (IS_AN_INT ~value~ && value > 0) BEGIN
+            SET $fees(~%game%~) = value
+          END ELSE BEGIN
+            SET $fees(~%game%~) = def_value
+          END
+        END
+      END
+    BUT_ONLY IF_EXISTS
+  END
+
+  ACTION_PHP_EACH EVAL ~%games%~ AS game => available BEGIN
+    ACTION_IF (NOT VARIABLE_IS_SET $fees(~%game%~)) BEGIN
+      OUTER_SET $fees(~%game%~) = def_value
+    END
+  END
+END
