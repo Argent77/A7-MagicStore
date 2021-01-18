@@ -104,5 +104,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 History
 ~~~~~~~
 
+2.0
+- Added new option: Ghostly Merchant may charge a fee whenever you want to visit a store
+- Added special treatment of stores where the original merchant demands a fee for access
+
 1.0
 - Initial release
