@@ -35,6 +35,7 @@
 
 // custom messages for special stores (see 2da/special.2da); added after response string in parentheses
 @2100 = ~für 50 Goldmünzen~ // Ribald's special store
+@2101 = ~für 100 Goldmünzen~  // Nym's exotic store (Golem Construction mod)
 
 
 // Items

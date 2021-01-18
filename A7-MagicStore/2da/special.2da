@@ -2,3 +2,4 @@
 *
             GAME    TRIGGER             ACTION              STRING_REF
 RIBALD3     SOA     PartyGoldGT(49)     TakePartyGold(50)   @2100
+A7!NYM2     TOB     PartyGoldGT(99)     TakePartyGold(100)  @2101
