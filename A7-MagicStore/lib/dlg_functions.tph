@@ -4,7 +4,7 @@ INCLUDE ~%MOD_FOLDER%/lib/cre_functions.tph~
 // Creates a list of dialog responses with all stores found in the game
 DEFINE_ACTION_FUNCTION GENERATE_DIALOG_RESPONSES
 INT_VAR
-  enable_fee = 0
+  fee = 0
 STR_VAR
   sto_dlg_array = ~sto_dlg_array~
   dlg_cre_array = ~dlg_cre_array~
@@ -51,29 +51,18 @@ BEGIN
     END
   BUT_ONLY IF_EXISTS
 
-  // loading fees and conditions for store access
-  LAF GET_GAMES RET_ARRAY games END
-  LAF GET_FEES INT_VAR enable_fee STR_VAR games RET_ARRAY fees END
-  LAF GET_GAME_CONDITIONS INT_VAR enable_fee STR_VAR games RET_ARRAY conditions END
-
   // defining negative response
-  ACTION_IF (enable_fee) BEGIN
+  ACTION_IF (fee > 0) BEGIN
     // fee required
     OUTER_TEXT_SPRINT entry ~~
-    ACTION_PHP_EACH games AS game => available BEGIN
-      ACTION_IF (available) BEGIN
-        OUTER_TEXT_SPRINT trigger_game $conditions(~%game%~)
-        OUTER_SET fee = $fees(~%game%~)
-        OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~%trigger_game% !PartyGoldLT(%fee%)~ + @2003 EXIT%WNL%~~~~~ // I don't want to visit any stores right now.
-        OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~%trigger_game% PartyGoldLT(%fee%)~ + @2007 EXIT%WNL%~~~~~  // I don't have enough gold to pay your fee.
-      END
-    END
+    OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~!PartyGoldLT(%fee%)~ + @2003 EXIT%WNL%~~~~~ // I don't want to visit any stores right now.
+    OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~PartyGoldLT(%fee%)~ + @2007 EXIT%WNL%~~~~~  // I don't have enough gold to pay your fee.
     OUTER_TEXT_SPRINT $responses(~~) ~%entry%~
   END ELSE BEGIN
     // free of charge
     OUTER_TEXT_SPRINT $responses(~~) ~++ @2003 EXIT~  // I don't want to visit any stores right now.
   END
-  
+
   // defining store responses
   ACTION_PHP_EACH EVAL ~%sto_dlg_array%~ AS sto_resref => _ BEGIN
     ACTION_IF (NOT VARIABLE_IS_SET $stores(~%sto_resref%~)) BEGIN
@@ -185,22 +174,12 @@ BEGIN
           END
         END
 
-        // generating dialog response commands
-        OUTER_TEXT_SPRINT entry ~~
-        ACTION_IF (enable_fee) BEGIN
-          // fee required
-          ACTION_PHP_EACH games AS game => available BEGIN
-            ACTION_IF (available) BEGIN
-              OUTER_TEXT_SPRINT trigger_game $conditions(~%game%~)
-              OUTER_SET fee = $fees(~%game%~)
-              OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_game% !PartyGoldLT(%fee%) %trigger_extra%~ + ~%response%%message%.~ DO ~TakePartyGold(%fee%) %action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT%WNL%~~~~~
-            END
-          END
-          OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~%entry%~
-        END ELSE BEGIN
-          // free of charge
-          OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ DO ~%action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
+        // generating dialog response command
+        ACTION_IF (fee > 0) BEGIN
+          OUTER_TEXT_SPRINT trigger_extra ~!PartyGoldLT(%fee%) %trigger_extra%~
+          OUTER_TEXT_SPRINT action_extra ~TakePartyGold(%fee%) %action_extra%~
         END
+        OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ DO ~%action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
       END
     END
   END

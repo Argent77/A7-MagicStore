@@ -120,6 +120,7 @@ Versionshistorie
 2.0
 - Added new option: Ghostly Merchant may charge a fee whenever you want to visit a store
 - Added special treatment of stores where the original merchant demands a fee for access
+- Added German readme
 
 1.0
 - Initial release

@@ -105,22 +105,50 @@ BEGIN
         OUTER_TEXT_SPRINT A7_MERC_INIT_FEE ~%A7_MERC_INIT_FEE%%script%%WNL%~
       END
     END
+  END ELSE BEGIN
+    // initializing dummy arrays
+    OUTER_SET $games(~DEFAULT~) = 1
+    OUTER_SET $fees(~DEFAULT~) = 0
+    OUTER_TEXT_SPRINT $conditions(~DEFAULT~) ~~
   END
   COMPILE ~%MOD_FOLDER%/bcs/a7_merc.baf~ EVAL
 
   // compiling dialog
-  ACTION_IF (enable_fee) BEGIN
-    OUTER_TEXT_SPRINT A7_MERC_STATE_INTRO ~SAY @2005~
-    OUTER_TEXT_SPRINT A7_MERC_STATE ~SAY @2006~
-  END ELSE BEGIN
-    OUTER_TEXT_SPRINT A7_MERC_STATE_INTRO ~SAY @2001~
-    OUTER_TEXT_SPRINT A7_MERC_STATE ~SAY @2002~
+  OUTER_TEXT_SPRINT A7_MERC_INTRO_LIST ~~
+  OUTER_TEXT_SPRINT A7_MERC_GAME_ENTRY ~~
+  ACTION_PHP_EACH games AS game => available BEGIN
+    ACTION_IF (available) BEGIN
+      OUTER_SET fee = $fees(~%game%~)
+      OUTER_TEXT_SPRINT triggers $conditions(~%game%~)
+      ACTION_IF (fee > 0) BEGIN
+        OUTER_TEXT_SPRINT A7_MERC_STATE_INTRO ~  SAY @2005~
+        OUTER_TEXT_SPRINT A7_MERC_STATE ~  SAY @2006~
+      END ELSE BEGIN
+        OUTER_TEXT_SPRINT A7_MERC_STATE_INTRO ~  SAY @2001~
+        OUTER_TEXT_SPRINT A7_MERC_STATE ~  SAY @2002~
+      END
+
+      LAF GENERATE_DIALOG_RESPONSES INT_VAR fee STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY responses END
+      OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~~
+      ACTION_PHP_EACH responses AS _ => line BEGIN
+        OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~%A7_MERC_RESPONSE_LIST%%line%%WNL%~
+      END
+
+      OUTER_TEXT_SPRINT A7_MERC_INTRO_LIST ~~~~~%A7_MERC_INTRO_LIST%  IF ~%triggers%~ DO ~SetGlobal("A7STO_MerchantSummoned","GLOBAL",1)~ + Intro.%game%%WNL%~~~~~
+
+      OUTER_TEXT_SPRINT A7_MERC_GAME_ENTRY ~~~~~%A7_MERC_GAME_ENTRY%IF ~~ Intro.%game%
+%A7_MERC_STATE_INTRO%
+%A7_MERC_RESPONSE_LIST%
+END
+
+IF ~!Global("A7STO_MerchantSummoned","GLOBAL",0) %triggers% !ActuallyInCombat()~ Stores.%game%
+%A7_MERC_STATE%
+  COPY_TRANS SAFE ~A7_MERC~ Intro.%game%
+END
+~~~~~
+    END
   END
-  LAF GENERATE_DIALOG_RESPONSES INT_VAR enable_fee STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY responses END
-  OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~~
-  ACTION_PHP_EACH responses AS _ => line BEGIN
-    OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~%A7_MERC_RESPONSE_LIST%%line%%WNL%~
-  END
+  // COPY + ~%MOD_FOLDER%/dlg/a7_merc.d~ ~a7_merc.d~ EVAL
   COMPILE ~%MOD_FOLDER%/dlg/a7_merc.d~ EVAL
 
   // make item available
