@@ -17,6 +17,7 @@ BEGIN
 
   ACTION_CLEAR_ARRAY ~select_responses~
   ACTION_CLEAR_ARRAY ~store_responses~
+  OUTER_SET label_index = 0
 
   // loading table for special stores
   // supported game ids: bg1, sod, soa, tob, iwd
@@ -177,7 +178,7 @@ BEGIN
         END
 
         // generating dialog response command
-        OUTER_TEXT_SPRINT state_label ~Store.%sto_resref%~
+        OUTER_TEXT_SPRINT state_label ~Store.%label_index%~
         ACTION_IF (fee > 0) BEGIN
           // multiple gold checks must be summed up to make sense
           OUTER_SET updated = 0
@@ -199,6 +200,7 @@ BEGIN
           OUTER_TEXT_SPRINT $select_responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ + %state_label%~~~~~
         END
         OUTER_TEXT_SPRINT $store_responses(~%state_label%~) ~~~~~  IF ~~ DO ~%action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
+        OUTER_SET label_index += 1
       END
     END
   END
