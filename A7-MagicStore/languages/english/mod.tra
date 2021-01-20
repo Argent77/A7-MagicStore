@@ -27,8 +27,8 @@
 @2005 = ~To your surprise he prepares a lists of all the stores you have visited in the past. After that, he presents you with the list and indicates that you may visit one of the stores for a fee of <A7STO_FEE> gold.~
 @2006 = ~The merchant presents you with a list of stores and indicates that you may visit one of them for a fee of <A7STO_FEE> gold.~
 @2007 = ~I don't have enough gold to pay your fee.~
-// @2008 = ~The merchant chants a spell in a foreign language, and shortly afterwards a store appears before you.~
-// @2009 = ~After receiving your gold he chants a spell in a foreign language, and shortly afterwards a store appears before you.~
+@2008 = ~The merchant chants a spell in a foreign language. Shortly afterwards a store appears before you.~
+@2009 = ~After receiving your gold he chants a spell in a foreign language. Shortly afterwards a store appears before you.~
 
 // Store response templates
 @2010 = ~"%store_name%"~

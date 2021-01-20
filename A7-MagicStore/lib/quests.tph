@@ -128,10 +128,10 @@ BEGIN
         OUTER_TEXT_SPRINT A7_MERC_STATE ~  SAY @2002~
       END
 
-      LAF GENERATE_DIALOG_RESPONSES INT_VAR fee STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY responses END
+      LAF GENERATE_DIALOG_RESPONSES INT_VAR fee STR_VAR sto_dlg_array dlg_cre_array cre_are_array RET_ARRAY select_responses store_responses END
       OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~~
-      ACTION_PHP_EACH responses AS _ => line BEGIN
-        OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~%A7_MERC_RESPONSE_LIST%%line%%WNL%~
+      ACTION_PHP_EACH select_responses AS _ => response BEGIN
+        OUTER_TEXT_SPRINT A7_MERC_RESPONSE_LIST ~%A7_MERC_RESPONSE_LIST%%response%%WNL%~
       END
 
       OUTER_TEXT_SPRINT A7_MERC_INTRO_LIST ~~~~~%A7_MERC_INTRO_LIST%  IF ~%triggers%~ DO ~SetGlobal("A7STO_MerchantSummoned","GLOBAL",1)~ + Intro.%game%%WNL%~~~~~
@@ -148,6 +148,21 @@ END
 ~~~~~
     END
   END
+
+  OUTER_TEXT_SPRINT A7_MERC_STORE_ENTRY ~~
+  ACTION_IF (fee > 0) BEGIN
+    OUTER_TEXT_SPRINT A7_MERC_STORE_STATE ~  SAY @2009~
+  END ELSE BEGIN
+    OUTER_TEXT_SPRINT A7_MERC_STORE_STATE ~  SAY @2008~
+  END
+  ACTION_PHP_EACH store_responses AS state_label => response BEGIN
+    OUTER_TEXT_SPRINT A7_MERC_STORE_ENTRY ~~~~~%A7_MERC_STORE_ENTRY%IF ~~ %state_label%
+%A7_MERC_STORE_STATE%
+%response%
+END
+~~~~~
+  END
+
   // COPY + ~%MOD_FOLDER%/dlg/a7_merc.d~ ~a7_merc.d~ EVAL
   COMPILE ~%MOD_FOLDER%/dlg/a7_merc.d~ EVAL
 

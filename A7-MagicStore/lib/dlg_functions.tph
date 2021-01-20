@@ -10,11 +10,13 @@ STR_VAR
   dlg_cre_array = ~dlg_cre_array~
   cre_are_array = ~cre_are_array~
 RET_ARRAY
-  responses // associative array: %[sto resref]% => %[.d response entry]%
+  select_responses  // associative array: %[sto resref]% => %[.d response entry]%
+  store_responses   // associative array: %[state_label]% => %[.d StartStore entry]%
 BEGIN
   LAF GET_ARE_NAMES RET_ARRAY are_names END
 
-  ACTION_CLEAR_ARRAY ~responses~
+  ACTION_CLEAR_ARRAY ~select_responses~
+  ACTION_CLEAR_ARRAY ~store_responses~
 
   // loading table for special stores
   // supported game ids: bg1, sod, soa, tob, iwd
@@ -57,10 +59,10 @@ BEGIN
     OUTER_TEXT_SPRINT entry ~~
     OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~!PartyGoldLT(%fee%)~ + @2003 EXIT%WNL%~~~~~ // I don't want to visit any stores right now.
     OUTER_TEXT_SPRINT entry ~~~~~%entry%  + ~PartyGoldLT(%fee%)~ + @2007 EXIT%WNL%~~~~~  // I don't have enough gold to pay your fee.
-    OUTER_TEXT_SPRINT $responses(~~) ~%entry%~
+    OUTER_TEXT_SPRINT $select_responses(~~) ~%entry%~
   END ELSE BEGIN
     // free of charge
-    OUTER_TEXT_SPRINT $responses(~~) ~++ @2003 EXIT~  // I don't want to visit any stores right now.
+    OUTER_TEXT_SPRINT $select_responses(~~) ~++ @2003 EXIT~  // I don't want to visit any stores right now.
   END
 
   // defining store responses
@@ -175,11 +177,28 @@ BEGIN
         END
 
         // generating dialog response command
+        OUTER_TEXT_SPRINT state_label ~Store.%sto_resref%~
         ACTION_IF (fee > 0) BEGIN
-          OUTER_TEXT_SPRINT trigger_extra ~!PartyGoldLT(%fee%) %trigger_extra%~
-          OUTER_TEXT_SPRINT action_extra ~TakePartyGold(%fee%) %action_extra%~
+          // multiple gold checks must be summed up to make sense
+          OUTER_SET updated = 0
+          OUTER_PATCH_SAVE trigger_extra ~%trigger_extra%~ BEGIN
+            REPLACE_EVALUATE
+              ~\(!?PartyGold[^(]*\)(\([0-9]+\))~
+              BEGIN
+                SET MATCH2 += fee
+                SET updated = 1
+              END
+              ~%MATCH1%(%MATCH2%)~
+          END
+          ACTION_IF (NOT updated) BEGIN
+            OUTER_TEXT_SPRINT trigger_extra ~!PartyGoldLT(%fee%) %trigger_extra%~
+          END
+          OUTER_TEXT_SPRINT action_fee ~TakePartyGold(%fee%)~
+          OUTER_TEXT_SPRINT $select_responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ DO ~%action_fee%~ + %state_label%~~~~~
+        END ELSE BEGIN
+          OUTER_TEXT_SPRINT $select_responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ + %state_label%~~~~~
         END
-        OUTER_TEXT_SPRINT $responses(~%sto_resref%~) ~~~~~  + ~!Global("A7STO-%sto_resref%","GLOBAL",0) %trigger_extra%~ + ~%response%%message%.~ DO ~%action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
+        OUTER_TEXT_SPRINT $store_responses(~%state_label%~) ~~~~~  IF ~~ DO ~%action_extra% StartStore("%sto_resref%",LastTalkedToBy(Myself))~ EXIT~~~~~
       END
     END
   END

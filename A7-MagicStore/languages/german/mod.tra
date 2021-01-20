@@ -27,8 +27,8 @@
 @2005 = ~Zu Eurer Überraschung erstellt er eine Liste aller Läden, die Ihr in der Vergangenheit besucht habt. Dann präsentiert er Euch die Liste und deutet an, dass Ihr für <A7STO_FEE> Goldmünzen einen der Läden besuchen könnt.~
 @2006 = ~Der Händler präsentiert Euch eine Liste aller Läden und deutet an, dass Ihr für <A7STO_FEE> Goldmünzen einen der Läden besuchen könnt.~
 @2007 = ~Ich habe nicht genug Gold, um Eure Gebühr zu zahlen.~
-// @2008 = ~Der Händler fängt an, einen Zauber in einer Euch unbekannten Sprache auszusprechen. Kurze Zeit später erscheint ein Laden vor Euch.~
-// @2009 = ~Nachdem der Händler Euer Gold entgegengenommen hat, fängt er an, einen Zauber in einer Euch unbekannten Sprache auszusprechen. Kurze Zeit später erscheint ein Laden vor Euch.~
+@2008 = ~Der Händler fängt an, einen Zauber in einer Euch unbekannten Sprache auszusprechen. Kurze Zeit später erscheint ein Laden vor Euch.~
+@2009 = ~Nachdem der Händler Euer Gold entgegengenommen hat, fängt er an, einen Zauber in einer Euch unbekannten Sprache auszusprechen. Kurze Zeit später erscheint ein Laden vor Euch.~
 
 // Store response templates
 @2010 = ~"%store_name%"~
