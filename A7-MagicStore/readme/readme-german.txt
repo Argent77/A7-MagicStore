@@ -73,6 +73,8 @@ wollt. Die Höhe richtet sich nach dem gegenwärtigen Spiel bzw. Spielabschnitt.
 In BG1 beträgt sie 25 Goldmünzen. Der Betrag verdoppelt sich in den jeweils nachfolgenden Spielen:
 50 Goldmünzen in SoD, 100 Goldmünzen in BG2:SvA und 200 Goldmünzen in BG2:TdB. In IWD:EE beträgt
 die Gebühr 50 Goldmünzen.
+Bei Bedarf kann die Höhe der Gebühr in der Datei A7-MagicStore/2da/fee.2da angepasst werden, bevor
+diese Komponente installiert wird.
 
 2) Gebührenfrei
 Bei dieser Variante verlangt der geisterhafte Händler keine Gebühr, wenn Ihr einen Laden besuchen

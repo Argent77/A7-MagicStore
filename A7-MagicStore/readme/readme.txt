@@ -63,6 +63,8 @@ The ghostly merchant will charge you a fee whenever you wish to access a store. 
 on the current game or campaign.
 It starts with 25 gold in BG1 and doubles with each campaign: 50 gold in SoD, 100 gold in BG2:SoA
 and 200 gold in BG2:ToB. In IWD:EE the fee is always 50 gold.
+If needed, the fee for each campaign can be customized in the file A7-MagicStore/2da/fee.2da before
+installing this component.
 
 2) Free of charge
 The ghostly merchant won't charge you when you wish to access a store.
