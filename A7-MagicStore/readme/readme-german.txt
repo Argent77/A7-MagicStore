@@ -106,6 +106,8 @@ Danksagungen
 
 Coding and testing: Argent77
 
+Russian translation: yota13
+
 Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 
 
@@ -122,6 +124,7 @@ Versionshistorie
 2.0
 - Added new option: Ghostly Merchant may charge a fee whenever you want to visit a store
 - Added special treatment of stores where the original merchant demands a fee for access
+- Added Russian translation (thanks yota13)
 - Added German readme
 
 1.0

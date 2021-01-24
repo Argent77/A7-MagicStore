@@ -21,14 +21,14 @@ ALWAYS
   ACTION_DEFINE_ARRAY a7reload BEGIN ~mod~ END
   LAF HANDLE_CHARSETS
     INT_VAR
-      from_utf8 = 1
-      infer_charsets = 1
+      from_utf8        = 1
+      infer_charsets   = 1
     STR_VAR
       default_language = ~english~
-      tra_path = EVAL ~%MOD_FOLDER%/languages~
-      out_path = EVAL ~%WORK_FOLDER%/lang/%MOD_FOLDER%~
-      noconvert_array = ~a7noconvert~
-      reload_array = ~a7reload~
+      tra_path         = EVAL ~%MOD_FOLDER%/languages~
+      out_path         = EVAL ~%WORK_FOLDER%/lang/%MOD_FOLDER%~
+      noconvert_array  = ~a7noconvert~
+      reload_array     = ~a7reload~
   END
 END
 
@@ -45,6 +45,12 @@ LANGUAGE ~Deutsch~
          ~A7-MagicStore/languages/english/mod.tra~
          ~A7-MagicStore/languages/german/setup.tra~
          ~A7-MagicStore/languages/german/mod.tra~
+LANGUAGE ~Russian (Translation: yota13)~
+         ~russian~
+         ~A7-MagicStore/languages/english/setup.tra~
+         ~A7-MagicStore/languages/english/mod.tra~
+         ~A7-MagicStore/languages/russian/setup.tra~
+         ~A7-MagicStore/languages/russian/mod.tra~
 
 
 BEGIN @2  // Fee required
