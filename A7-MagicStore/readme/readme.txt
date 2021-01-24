@@ -1,7 +1,7 @@
 Magic Store of Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    1.0
+Version:    2.0
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -109,7 +109,7 @@ History
 ~~~~~~~
 
 2.0
-- Added new option: Ghostly Merchant may charge a fee whenever you want to visit a store
+- Added new install option: Ghostly Merchant may charge a fee whenever you want to visit a store
 - Added special treatment of stores where the original merchant demands a fee for access
 - Added Russian translation (thanks yota13)
 - Added German readme
