@@ -1,5 +1,14 @@
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Argent77/A7-MagicStore?color=darkred&include_prereleases&label=latest%20release)](https://GitHub.com/Argent77/A7-MagicStore/releases/latest)
+[![GitHub release date (latest by date)](https://img.shields.io/github/release-date/Argent77/A7-MagicStore?color=gold)](https://GitHub.com/Argent77/A7-MagicStore/releases/latest)
+[![Github downloads (all releases)](https://img.shields.io/github/downloads/Argent77/A7-MagicStore/total.svg?color=blueviolet)](https://GitHub.com/Argent77/A7-MagicStore/releases)
+[![Platform](https://img.shields.io/static/v1?label=platform&message=Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Project%20Infinity&color=informational)](https://GitHub.com/Argent77/A7-MagicStore/releases/latest)
+[![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20German%20%7C%20Russian&color=limegreen)]()
+
 # Magic Store of Vergadain
 *A magical artifact that allows access to stores from all over the world.*
+
+[![Beamdog Forums](https://img.shields.io/static/v1?label=Discussion&message=Beamdog%20Forums&color=444&labelColor=eee&style=flat)](https://forums.beamdog.com/discussion/81331)
+[![G3 Forums](https://img.shields.io/static/v1?label=Discussion&message=G3%20Forums&color=3b45a3&labelColor=eee&style=flat)](https://www.gibberlings3.net/forums/topic/32357-magic-store-of-vergadain-visit-any-store-anywhere-and-anytime)
 
 ## Overview
 
