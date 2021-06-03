@@ -281,13 +281,16 @@ Cromwell has successfully assembled the artifact "Magic Store of Vergadain" for 
 
 // ToB entries
 @10400 = ~A mercantile legacy
+
 The copper frame found in Kiser's home could be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
 
 @10401 = ~A mercantile legacy
+
 The crystal looted from one of Gromnir's mages looks like it can be used to construct the Magic Store artifact mentioned in the book about forgotten artifacts.~
 
 // (quest completed)
 @10402 = ~A mercantile legacy
+
 Cespenar has successfully assembled the artifact "Magic Store of Vergadain" for me. With it I can freely access any stores I have visited in the past.~
 
 // IWD entries
