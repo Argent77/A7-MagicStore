@@ -1,0 +1,10 @@
+// -*- coding: us-ascii -*-
+@1 = ~Magiczny sklep Vergadaina~
+@2 = ~Wymagana oplata~
+@3 = ~Bez oplat~
+@10 = ~Alternatywny portret widmowego kupca~
+
+// Error messages
+@100 = ~Ta gra nie jest obslugiwana.~
+@101 = ~Do instalacji modyfikacji wymagana jest uprzednia instalacja Modmerge lub DLC Merger.~
+@102 = ~Wymagana instalacja glownego komponentu.~

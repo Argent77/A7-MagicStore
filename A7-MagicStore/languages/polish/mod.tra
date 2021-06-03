@@ -1,0 +1,313 @@
+// -*- coding: utf-8 -*-
+// Predefined area names (everything else is taken from worldmap names)
+// BG1
+@1000 = ~Wrota Baldura: północny zachód~
+@1001 = ~Wrota Baldura: północ~
+@1002 = ~Wrota Baldura: północny wschód~
+@1003 = ~Wrota Baldura: zachód~
+@1004 = ~Wrota Baldura: centrum~
+@1005 = ~Wrota Baldura: wschód~
+@1006 = ~Żmijowa przeprawa~
+@1007 = ~Wrota Baldura: południowy zachód~
+@1008 = ~Wrota Baldura: południe~
+@1009 = ~Wrota Baldura: południowy wschód~
+@1010 = ~Candlekeep~  // for "Tutorial" Candlekeep
+@1050 = ~Kręgi Podmroku~
+// BG2
+@1100 = ~Ust Natha~
+@1150 = ~Kręgi Thay~
+@1151 = ~Kręgi Podmroku 2~
+
+
+// Ghostly Merchant dialog
+@2000 = ~Twoim oczom ukazuje się widmowa sylwetka mężczyzny odzianego w strój kupca. Istota zwraca się w twoją stronę.~
+@2001 = ~Ku twemu zaskoczeniu przedstawia ci listę sklepów, które odwiedziłeś podczas swoich podróży, czekając na twoją decyzję.~~Ku twemu zaskoczeniu przedstawia ci listę sklepów, które odwiedziłaś podczas swoich podróży, czekając na twoją decyzję.~
+@2002 = ~Kupiec przedstawia ci listę sklepów, czekając na twoją decyzję.~
+@2003 = ~Nie chcę odwiedzać na razie żadnych sklepów.~
+@2004 = ~Kupiec zwraca się w twoją stronę. Próbuje przedstawić ci listę sklepów, ale jego uwagę zaprzątają atakujący cię wrogowie.~
+@2005 = ~Ku twemu zaskoczeniu zaczyna sporządzać listę sklepów, które odwiedziłeś podczas swoich podróży. Następnie przedstawia ci ową listę, informując, że po uiszczeniu opłaty w wysokości <A7STO_FEE> sztuk złota, możesz odwiedzić wskazany sklep.~~Ku twemu zaskoczeniu zaczyna sporządzać listę sklepów, które odwiedziłaś podczas swoich podróży. Następnie przedstawia ci ową listę, informując, że po uiszczeniu opłaty w wysokości <A7STO_FEE> sztuk złota, możesz odwiedzić wskazany sklep.~
+@2006 = ~Kupiec przedstawia ci listę sklepów, informując, że po uiszczeniu opłaty w wysokości <A7STO_FEE> sztuk złota, możesz odwiedzić dowolny z nich.~
+@2007 = ~Nie mam wystarczającej ilości złota.~
+@2008 = ~Kupiec wypowiada zaklęcie w nieznanym ci języku. Chwilę po tym przed tobą pojawia się wskazany przez ciebie sklep.~
+@2009 = ~Po otrzymaniu zapłaty kupiec wypowiada zaklęcie w nieznanym ci języku. Chwilę po tym przed tobą pojawia się wskazany przez ciebie sklep.~
+
+// Store response templates
+@2010 = ~„%store_name%”~
+@2011 = ~„%store_name%”, %creature_name%~
+@2012 = ~„%store_name%”, „%area_name%”~
+@2013 = ~„%store_name%”, %creature_name%, „%area_name%”~
+
+@2020 = ~Sklep~ // default name for unnamed stores
+
+// custom messages for special stores (see 2da/special.2da); added after response string in parentheses
+@2100 = ~za pięćdziesiąt sztuk złota~ // Ribald's special store
+@2101 = ~za sto sztuk złota~  // Nym's exotic store (Golem Construction mod)
+
+
+// Items
+@3000 = ~Magiczny sklep Vergadaina~
+@3001 = ~Ten potężny artefakt został pierwotnie zaprojektowany przez krasnoludów należących do kościoła Vergadaina, krasnoludzkiego boga negocjacji i bogactwa. Jest to magiczne lustro służące do przyzywania widmowego kupca, który posiada moc przywoływania odwiedzonych przez ciebie w przeszłości sklepów.
+
+PARAMETRY:
+
+Specjalne:
+– Przyzywa widmowego kupca, trzy razy dziennie
+
+Waga: 1~
+
+@3010 = ~Widmowy kupiec~
+@3011 = ~Nikt nie będzie mnie okradał!~
+@3012 = ~Nie prowadzę interesów ze złodziejskim nasieniem.~
+
+@3100 = ~Bryła miedzi~
+@3101 = ~Jest to kawałek rudy miedzi. Można z niej wytworzyć różnego rodzaju błyskotki lub ozdoby.
+
+PARAMETRY:
+
+Waga: 1~
+
+@3200 = ~Ozdobna miedziana rama~
+@3201 = ~Ta ozdobna miedziana rama służy do bezpiecznego przechowywania wszelkiego rodzaju kunsztownych i delikatnych przedmiotów.
+
+PARAMETRY:
+
+Waga: 1~
+
+@3300 = ~Lśniący kryształ~
+@3301 = ~Kryształy charakteryzują się przeróżnymi kształtami oraz barwami i są wysoce cenione przez jubilerów i zaklinaczy. Ten kryształ cechuje niespotykana czystość, dlatego można w nim zawrzeć naprawdę potężne zaklęcia.
+
+PARAMETRY:
+
+Waga: 0~
+
+@3400 = ~Zapomniane Artefakty, tom 3~
+@3401 = ~Zapomniane Artefakty, tom 3
+Autor: Karador
+
+Ta seria książek opisuje różnego rodzaju artefakty stworzone przez elfiego zaklinacza o imieniu Elameth oraz krasnoludzkiego kowala, Karadora, w odległych czasach, gdy obie rasy współpracowały ze sobą na dalekiej północy.
+
+Ten tom opisuje proces tworzenia artefaktu, który może być użyty do przyzywania kupców z dalekich stron za pomocą magii. Artefakt ten jest nazywany „Magicznym sklepem Vergadaina” i do jego użycia wymagane jest umieszczenie w miedzianej ramie zaklętego kryształu.~
+
+@3402 = ~Zapomniane Artefakty, tom 3
+Autor: Karador
+
+Ta seria książek opisuje różnego rodzaju artefakty stworzone przez elfiego zaklinacza o imieniu Elameth oraz krasnoludzkiego kowala, Karadora, w odległych czasach, gdy obie rasy współpracowały ze sobą na dalekiej północy.
+
+Ten tom opisuje proces tworzenia artefaktu, który może być użyty do przyzywania kupców z dalekich stron za pomocą magii. Artefakt ten jest nazywany „Magicznym sklepem Vergadaina” i do jego użycia wymagane jest umieszczenie w miedzianej ramie zaklętego kryształu.~
+
+
+// BG1 quest dialog lines
+// Taerom lines
+@4000 = ~W pewnej księdze napisano, że do stworzenia magicznego artefaktu niezbędna jest miedziana rama. Możesz dla nas taką wykonać?~
+@4001 = ~Mag o imieniu Thalantyr skierował nas do ciebie w kwestii miedzianej ramy. Potrafisz takową wykonać?~
+@4002 = ~Potrzebujemy miedzianej ramy. Mógłbyś ją dla nas wykonać?~
+@4003 = ~Ależ oczywiście. Miedź jest łatwa w obróbce. Niestety nie mam w tej chwili na stanie wystarczającej ilości materiału. Przynieście mi trochę rudy miedzi, a niezwłocznie się tym zajmę.~
+@4004 = ~Gdzie możemy znaleźć rudę miedzi?~
+@4005 = ~Proszę, oto cała bryła.~
+@4006 = ~Właściwie to nie potrzebujemy tego teraz. Wrócimy później.~
+@4007 = ~Możecie ją znaleźć w kopalniach Nashkel, na południe stąd. Obecnie wydobywa się tam głównie rudę żelaza, ale w przeszłości wydobywano też i miedź.~
+@4008 = ~Dziękuję. Rozejrzymy się tam.~
+@4009 = ~Ach, to porządny kawałek miedzi. Za sto sztuk złota zbuduję dla was miedzianą ramę. Nie zajmie to długo.~
+@4010 = ~Nie mamy przy sobie tyle złota. Może później.~
+@4011 = ~Tak, poprosimy. Oto złoto.~
+@4012 = ~Wedle życzenia. Będę tu, jeśli zmienicie zdanie.~
+@4013 = ~Wobec tego nie marnujmy czasu. Rozsiądźcie się wygodnie, wrócę niebawem.~
+@4014 = ~Kowal kieruje się do swych narzędzi, rozpoczynając proces wytapiania rudy miedzi, a następnie wykuwania z niej ramy. Powtarza te czynności jeszcze kilkukrotnie, po czym zwraca się do was.~
+@4015 = ~Oto i obiecana miedziana rama. Interesy z wami to czysta przyjemność.~
+@4016 = ~Niestety z kryształem wam nie pomogę. Może mój przyjaciel będzie w stanie. Nazywa się Thalantyr i mieszka w Wysokim Żywopłocie, na zachód od Beregostu.~
+@4017 = ~Jak najbardziej. Przynieście mi kawałek miedzi, a zacznę niezwłocznie.~
+@4018 = ~Proszę, oto miedź.~
+@4019 = ~Nie mamy przy sobie miedzi. Wrócimy później.~
+// Thalantyr lines
+@4100 = ~W pewnej księdze opisano proces tworzenia potężnego magicznego artefaktu, zwanego „Magicznym sklepem Vergadaina”. Możesz go dla nas stworzyć?~
+@4101 = ~Chciałbym porozmawiać znów o Magicznym sklepie.~~Chciałabym porozmawiać znów o Magicznym sklepie.~
+@4102 = ~Może tak, a może nie. Podaj mi tę twoją księgę.~
+@4103 = ~Nie mamy jej ze sobą.~
+@4104 = ~Proszę.~
+@4105 = ~Zmieniłem zdanie, przepraszam, że zawracaliśmy ci głowę.~~Zmieniłam zdanie, przepraszam, że zawracaliśmy ci głowę.~
+@4106 = ~Zatem nie marnujcie dłużej mojego czasu.~
+@4107 = ~Hmm, interesująca lektura. Rytuał wygląda na skomplikowany, ale nie zwykłem unikać wyzwań.~
+@4108 = ~Do rzucenia zaklęcia będę potrzebował dwóch komponentów: miedzianej ramy i kryształu. Tak się akurat składa, że mam na sprzedaż odpowiednie kryształy. Nadają się do różnego rodzaju zaklęć.~
+@4109 = ~Do rzucenia zaklęcia potrzebuję dwóch komponentów, miedzianej ramy i kryształu.~
+@4110 = ~W kwestii ramy sugerowałbym wizytę u Taeroma Fuiruima. Prowadzi on Kuźnię Grzmiącego Młota w Beregoście.~
+@4111 = ~Jeśli dostarczycie wymagane komponenty, będę mógł stworzyć dla was ten Magiczny sklep. Samo rzucenie zaklęcia będzie was kosztowało dwa tysiące sztuk złota. Co wy na to?~
+@4112 = ~Mamy ze sobą wszystko, czego potrzebujesz. Stwórz dla nas ten artefakt.~
+@4113 = ~Nie mamy wystarczającej ilości złota. Wrócimy później.~
+@4114 = ~Nie mamy ze sobą wszystkich komponentów. Wrócimy później.~
+@4115 = ~Wróćcie zatem, gdy będziecie mieli wszystko, czego potrzebuję. Do tego czasu nie mam nic więcej do powiedzenia.~
+@4116 = ~Powiedziałem wam już, czego potrzebuję do stworzenia Magicznego sklepu. Macie wszystko, czego mi trzeba?~
+@4117 = ~Tak, wygląda na to, że jest wszystko.~
+@4118 = ~A teraz siedźcie przez chwilę cicho. By przeprowadzić ten rytuał, muszę się w pełni skoncentrować...~
+@4119 = ~... I gotowe. Pozostawię waszej inteligencji zrozumienie, jak ten artefakt działa. A teraz idźcie. Jestem trochę zmęczony.~
+
+// SoD quest dialog lines
+// Soralis lines
+@5000 = ~Nie mam pojęcia. Mogę spojrzeć?~
+@5001 = ~Nie mamy ze sobą księgi.~
+@5002 = ~Jasne. Oto księga.~
+@5003 = ~Zmieniłem zdanie. Do widzenia. Musimy już iść.~~Zmieniłam zdanie. Do widzenia. Musimy już iść.~
+@5004 = ~Nie jestem w stanie pomóc bez książki. Wróćcie, gdy ją zdobędziecie.~
+@5005 = ~Hmm, z tego, co widzę, rytuał wymaga dwóch komponentów: miedzianej ramy i kryształu.~
+@5006 = ~Niestety nie mam pojęcia, gdzie je znaleźć. Możecie sprawdzić u lokalnych handlarzy lub przeszukać okolicę w poszukiwaniu ukrytych skarbów. Ten region był ostatnimi czasy oblegany ze względu na krucjatę.~
+@5007 = ~Przeprowadzenie rytuału będzie was też kosztowało dwa tysiące sztuk złota.~
+@5008 = ~Mamy wszystko, czego ci trzeba. Proszę.~
+@5009 = ~Nie mamy wystarczającej ilości złota. Wrócimy później.~
+@5010 = ~Nie mamy wszystkich składników wymaganych do stworzenia artefaktu. Wrócimy później.~
+@5011 = ~Wróćcie, gdy będziecie mieli wszystko.~
+@5012 = ~Macie wszystkie komponenty niezbędne do przeprowadzenia rytuału?~
+@5013 = ~Dziękuję. Wygląda na to, że wszystko jest w porządku.~
+@5014 = ~Dajcie mi chwilę na przeprowadzenie rytuału...~
+@5015 = ~... I zrobione. Jestem pewna, że przedmiot będzie działał bez zarzutu.~
+
+// BG2 quest dialog lines
+// Cromwell lines
+@6000 = ~A to ci niespodzianka. Księga napisana przez moich pobratymców z północy, opisująca Magiczny sklep Vergadaina?~
+@6001 = ~Widzę, że macie ze sobą miedzianą ramę i kryształ. Stworzenie przedmiotu będzie was kosztowało trzy tysiące sztuk złota.~
+@6002 = ~Gdybyście mieli ze sobą miedzianą ramę i kryształ, wykonałbym dla was ten przedmiot za trzy tysiące sztuk złota.~
+@6003 = ~Widzę miedzianą ramę, ale nie przynieśliście kryształu. Jak będziecie mieli oba te przedmioty, stworzę dla was przedmiot za trzy tysiące.~
+@6004 = ~Macie kryształ, ale wciąż brakuje ramy. Jak będziecie mieli oba te przedmioty, stworzę dla was przedmiot za trzy tysiące.~
+@6005 = ~No cóż, zobaczmy w takim razie, co tam masz innego.~
+
+// ToB quest dialog lines
+// Cespenar lines
+@7000 = ~A to co takiego? Książka? Ooo... to książka o wielu kupcach. Niedobra dla ciebie?~
+@7001 = ~Tak czy owak... macie miedzianą ramę i kryształ. Cztery tysiące i Cespenar da wam dostęp do wielu kupców.~
+@7002 = ~Tak czy siak... muszę mieć miedzianą ramę i kryształ albo nici z wielu kupców.~
+@7003 = ~No cóż, zobaczmy, co tam jeszcze masz...~
+
+// IWD quest dialog lines
+// Conlan lines
+@8000 = ~Nie będzie z tym problemu. Nie pracuję co prawda zbyt często z miedzią – używa jej się głównie do wyrobu błyskotek czy ozdób – ale taka rama nie powinna być trudna do wykonania.~
+@8001 = ~Niestety nie mam już na stanie rudy miedzi. Następna dostawa się opóźnia, a przy tej parszywej pogodzie i wszystkich dziwnych wydarzeniach, jakie miały miejsce ostatnio, nie spodziewam się jej w najbliższym czasie.~
+@8002 = ~Tak się składa, że mam przy sobie trochę miedzi.~
+@8003 = ~Ciężko powiedzieć. Możliwe, że znajdziecie ją w kopalniach Głębi Dorna, na południu. To jednak kawał drogi stąd i nie jestem pewien, czy krasnoludy was tam w ogóle wpuszczą. Sugerowałbym najpierw poszukać szczęścia w grobowcach Doliny Cieni.~
+@8004 = ~Świetnie. Za sto sztuk złota wykonam dla was ramę od ręki.~
+@8005 = ~W porządku. Wróćcie, jak zmienicie zdanie.~
+// Orrick lines
+@8100 = ~Możliwe, jeśli księga mówi prawdę. Mogę rzucić okiem?~
+@8101 = ~Cóż, bez księgi nie mogę wam w żaden sposób pomóc. Wróćcie, gdy ją zdobędziecie.~
+@8102 = ~Och, ta księga pochodzi z okresu współpracy pomiędzy elfami i krasnoludami. Myślę, że to, co tam piszą, jest prawdą.~
+@8103 = ~Na szczęście rytuał jest opisany bardzo szczegółowo. Myślę, że byłbym w stanie stworzyć taki artefakt. Będę do tego potrzebował dwóch komponentów.~
+@8104 = ~Pierwszy to miedziana rama. Możecie zapytać o nią miejscowego kowala, Conlana.~
+@8105 = ~Pierwszy to miedziana rama.~
+@8106 = ~Drugi komponent to kryształ. Nie ma w tym nic zaskakującego, kryształy są często używane przy tego typu zaklęciach. Chyba mam jeszcze jeden na stanie, jeśli jesteście zainteresowani.~
+@8107 = ~Drugi komponent to kryształ. Nie ma w tym nic zaskakującego, kryształy są często używane przy tego typu zaklęciach.~
+@8108 = ~Opłata za przeprowadzenie rytuału to trzy tysiące sztuk złota. Dalej zainteresowani?~
+@8109 = ~Pewnie. Macie ze sobą miedzianą ramę i kryształ? Będę też potrzebował trzech tysięcy sztuk złota za przeprowadzenie rytuału.~
+@8110 = ~Wyśmienicie. Dajcie mi tylko chwilę na rzucenie zaklęcia...~
+@8111 = ~... I gotowe. Mam nadzieję, że wam się spodoba. Tak wspaniałe artefakty są rzadko widywane w dzisiejszych czasach.~
+
+
+// Journal entries
+// Common entries
+@10000 = ~Kupieckie dziedzictwo~
+
+@10001 = ~W pewnej księdze opisano proces tworzenia nietypowego magicznego artefaktu zwanego „Magicznym sklepem Vergadaina”. Według tego, co w niej napisano, pozwala on na wezwanie przed swe oblicze dowolnego handlarza, z którym kiedykolwiek robiło się interesy. Z tego, co rozumiem, do jego stworzenia potrzebne są miedziana rana i magiczny kryształ. No i oczywiście zaklinacz lub mistrz kowalstwa, którzy będą wiedzieli, jak go wykonać.~
+
+@10002 = ~Kupieckie dziedzictwo
+
+W pewnej księdze opisano proces tworzenia nietypowego magicznego artefaktu zwanego „Magicznym sklepem Vergadaina”. Według tego, co w niej napisano, pozwala on na wezwanie przed swe oblicze dowolnego handlarza, z którym kiedykolwiek robiło się interesy. Z tego, co rozumiem, do jego stworzenia potrzebne są miedziana rana i magiczny kryształ. No i oczywiście zaklinacz lub mistrz kowalstwa, którzy będą wiedzieli, jak go wykonać.~
+
+@10003 = ~Kupieckie dziedzictwo
+
+W pewnej księdze opisano proces tworzenia nietypowego magicznego artefaktu zwanego „Magicznym sklepem Vergadaina”. Według tego, co w niej napisano, pozwala on na wezwanie przed swe oblicze dowolnego handlarza, z którym kiedykolwiek robiło się interesy. Z tego, co rozumiem, do jego stworzenia potrzebne są miedziana rana i magiczny kryształ. No i oczywiście zaklinacz lub mistrz kowalstwa, którzy będą wiedzieli, jak go wykonać.~
+
+// BG1 entries
+@10101 = ~Kupieckie dziedzictwo
+
+Taerom Fuiruim z Kuźni Grzmiącego Młota w Beregoście zaproponował wykonanie miedzianej ramy pod warunkiem, że dostarczymy mu rudy miedzi z kopalni Nashkel.~
+
+@10102 = ~Kupieckie dziedzictwo
+
+Taerom Fuiruim z Kuźni Grzmiącego Młota w Beregoście wykonał dla nas miedzianą ramę z rudy miedzi, którą znaleźliśmy w kopalniach.~
+
+@10103 = ~Kupieckie dziedzictwo
+
+Taerom Fuiruim z Kuźni Grzmiącego Młota w Beregoście wykonał dla nas miedzianą ramę z rudy miedzi, którą znaleźliśmy w kopalniach. Nie wiedział, skąd możemy wziąć kryształ potrzebny do stworzenia artefaktu, ale zasugerował wizytę u Thalantyra z Wysokiego Żywopłotu.~
+
+@10104 = ~Kupieckie dziedzictwo
+
+Thalantyr zapewnił, że może dla nas stworzyć artefakt, jeśli dostarczymy mu niezbędne komponenty. Jeden z nich, kryształ, ma nawet w swojej ofercie. Po miedzianą ramę powinniśmy udać się do kowala w Beregoście.~
+
+@10105 = ~Kupieckie dziedzictwo
+
+Thalantyr zapewnił, że może dla nas stworzyć artefakt, jeśli dostarczymy mu niezbędne komponenty: miedzianą ramę i kryształ.~
+
+// (quest completed)
+@10106 = ~Kupieckie dziedzictwo
+
+Thalantyrowi udało się stworzyć dla nas artefakt zwany „Magicznym sklepem Vergadaina”. Dzięki niemu możemy mieć dostęp do dowolnego sklepu, który odwiedziliśmy w czasie naszych podróży.~
+
+// SoD entries
+@10200 = ~Kupieckie dziedzictwo
+
+Miedziana rama znaleziona pośród zgliszczy spalonej gospody niziołków może być wykorzystana do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach.~
+
+@10201 = ~Kupieckie dziedzictwo
+
+Miedziana rama znaleziona pośród zgliszczy spalonej gospody niziołków może być wykorzystana do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach. Potrzeba nam tylko kompetentnego maga, który go dla nas stworzy.~
+
+@10202 = ~Kupieckie dziedzictwo
+
+Kryształ znaleziony na polanie nieopodal Przeprawy na Nadbrzeżnym Trakcie może być wykorzystany do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach.~
+
+@10203 = ~Kupieckie dziedzictwo
+
+Kryształ znaleziony na polanie nieopodal Przeprawy na Nadbrzeżnym Trakcie może być wykorzystany do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach. Potrzeba nam tylko kompetentnego maga, który go dla nas stworzy.~
+
+@10204 = ~Kupieckie dziedzictwo
+
+Soralis oznajmiła, że jest w stanie stworzyć artefakt, jeśli dostarczymy jej wymagane komponenty: miedzianą ramę i kryształ. Niezbędna będzie również stosowna opłata.~
+
+// (quest completed)
+@10205 = ~Kupieckie dziedzictwo
+
+Soralis udało się stworzyć dla nas artefakt zwany „Magicznym sklepem Vergadaina”. Dzięki niemu możemy mieć dostęp do dowolnego sklepu, który odwiedziliśmy w czasie naszych podróży.~
+
+// BG2 entries
+@10300 = ~Kupieckie dziedzictwo
+
+Miedziana rama kupiona u Bernarda w Miedzianym Diademie może być wykorzystana do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach.~
+
+@10301 = ~Kupieckie dziedzictwo
+
+Miedziana rama kupiona u Bernarda w Miedzianym Diademie może być wykorzystana do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach. Potrzeba nam tylko mistrza kowalstwa lub zaklinacza, który go dla nas wykona.~
+
+@10302 = ~Kupieckie dziedzictwo
+
+Kryształ, który znaleźliśmy przy zwłokach rakshasy, może być wykorzystany do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach.~
+
+@10303 = ~Kupieckie dziedzictwo
+
+Kryształ, który znaleźliśmy przy zwłokach rakshasy, może być wykorzystany do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach. Potrzeba nam tylko mistrza kowalstwa lub zaklinacza, który go dla nas wykona.~
+
+// (quest completed)
+@10304 = ~Kupieckie dziedzictwo
+
+Cromwellowi udało się stworzyć dla nas artefakt zwany „Magicznym sklepem Vergadaina”. Dzięki niemu możemy mieć dostęp do dowolnego sklepu, który odwiedziliśmy w czasie naszych podróży.~
+
+// ToB entries
+@10400 = ~Kupieckie dziedzictwo
+
+Miedziana rama znaleziona w domu Kisera może być wykorzystana do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach.~
+
+@10401 = ~Kupieckie dziedzictwo
+
+Kryształ, który znaleźliśmy przy zwłokach jednego z magów służących Gromnirowi, może być wykorzystany do skonstruowania Magicznego sklepu, przedmiotu opisanego w księdze traktującej o zapomnianych artefaktach.~
+
+// (quest completed)
+@10402 = ~Kupieckie dziedzictwo
+
+Cespenarowi udało się stworzyć dla nas artefakt zwany „Magicznym sklepem Vergadaina”. Dzięki niemu możemy mieć dostęp do dowolnego sklepu, który odwiedziliśmy w czasie naszych podróży.~
+
+// IWD entries
+@10500 = ~Conlan z Kuldahar zaoferował, że wykuje dla nas miedzianą ramę, jeśli dostarczymy mu rudę miedzi. Zasugerował poszukanie jej w Dolinie Cieni lub Głębi Dorna.~
+
+@10501 = ~Conlan z Kuldahar skonstruował dla nas miedzianą ramę, która jest niezbędna do stworzenia artefaktu zwanego Magicznym sklepem.~
+
+@10502 = ~Orrick potwierdził, że ma na sprzedaż kryształ, który jest niezbędny do stworzenia artefaktu zwanego Magicznym sklepem.~
+
+@10503 = ~Orrick zapewnił nas, że potrafi stworzyć artefakt, jeśli dostarczymy mu niezbędne komponenty: miedzianą ramę i kryształ.~
+
+// (quest completed)
+@10504 = ~Orrickowi udało się stworzyć dla nas artefakt zwany „Magicznym sklepem Vergadaina”. Dzięki niemu możemy mieć dostęp do dowolnego sklepu, który odwiedziliśmy w czasie naszych podróży.~

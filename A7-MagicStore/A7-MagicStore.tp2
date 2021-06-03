@@ -51,6 +51,12 @@ LANGUAGE ~Russian (Translation: yota13)~
          ~A7-MagicStore/languages/english/mod.tra~
          ~A7-MagicStore/languages/russian/setup.tra~
          ~A7-MagicStore/languages/russian/mod.tra~
+LANGUAGE ~Polish (Translation: Cahir, GoForTheEyes)~
+         ~polish~
+         ~A7-MagicStore/languages/english/setup.tra~
+         ~A7-MagicStore/languages/english/mod.tra~
+         ~A7-MagicStore/languages/polish/setup.tra~
+         ~A7-MagicStore/languages/polish/mod.tra~
 
 
 BEGIN @2  // Fee required
