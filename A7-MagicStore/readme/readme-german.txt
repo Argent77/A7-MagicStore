@@ -1,7 +1,7 @@
 Magischer Laden von Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    2.0
+Version:    2.1
 Autor:      Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
