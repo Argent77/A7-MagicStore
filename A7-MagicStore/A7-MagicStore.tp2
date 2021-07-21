@@ -63,6 +63,7 @@ BEGIN @2  // Fee required
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
 SUBCOMPONENT @1 // Magic store of Vergadain
 DESIGNATED 1
+LABEL ~A7-MAGICSTORE-MAIN_FEE~
 
 INCLUDE ~%MOD_FOLDER%/lib/init.tph~
 INCLUDE ~%MOD_FOLDER%/lib/sto_functions.tph~
@@ -82,6 +83,7 @@ BEGIN @3  // Free of charge
 REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt bgee bg2ee eet iwdee~ @100  // This game is not supported.
 SUBCOMPONENT @1 // Magic store of Vergadain
 DESIGNATED 2
+LABEL ~A7-MAGICSTORE-MAIN_NO_FEE~
 
 INCLUDE ~%MOD_FOLDER%/lib/init.tph~
 INCLUDE ~%MOD_FOLDER%/lib/sto_functions.tph~
@@ -101,6 +103,7 @@ BEGIN @10 // Alternate portrait for Ghostly Merchant
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
                    MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
 DESIGNATED 10
+LABEL ~A7-MAGICSTORE-ALTERNATE_PORTRAIT~
 
 ACTION_IF (GAME_IS ~bgee bg2ee eet iwdee~) BEGIN
   COPY ~%MOD_FOLDER%/bmp/alternative/ee/a7_mercl.bmp~ ~override~
