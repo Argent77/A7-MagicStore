@@ -26,6 +26,10 @@ Jest to modyfikacja WeiDU, co oznacza, iż jest bardzo prosta w instalacji. Wyst
 
 W celu odinstalowania modyfikacji należy uruchomić plik „setup-A7-MagicStore.exe” (Windows) lub „setup-A7-MagicStore.command” (macOS) i postępować zgodnie z pojawiającymi się dalej instrukcjami.
 
+Informacja dla osób grających w Siege of Dragonspear (SoD):
+GOG i Steam instalują „Siege of Dragonspear” w sposób, który nie pozwala na bezpośrednie modowanie gry. Aby można było instalować jakiekolwiek modyfikacje oparte na WeiDU, niezbędne jest zainstalowanie w folderze SoD modyfikacji o nazwie „DLC Merger”.
+Można ją pobrać stąd: https://github.com/Argent77/A7-DlcMerger/releases/latest
+
 
 Kolejność instalacji i kompatybilność z innymi modyfikacjami
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
