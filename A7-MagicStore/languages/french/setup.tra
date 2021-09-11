@@ -1,0 +1,10 @@
+// -*- coding: us-ascii -*-
+@1 = ~Magasin magique de Vergadain~
+@2 = ~Frais requis~
+@3 = ~Gratuit~
+@10 = ~Autre portrait pour le Marchand fantome~
+
+// Error messages
+@100 = ~Ce jeu n'est pas supporte.~
+@101 = ~Modmerge ou DLC Merger est requis avant que les mods puissent etre installes sur ce jeu.~
+@102 = ~Necessite le composant principal.~

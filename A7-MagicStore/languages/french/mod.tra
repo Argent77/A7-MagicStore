@@ -1,0 +1,305 @@
+// -*- coding: utf-8 -*-
+// Predefined area names (everything else is taken from worldmap names)
+// BG1
+@1000 = ~Porte de Baldur NO~
+@1001 = ~Porte de Baldur N~
+@1002 = ~Porte de Baldur NE~
+@1003 = ~Porte de Baldur O~
+@1004 = ~Porte de Baldur Centre~
+@1005 = ~Porte de Baldur E~
+@1006 = ~Travers du Ver~
+@1007 = ~Porte de Baldur SO~
+@1008 = ~Porte de Baldur S~
+@1009 = ~Porte de Baldur SE~
+@1010 = ~Chateausuif~  // for "Tutorial" Candlekeep
+@1050 = ~Les Fosses noires~
+// BG2
+@1100 = ~Ust Natha~
+@1150 = ~Fosses noires de Thay~
+@1151 = ~Les Fosses noires II~
+
+
+// Ghostly Merchant dialog
+@2000 = ~La forme fantomatique d'un homme habillé comme un marchand prend forme et se tourne vers vous.~
+@2001 = ~À votre grande surprise, il vous présente une liste de tous les magasins que vous avez visités dans le passé et attend que vous preniez une décision.~
+@2002 = ~Le commerçant vous présente une liste de magasins et attend votre décision.~
+@2003 = ~Je ne veux pas visiter de magasins en ce moment.~
+@2004 = ~Le marchand se tourne vers vous. Il tente de vous présenter une liste de magasins mais il est trop distrait par l'atmosphère hostile qui vous entoure.~
+@2005 = ~À votre grande surprise, il prépare une liste de tous les magasins que vous avez visités dans le passé. Ensuite, il vous présente la liste et vous indique que vous pouvez visiter l'un des magasins pour la somme de <A7STO_FEE> pièces d'or.~
+@2006 = ~Le marchand vous présente une liste de magasins et vous indique que vous pouvez visiter l'un d'entre eux pour la somme de <A7STO_FEE> pièces d'or.~
+@2007 = ~Je n'ai pas assez d'or pour payer vos frais.~
+@2008 = ~Le marchand récite un sort dans une langue étrangère. Peu après, un magasin apparaît devant vous.~
+@2009 = ~Après avoir reçu votre or, il récite un sort dans une langue étrangère. Peu après, un magasin apparaît devant vous.~
+
+// Store response templates
+@2010 = ~"%store_name%"~
+@2011 = ~"%store_name%" tenu par %creature_name%~
+@2012 = ~"%store_name%" dans "%area_name%"~
+@2013 = ~"%store_name%" tenu par %creature_name%, dans "%area_name%"~
+
+@2020 = ~Magasin~ // default name for unnamed stores
+
+// messages personnalisés pour les magasins spéciaux (voir 2da/special.2da); ajouté après la chaîne de réponse entre parenthèses
+@2100 = ~pour 50 pièces d'or~ // Ribald's special store
+@2101 = ~pour 100 pièces d'or~  // Nym's exotic store (Golem Construction mod)
+
+
+// Items
+@3000 = ~Magasin magique de Vergadain~
+@3001 = ~Ce puissant artefact a été conçu à l'origine par des nains dédiés à l'église de Vergadain, le dieu nain de la négociation et de la richesse. Il s'agit d'un miroir magique qui peut être utilisé pour faire apparaître un marchand fantôme ayant le pouvoir de visiter les magasins des marchands que vous avez visités dans le passé.
+
+STATISTIQUES :
+
+Capacités spéciales :
+Invoque un marchand fantôme trois fois par jour.
+
+Poids : 1~
+
+@3010 = ~Marchand fantôme~
+@3011 = ~Personne ne me vole !~
+@3012 = ~Je ne traite pas avec des crapules voleuses.~
+
+@3100 = ~Pépites de cuivre~
+@3101 = ~Ceci est un morceau de minerai de cuivre. Il peut être utilisé pour forger des bibelots ou des parures.
+
+STATISTIQUES :
+
+Poids : 1~
+
+@3200 = ~Cadre en cuivre orné~
+@3201 = ~Ce cadre en cuivre orné est conçu pour maintenir en place tout type d'objet complexe et fragile.
+
+STATISTIQUES :
+
+Poids : 1~
+
+@3300 = ~Cristal brillant~
+@3301 = ~Les cristaux varient grandement en forme et en teinte, et sont très recherchés par les bijoutiers et les enchanteurs. Ce cristal est exceptionnellement pur et peut donc contenir des enchantements très puissants.
+
+STATISTIQUES :
+
+Poids : 0~
+
+@3400 = ~Artefacts oubliés, Vol. 3~
+@3401 = ~Artefacts oubliés, Volume 3
+Par Karador
+
+Cette série de livres décrit divers artefacts créés par l'enchanteresse elfe Elameth et le forgeron nain Karador, à l'époque de la coopération entre les deux races, il y a longtemps, dans le Grand Nord.
+
+Ce volume décrit la création d'un artefact qui peut être utilisé pour faire venir des marchands du lointain par des moyens magiques. L'artefact est décrit comme "Magasin magique de Vergadain" et nécessite un cristal enchanté placé dans un cadre de cuivre.~
+
+@3402 = ~Artefacts oubliés, Volume 3
+Par Karador
+
+Cette série de livres décrit divers artefacts créés par l'enchanteresse elfe Elameth et le forgeron nain Karador, à l'époque de la coopération entre les deux races.
+
+Ce volume décrit la création d'un artefact qui peut être utilisé pour faire venir des marchands du lointain par des moyens magiques. L'artefact est décrit comme "Magasin magique de Vergadain" et nécessite un cristal enchanté placé dans un cadre de cuivre.~
+
+
+// BG1 quest dialog lines
+// Taërom lines
+@4000 = ~Un livre mentionne un cadre en cuivre nécessaire à la création d'un artefact magique. Pouvez-vous en fabriquer un pour moi ?~
+@4001 = ~Le mage Thalantyr m'a recommandé de vous demander un cadre en cuivre. Pouvez-vous en fabriquer un pour moi ?~
+@4002 = ~Je reviens pour le cadre en cuivre. Pouvez-vous en fabriquer un pour moi ?~
+@4003 = ~Mais bien sûr. Le cuivre est facile à forger. Je pourrais vous construire un cadre en un rien de temps. Cependant, je n'ai pas le matériau nécessaire en stock pour le moment. Si vous pouvez me fournir du minerai de cuivre, je pourrai commencer aussitôt.~
+@4004 = ~Où est-ce que je peux trouver du minerai de cuivre ?~
+@4005 = ~Certainement, j'en ai pour vous.~
+@4006 = ~En fait, je n'en ai pas besoin tout de suite. Je reviendrai plus tard.~
+@4007 = ~Vous pourriez encore en trouver dans les mines de Nashkel, au sud d'ici. C'est principalement une mine de fer à ce jour, mais dans le passé, on y trouvait aussi du minerai de cuivre.~
+@4008 = ~Merci. Je vais y jeter un coup d'oeil.~
+@4009 = ~Ahh, c'est un beau morceau de cuivre que vous avez. Pour 100 pièces d'or, je peux forger le cadre en cuivre tout de suite.~
+@4010 = ~Je n'ai pas assez d'or pour vous payer. Peut-être plus tard.~
+@4011 = ~Oui, s'il vous plaît. Voilà l'or.~
+@4012 = ~Comme vous voulez. Je serai toujours là si vous changez d'avis.~
+@4013 = ~Alors ne perdons pas plus de temps. Mettez-vous à l'aise. Je reviens dans un instant.~
+@4014 = ~Le forgeron se tourne vers son équipement de travail et commence le processus de fusion du minerai de cuivre, suivi d'une courte séance de forge. Il répète le processus plusieurs fois avant de reporter son attention sur vous.~
+@4015 = ~Et voilà le cadre en cuivre que j'avais promis. C'était un plaisir de faire affaire avec vous.~
+@4016 = ~Malheureusement, je ne peux pas beaucoup vous aider pour le cristal. Mais peut-être qu'un de mes amis le pourra. Il s'appelle Thalantyr, et c'est un mage talentueux. Vous pouvez le trouver dans la Haute Haie, à l'ouest de Beregost.~
+@4017 = ~Certainement. Si vous pouvez me fournir du minerai de cuivre, je peux commencer tout de suite.~
+@4018 = ~Voilà.~
+@4019 = ~Je n'en ai pas. Je reviendrai plus tard.~
+// Thalantyr lines
+@4100 = ~Un livre décrit la création d'un puissant artefact magique, appelé le "Magasin magique de Vergadain". Pouvez-vous le créer pour moi ?~
+@4101 = ~Je souhaite reparler du magasin magique.~
+@4102 = ~Peut-être, ou peut-être pas. Laisse-moi voir ce fameux livre.~
+@4103 = ~Je ne l'ai pas sur moi.~
+@4104 = ~Voilà.~
+@4105 = ~J'ai changé d'avis. Je suis désolé de vous avoir dérangé, et je vais partir immédiatement.~~J'ai changé d'avis. Je suis désolée de vous avoir dérangé, et je vais partir immédiatement.~
+@4106 = ~Alors ne me faites pas perdre mon temps davantage.~
+@4107 = ~Hmm, c'est une assez curieuse lecture . Le rituel semble difficile à réaliser, mais je n'ai jamais reculé devant un défi.~
+@4108 = ~J'ai besoin de deux composants pour l'enchantement, un cadre en cuivre et un cristal. Heureusement pour vous, j'ai des cristaux à vendre. Ils sont utiles pour toutes sortes d'enchantements.~
+@4109 = ~J'ai besoin de deux composants pour l'enchantement, un cadre en cuivre et un cristal.~
+@4110 = ~Pour le cadre en cuivre, je vous renvoie à Taërom Fuiruim. Il dirige la forge de Grondemarteau à Beregost.~
+@4111 = ~Si vous pouvez me fournir les composants nécessaires, je peux créer le magasin de magie pour vous. Pour le processus d'enchantement proprement dit, je devrai également demander 2 000 pièces d'or. Qu'en dites-vous ?~
+@4112 = ~J'ai tout ce dont vous avez besoin sur moi. S'il vous plaît, créez l'artefact.~
+@4113 = ~Je n'ai pas assez d'argent. Je reviendrai plus tard.~
+@4114 = ~Je n'ai pas tous les composants sur moi. Je reviendrai plus tard.~
+@4115 = ~Alors revenez quand vous aurez tout ce dont j'ai besoin. Jusque là, je n'ai plus rien à vous dire.~
+@4116 = ~Je vous ai déjà dit ce dont j'ai besoin pour créer le magasin de magie. Avez-vous tout ce dont j'ai besoin ?~
+@4117 = ~Oui, on dirait que tout est en ordre.~
+@4118 = ~Maintenant, restez tranquille un moment. J'ai besoin de la plus grande concentration pour effectuer le rituel d'enchantement...~
+@4119 = ~...Et c'est fait. Je laisse à vos capacités intellectuelles le soin de trouver comment faire fonctionner l'objet. S'il vous plaît, partez maintenant. Je me sens un peu fatigué.~
+
+// SoD quest dialog lines
+// Soralis lines
+@5000 = ~Je ne sais pas vraiment. Je peux le voir ?~
+@5001 = ~Je n'ai pas le livre sur moi.~
+@5002 = ~Certainement. Voilà le livre.~
+@5003 = ~J'ai changé d'avis. Bonne journée. Je dois partir.~
+@5004 = ~Je ne peux pas vous aider sans le livre. Revenez quand vous l'aurez.~
+@5005 = ~Hmm, d'après ce que je vois, j'ai besoin de deux composants pour l'enchantement, un cadre en cuivre et un cristal.~
+@5006 = ~Malheureusement, je ne sais pas où les trouver. Vous pouvez vous renseigner auprès des marchands ou chercher des trésors cachés dans la région. Cette région a été assez occupée ces derniers temps avec la croisade en cours.~
+@5007 = ~Je devrai également demander une somme de 2 000 pièces d'or pour le rituel d'enchantement.~
+@5008 = ~J'ai tout ce dont vous avez besoin. Voilà.~
+@5009 = ~Je n'ai pas assez d'or pour le moment. Je reviendrai plus tard.~
+@5010 = ~Je n'ai pas tous les éléments requis pour l'artefact. Je reviendrai plus tard.~
+@5011 = ~Revenez quand vous aurez tout. Bonne journée à vous.~
+@5012 = ~Avez-vous tout ce qui est nécessaire pour le rituel d'enchantement ?~
+@5013 = ~Merci. On dirait que tout est en ordre.~
+@5014 = ~Donnez-moi un moment pour préparer le rituel...~
+@5015 = ~...Et c'est fini. Je suis certaine que cet objet fonctionnera parfaitement.~
+
+// BG2 quest dialog lines
+// Cromwell lines
+@6000 = ~C'est inattendu. Un tome écrit par moi, dans le nord, décrivant le magasin de magie de Vergadain ?~
+@6001 = ~On dirait que vous avez la structure en cuivre et le cristal nécessaires. Cela vous coûtera 3 000 ors.~
+@6002 = ~Si vous aviez un cadre en cuivre et un cristal, je pourrais faire le travail pour 3 000 pièces d'or.~
+@6003 = ~Vous avez un cadre en cuivre, mais pas de cristal. Je pourrais faire le travail pour 3 000 pièces d'or si vous aviez les deux.~
+@6004 = ~Vous avez le cristal, mais pas de cadre en cuivre. Je pourrais faire le travail pour 3 000 pièces d'or si vous aviez les deux.~
+@6005 = ~Eh bien, voyons ce que vous avez d'autre.~
+
+// ToB quest dialog lines
+// Cespenar lines
+@7000 = ~Qu'est-ce que nous avons là ? Un livre ? Ah... c'est le livre de nombreux marchands. Il n'est pas assez bon pour toi ?~
+@7001 = ~Alors... tu as un cadre en cuivre et du cristal. Pour 4 000 pièces d'or, je passe un contrat avec plusieurs marchands pour toi.~
+@7002 = ~Bon... J'ai besoin d'un cadre en cuivre et d'un cristal, ou pas de marchands pour toi.~
+@7003 = ~Bon, voyons ce que tu as d'autre...~
+
+// IWD quest dialog lines
+// Conlan lines
+@8000 = ~Cela ne devrait pas poser de problème. J'ai rarement l'occasion de travailler le cuivre, car il est surtout utilisé pour les bibelots et les ornements. Mais un cadre en cuivre devrait être assez facile à forger.~
+@8001 = ~Malheureusement, je n'ai pas de minerai de cuivre en stock. J’attends la prochaine livraison de minerai depuis longtemps, mais avec le temps anormal et les événements étranges qui se produisent, je crois que ce ne sera pas de sitôt.~
+@8002 = ~En fait, j'ai du minerai de cuivre sur moi.~
+@8003 = ~Je ne peux pas en être sûr. On peut en trouver dans les mines du Gouffre de Dorn, au sud. Mais c'est une sacrée distance à parcourir, et je ne suis même pas sûr que les nains vous y autorisent. Je vous suggère de tenter d'abord votre chance dans les tombes de la Vallée des Ombres.~
+@8004 = ~Très bien. Pour 100 pièces d'or, je peux forger le cadre en cuivre tout de suite.~
+@8005 = ~D'accord. Revenez quand vous aurez changé d'avis.~
+// Orrick lines
+@8100 = ~Ça pourrait être le cas, si le livre dit vrai. Puis-je y regarder de plus près ?~
+@8101 = ~Eh bien, sans le livre, je ne peux rien faire pour vous. Revenez quand vous l'aurez.~
+@8102 = ~Ah, ce livre date de l'époque de la coopération entre les elfes et les nains. Je pense que l'on peut croire ce qui y est dit.~
+@8103 = ~Heureusement, le rituel est décrit dans les moindres détails. Je crois qu'il est possible de créer un tel artefact. J'aurais besoin de deux composants pour le rituel d'enchantement cependant.~
+@8104 = ~Le premier est un cadre en cuivre. Vous pourriez demander à Conlan le forgeron à ce sujet.~
+@8105 = ~Le premier est un cadre en cuivre.~
+@8106 = ~Le deuxième composant est un cristal. Ce n'est pas surprenant vu leur utilité pour l'enchantement. J'en ai peut-être encore un en stock si vous voulez y jeter un coup d'oeil.~
+@8107 = ~Le deuxième composant est un cristal. Ce n'est pas surprenant vu leur utilité pour l'enchantement.~
+@8108 = ~Pour le rituel d'enchantement lui-même, je devrais également demander 3 000 pièces d'or. Ça vous intéresse toujours ?~
+@8109 = ~Certainement. Avez-vous le cadre en cuivre et le cristal prêts ? Je dois aussi demander 3 000 pièces d'or pour le rituel d'enchantement.~
+@8110 = ~Excellent. Laissez-moi juste un moment pour lancer le sort d'enchantement...~
+@8111 = ~...Et c'est fait. J'espère que vous l'apprécierez. Des artefacts de cette qualité sont rarement vus de nos jours.~
+
+
+// Journal entries
+// Common entries
+@10000 = ~Un héritage mercantile~
+
+@10001 = ~Un livre mentionne la création d'un artefact magique inhabituel, décrit comme "Magasin magique de Vergadain". Selon le texte, il permet aux utilisateurs de faire appel à tous les marchands avec lesquels ils ont traité dans le passé. D'après ce que j'ai compris, j'ai besoin d'un cadre en cuivre et d'un cristal magique, ainsi que d'un enchanteur ou d'un maître forgeron pour créer l'artefact.~
+
+@10002 = ~Un héritage mercantile
+Un livre mentionne la création d'un artefact magique inhabituel, décrit comme "Magasin magique de Vergadain". Selon le texte, il permet aux utilisateurs de faire appel à tous les marchands avec lesquels ils ont traité dans le passé. D'après ce que j'ai compris, j'ai besoin d'un cadre en cuivre et d'un cristal magique, ainsi que d'un enchanteur ou d'un maître forgeron pour créer l'artefact.~
+
+@10003 = ~Un héritage mercantile
+
+Un livre mentionne la création d'un artefact magique inhabituel, décrit comme "Magasin magique de Vergadain". Selon le texte, il permet aux utilisateurs de faire appel à tous les marchands avec lesquels ils ont traité dans le passé. D'après ce que j'ai compris, j'ai besoin d'un cadre en cuivre et d'un cristal magique, ainsi que d'un enchanteur ou d'un maître forgeron pour créer l'artefact.~
+
+// BG1 entries
+@10101 = ~Un héritage mercantile
+Taërom Fuiruim de la forge de Grondemarteau de Beregost m'a proposé de forger un cadre en cuivre si je lui fournis du minerai de cuivre provenant des mines de Nashkel.~
+
+@10102 = ~Un héritage mercantile
+Taërom Fuiruim de la forge de Grondemarteau de Beregost a fabriqué un cadre en cuivre à partir du minerai trouvé dans les mines.~
+
+@10103 = ~Un héritage mercantile
+Taërom Fuiruim de la forge de Grondemarteau de Beregost a fabriqué un cadre en cuivre à partir du minerai trouvé dans les mines. Il ne savait pas où je pouvais obtenir le cristal nécessaire à l'artefact mais m'a suggéré de demander à Thalantyr de la Haute Haie.~
+
+@10104 = ~Un héritage mercantile
+Thalantyr m'a dit qu'il pouvait créer l'artefact si je lui fournissais les composants nécessaires. Un cristal peut être acheté dans son propre stock. Pour le cadre en cuivre, je dois consulter le forgeron de Beregost.~
+
+@10105 = ~Un héritage mercantile
+Thalantyr m'a dit qu'il pouvait créer l'artefact si je lui fournissais les composants nécessaires, un cadre en cuivre et un cristal.~
+
+// (quest completed)
+@10106 = ~Un héritage mercantile
+Thalantyr a réussi à créer pour moi l'artefact "Magasin magique de Vergadain". Avec celui-ci, je peux accéder librement à tous les magasins que j'ai visités dans le passé.~
+
+// SoD entries
+@10200 = ~Un héritage mercantile
+
+Le cadre en cuivre trouvé dans les ruines brûlées de l'auberge petite-gens pourrait être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés.~
+
+@10201 = ~Un héritage mercantile
+
+Le cadre en cuivre trouvé dans les ruines brûlées de l'auberge petite-gens pourrait être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés. Tout ce dont j'ai besoin maintenant c'est d'un enchanteur capable de créer l'artefact pour moi.~
+
+@10202 = ~Un héritage mercantile
+
+Le cristal trouvé dans la clairière de la croisée du littoral semble pouvoir être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés.~
+
+@10203 = ~Un héritage mercantile
+
+Le cristal trouvé dans la clairière de la croisée du littoral semble pouvoir être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés. Tout ce dont j'ai besoin maintenant c'est d'un enchanteur capable de créer l'artefact pour moi.~
+
+@10204 = ~Un héritage mercantile
+
+Soralis m'a dit qu'elle pouvait créer l'artefact si je lui fournissais les composants nécessaires, un cadre en cuivre et le cristal ainsi qu'un peu d'or pour le processus d'enchantement.~
+
+// (quest completed)
+@10205 = ~Un héritage mercantile
+
+Soralis a réussi à créer pour moi l'artefact "Magasin magique de Vergadain". Grâce à lui, je peux accéder librement à tous les magasins que j'ai visités dans le passé.~
+
+// BG2 entries
+@10300 = ~Un héritage mercantile
+
+Le cadre en cuivre acheté à Bernard de la Couronne de cuivre pourrait être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés.~
+@10301 = ~Un héritage mercantile
+
+Le cadre en cuivre acheté à Bernard de la Couronne de cuivre pourrait être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés. Tout ce dont j'ai besoin maintenant c'est d'un maître forgeron ou d'un enchanteur capable de créer l'artefact pour moi.~
+
+@10302 = ~Un héritage mercantile
+
+Le cristal récupéré sur le Rakshasa semble pouvoir être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés.~
+
+@10303 = ~Un héritage mercantile
+
+Le cristal récupéré sur le Rakshasa semble pouvoir être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés. Tout ce dont j'ai besoin maintenant c'est d'un maître forgeron ou d'un enchanteur capable de créer l'artefact pour moi.~
+
+// (quest completed)
+@10304 = ~Un héritage mercantile
+
+Cromwell a réussi à créer pour moi l'artefact "Magasin magique de Vergadain". Grâce à lui, je peux accéder librement à tous les magasins que j'ai visités dans le passé.~
+
+// ToB entries
+@10400 = ~Un héritage mercantile
+
+Le cadre en cuivre trouvé chez Kiser pourrait être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés.~
+
+@10401 = ~Un héritage mercantile
+
+Le cristal récupéré sur l'un des mages de Gromnir semble pouvoir être utilisé pour construire l'artefact du magasin magique mentionné dans le livre sur les artefacts oubliés.~
+
+// (quest completed)
+@10402 = ~Un héritage mercantile
+
+Cespenar a réussi à créer pour moi l'artefact "Magasin magique de Vergadain". Grâce à lui, je peux accéder librement à tous les magasins que j'ai visités dans le passé..~
+
+// IWD entries
+@10500 = ~Conlan à Kuldahar m'a proposé de forger un cadre en cuivre si je lui fournis du minerai de cuivre. Il m'a suggéré de le chercher dans la Vallée des Ombres ou dans le Gouffre de Dorn.~
+
+@10501 = ~Conlan à Kuldahar m'a fabriqué un cadre en cuivre, qui est nécessaire pour l'artefact du magasin magique.~
+
+@10502 = ~Orrick a confirmé qu'il avait des cristaux disponibles à la vente qui sont nécessaires pour l'artefact du Magasin magique.~
+
+@10503 = ~Orrick m'a dit qu'il pouvait créer l'artefact si je lui apportais tous les composants nécessaires, un cadre en cuivre et un cristal.~
+
+// (quest completed)
+@10504 = ~Orrick a réussi à créer pour moi l'artefact "Magasin magique de Vergadain". Grâce à lui, je peux accéder librement à tous les magasins que j'ai visités dans le passé.~

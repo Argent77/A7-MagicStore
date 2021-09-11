@@ -57,6 +57,12 @@ LANGUAGE ~Polish (Translation: Cahir, GoForTheEyes)~
          ~A7-MagicStore/languages/english/mod.tra~
          ~A7-MagicStore/languages/polish/setup.tra~
          ~A7-MagicStore/languages/polish/mod.tra~
+LANGUAGE ~French (Translation: Deratiseur)~
+         ~french~
+         ~A7-MagicStore/languages/english/setup.tra~
+         ~A7-MagicStore/languages/english/mod.tra~
+         ~A7-MagicStore/languages/french/setup.tra~
+         ~A7-MagicStore/languages/french/mod.tra~
 
 
 BEGIN @2  // Fee required

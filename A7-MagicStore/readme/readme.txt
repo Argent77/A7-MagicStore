@@ -103,6 +103,8 @@ Russian translation: yota13
 
 Polish translation: Cahir (translation), GoForTheEyes (proofreading)
 
+French translation: Deratiseur
+
 Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 
 
@@ -115,6 +117,10 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+2.2
+- Added French translation (thanks Deratiseur)
+- Added French readme
 
 2.1
 - Added Polish translation (thanks Cahir and GoForTheEyes)
