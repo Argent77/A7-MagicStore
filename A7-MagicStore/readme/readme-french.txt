@@ -1,7 +1,7 @@
 Magasin magique de Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version :        2.1
+Version :        2.2
 Auteur :         Argent77
 
 Téléchargement : https://github.com/Argent77/A7-MagicStore/releases
