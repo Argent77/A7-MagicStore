@@ -284,7 +284,7 @@ BEGIN
   FOR (i = 0; i < size; ++i) BEGIN
     PATCH_IF (VARIABLE_IS_SET $EVAL ~%array%~(~%i%~)) BEGIN
       TEXT_SPRINT v $EVAL ~%array%~(~%i%~)
-      PATCH_IF (~%value%~ STR_EQ ~%value%~) BEGIN
+      PATCH_IF (~%v%~ STR_EQ ~%value%~) BEGIN
         SET index = i
         SET i = size
       END
