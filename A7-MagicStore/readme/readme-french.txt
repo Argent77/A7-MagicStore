@@ -1,7 +1,7 @@
 Magasin magique de Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version :        2.2
+Version :        2.3
 Auteur :         Argent77
 
 Téléchargement : https://github.com/Argent77/A7-MagicStore/releases
@@ -96,6 +96,9 @@ Le mod "Magasin magique de Vergadain" est sous licence "Creative Commons Attribu
 
 Historique
 ~~~~~~~~~~
+
+2.3
+- Fixed a comparison bug in the store installation routine
 
 2.2
 - Ajout de la traduction française (merci à Deratiseur)

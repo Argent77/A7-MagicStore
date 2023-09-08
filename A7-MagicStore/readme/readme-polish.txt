@@ -1,7 +1,7 @@
 Magiczny sklep Vergadaina
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Wersja:     2.2
+Wersja:     2.3
 Autor:      Argent77
 
 Pobierz:    https://github.com/Argent77/A7-MagicStore/releases
@@ -94,6 +94,9 @@ ShareAlike 4.0 International License” (https://creativecommons.org/licenses/by
 
 Historia wersji
 ~~~~~~~~~~~~~~~
+
+2.3
+- Fixed a comparison bug in the store installation routine
 
 2.2
 - Added French translation (thanks Deratiseur)

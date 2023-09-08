@@ -1,7 +1,7 @@
 Magic Store of Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    2.2
+Version:    2.3
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -117,6 +117,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+2.3
+- Fixed a comparison bug in the store installation routine
 
 2.2
 - Added French translation (thanks Deratiseur)
