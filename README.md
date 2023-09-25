@@ -45,3 +45,9 @@ Each game campaign provides their own small quest to get access to the Magic Sto
 ### Alternate portrait for Ghostly Merchant *(requires main component)*
 
 This optional component installs an alternate portrait version of the Ghostly Merchant without ghostly features.
+
+### Restrict available services in summoned stores *(requires main component, EE games only)*
+
+Some of the available services can be easily abused, such as resting or healing in the middle of combat.
+
+This optional component allows you to restrict the services offered by the summoned stores.

@@ -1,0 +1,199 @@
+/*
+
+This EE-only function (by DavidW) allows you to restrict which store options (Buy/Sell, Drink, Rest, etc) are
+offered when a store is open, by adding commands to the script that summons the store. You use it like this:
+
+(i) run the function and return the INT_VAR 'inactive_strref'
+
+(ii) In the storekeeper's dlg file (or similar), jusst before the StartStore(xxx) command that you use to 
+trigger the store, add commands like
+
+SetToken("DW_SIGNAL_STORE_REST",%inactive_strref%)
+
+The possible tokens are:
+DW_SIGNAL_STORE_BUYSELL
+DW_SIGNAL_STORE_IDENTIFY
+DW_SIGNAL_STORE_STEAL
+DW_SIGNAL_STORE_DONATE
+DW_SIGNAL_STORE_CURE
+DW_SIGNAL_STORE_DRINK
+DW_SIGNAL_STORE_REST
+
+Any token set will inactivate the associated option.
+
+Tokens remain set until the next time the store interface runs, so it's important only to set them just before
+opening the store, else they may hang around and mess up the next store.
+
+Anyone is welcome to borrow this; just credit me in your readme.
+
+*/
+
+DEFINE_ACTION_FUNCTION ui_block_store_function RET inactive_strref
+BEGIN
+
+  // have we been installed already?
+  
+  ACTION_IF !(FILE_EXISTS_IN_GAME "m_dw_sgd.lua" && RESOURCE_CONTAINS "m_dw_sgd.lua" "dwStorePanelLookup") BEGIN
+
+    // if not, install
+
+    // define token strings
+    
+    // the numbers in this array are frame numbers (counting from 0) in GUISTBBC.bam
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY signal_tokens BEGIN
+      0=>DW_SIGNAL_STORE_BUYSELL
+      1=>DW_SIGNAL_STORE_IDENTIFY
+      2=>DW_SIGNAL_STORE_STEAL
+      3=>DW_SIGNAL_STORE_DONATE
+      4=>DW_SIGNAL_STORE_CURE
+      5=>DW_SIGNAL_STORE_DRINK
+      6=>DW_SIGNAL_STORE_REST
+    END
+
+    // put them in to dialog.tlk
+    ACTION_PHP_EACH signal_tokens AS ind=>token BEGIN
+      OUTER_SET $token_strref("%ind%")=RESOLVE_STR_REF("<%token%>")
+    END
+
+    // put the 'inactive' strref in too 
+    
+    OUTER_SET active_strref=RESOLVE_STR_REF("ACTIVE")
+    OUTER_SET inactive_strref=RESOLVE_STR_REF("INACTIVE")
+
+    // install the data
+<<<<<<<<.../stratagems-inline/m_dw_sgd.lua
+dwStorePanelLookup={}
+%data%
+>>>>>>>>
+    
+    OUTER_SPRINT data ""
+    ACTION_PHP_EACH token_strref AS ind=>strref BEGIN
+      OUTER_SPRINT data "%data%dwStorePanelLookup[%ind%]=%strref%%WNL%"
+    END
+
+    ACTION_IF !FILE_EXISTS_IN_GAME "m_dw_sgd.lua" BEGIN
+      COPY ".../stratagems-inline/m_dw_sgd.lua" ~override~ EVALUATE_BUFFER
+    END ELSE BEGIN
+      APPEND "m_dw_sgd.lua" ".../stratagems-inline/m_dw_sgd.lua"
+    END
+
+    // install the functions
+
+<<<<<<<<.../stratagems-inline/m_dw_sgf.lua
+function a7IsStealEnabled() -- Stealing is handled differently
+  if (Infinity_FetchString(dwStorePanelLookup[2]))=="INACTIVE" then
+    return false
+  else
+    return storeScreen:IsStealEnabled()
+  end
+end
+
+function dwStorePanelEnabled(num)
+  storeInd=storeScreen:GetPanelButtonSequence(num)
+  if dwStorePanelLookup[storeInd] then
+    if (Infinity_FetchString(dwStorePanelLookup[storeInd]))=="INACTIVE" then
+      return false
+    end  
+  end
+  return storeScreen:GetPanelButtonEnabled(num)
+end
+
+function dwUpdateBuySellPanel()  
+  if (Infinity_FetchString(dwStorePanelLookup[0]))=="INACTIVE" then
+    dwStoreForcePanel()
+  else
+    storeScreen:UpdateBuySellPanel()
+  end
+end
+
+function dwUpdateIdentifyPanel()  
+  if (Infinity_FetchString(dwStorePanelLookup[1]))=="INACTIVE" then
+    dwStoreForcePanel()
+  else
+    storeScreen:UpdateIdentifyPanel()
+  end
+end
+
+function dwUpdateDonatePanel()  
+  if (Infinity_FetchString(dwStorePanelLookup[3]))=="INACTIVE" then
+    dwStoreForcePanel()
+  else
+    storeScreen:UpdateDonatePanel()
+  end
+end
+
+function dwUpdateBuySpellPanel()  
+  if (Infinity_FetchString(dwStorePanelLookup[4]))=="INACTIVE" then
+    dwStoreForcePanel()
+  else
+    storeScreen:UpdateBuySpellPanel()
+  end
+end
+
+function dwUpdateBuyDrinksPanel()  
+  if (Infinity_FetchString(dwStorePanelLookup[5]))=="INACTIVE" then
+    dwStoreForcePanel()
+  else
+    storeScreen:UpdateBuyDrinksPanel()
+  end
+end
+  
+function dwUpdateRentRoomPanel()  
+  if (Infinity_FetchString(dwStorePanelLookup[6]))=="INACTIVE" then
+    dwStoreForcePanel()
+  else
+    storeScreen:UpdateRentRoomPanel()
+  end
+end
+
+function dwStoreForcePanel()
+  if dwStorePanelEnabled(0) then
+    setStoreMainPanel(0)
+  elseif dwStorePanelEnabled(1) then
+    setStoreMainPanel(1)
+  elseif dwStorePanelEnabled(2) then
+    setStoreMainPanel(2)
+  else
+    setStoreMainPanel(3)
+  end
+end
+
+function dwStoreClose() -- reset all tokens
+%data%
+  storeScreen:OnMainDoneButtonClick()
+end
+>>>>>>>>
+
+    OUTER_SPRINT data ""
+    ACTION_PHP_EACH signal_tokens AS ind=>token BEGIN
+      OUTER_SPRINT data ~%data%  C:Eval('SetToken("%token%",%active_strref%)')%WNL%~
+    END
+    
+    ACTION_IF !FILE_EXISTS_IN_GAME "m_dw_sgf.lua" BEGIN
+      COPY ".../stratagems-inline/m_dw_sgf.lua" ~override~ EVALUATE_BUFFER
+    END ELSE BEGIN
+      APPEND "m_dw_sgf.lua" ".../stratagems-inline/m_dw_sgf.lua" 
+    END
+    
+    // inject into ui.menu (simple enough that we might as well just REPLACE_TEXTUALLY)
+
+    COPY_EXISTING "ui.menu" ~override~
+      REPLACE_TEXTUALLY "storeScreen:GetPanelButtonEnabled(\([0-9]\))" "dwStorePanelEnabled(\1)"
+      REPLACE_TEXTUALLY "storeScreen:UpdateRentRoomPanel()" "dwUpdateRentRoomPanel()"
+      REPLACE_TEXTUALLY "storeScreen:UpdateDonatePanel()" "dwUpdateDonatePanel()"
+      REPLACE_TEXTUALLY "storeScreen:UpdateIdentifyPanel()" "dwUpdateIdentifyPanel()"
+      REPLACE_TEXTUALLY "storeScreen:UpdateBuySellPanel()" "dwUpdateBuySellPanel()"
+      REPLACE_TEXTUALLY "storeScreen:UpdateBuySpellPanel()" "dwUpdateBuySpellPanel()"
+      REPLACE_TEXTUALLY "storeScreen:UpdateBuyDrinksPanel()" "dwUpdateBuyDrinksPanel()"
+      REPLACE_TEXTUALLY "storeScreen:OnMainDoneButtonClick()" "dwStoreClose()"
+      REPLACE_TEXTUALLY "storeScreen:IsStealEnabled()" "a7IsStealEnabled()"
+    BUT_ONLY
+
+  END ELSE BEGIN
+  
+    // if so, just return the strref of 'INACTIVE'
+    
+    OUTER_SET inactive_strref=RESOLVE_STR_REF("INACTIVE")
+  
+  END
+END

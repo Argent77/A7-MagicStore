@@ -3,6 +3,12 @@
 @2 = ~Gebuehrenpflichtig~
 @3 = ~Gebuehrenfrei~
 @10 = ~Alternatives Portrait fuer den geisterhaften Haendler~
+@20 = ~Verfuegbare Angebote in herbeigerufenen Laeden einschränken~
+@21 = ~Verbiete Rasten~
+@22 = ~Verbiete Rasten und Heilen~
+@23 = ~Verbiete Rasten, Heilen, Spenden und Trinken~
+@24 = ~Erlaube nur Handeln~
+
 
 // Error messages
 @100 = ~Dieses Spiel wird nicht unterstuetzt.~

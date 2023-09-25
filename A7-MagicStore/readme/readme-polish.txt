@@ -78,6 +78,8 @@ Autorzy
 
 Kodowanie i testowanie: Argent77
 
+Additional coding: DavidW
+
 Tłumaczenie na język rosyjski: yota13
 
 Tłumaczenie na język polski: Cahir (tłumaczenie), GoForTheEyes (korekta)
@@ -94,6 +96,9 @@ ShareAlike 4.0 International License” (https://creativecommons.org/licenses/by
 
 Historia wersji
 ~~~~~~~~~~~~~~~
+
+2.4
+- Added options to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine

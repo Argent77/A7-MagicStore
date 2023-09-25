@@ -3,6 +3,7 @@
 @2 = ~Fee required~
 @3 = ~Free of charge~
 @10 = ~Alternate portrait for Ghostly Merchant~
+@20 = ~Remove options to rest, cure, donate or drink from summoned stores~
 
 // Error messages
 @100 = ~This game is not supported.~

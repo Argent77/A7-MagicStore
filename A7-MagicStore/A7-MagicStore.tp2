@@ -118,3 +118,99 @@ END ELSE BEGIN
   COPY ~%MOD_FOLDER%/bmp/alternative/a7_mercl.bmp~ ~override~
        ~%MOD_FOLDER%/bmp/alternative/a7_mercs.bmp~ ~override~
 END
+
+
+BEGIN @21 // Prohibit resting
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME "ui.menu") @100 // This game is not supported.
+SUBCOMPONENT @20 // Restrict available services in summoned stores
+DESIGNATED 21
+LABEL ~A7-MAGICSTORE-DISALLOW_RESTING~
+
+INCLUDE "%MOD_FOLDER%/lib/ui_block_store_function.tph"
+
+LAF ui_block_store_function
+  RET inactive_strref
+END
+
+COPY_EXISTING ~a7_merc.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~StartStore~ ~SetToken("DW_SIGNAL_STORE_REST",%inactive_strref%) StartStore~
+  END
+BUT_ONLY
+
+
+BEGIN @22 // Prohibit resting and curing
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME "ui.menu") @100 // This game is not supported.
+SUBCOMPONENT @20 // Restrict available services in summoned stores
+DESIGNATED 22
+LABEL ~A7-MAGICSTORE-DISALLOW_RESTING_CURING~
+
+INCLUDE "%MOD_FOLDER%/lib/ui_block_store_function.tph"
+
+LAF ui_block_store_function
+  RET inactive_strref
+END
+
+COPY_EXISTING ~a7_merc.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~StartStore~ ~SetToken("DW_SIGNAL_STORE_REST",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_CURE",%inactive_strref%)
+                                    StartStore~
+  END
+BUT_ONLY
+
+
+BEGIN @23 // Prohibit resting, curing, donating and drinking
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME "ui.menu") @100 // This game is not supported.
+SUBCOMPONENT @20 // Restrict available services in summoned stores
+DESIGNATED 23
+LABEL ~A7-MAGICSTORE-DISALLOW_RESTING_CURING_DONATING_DRINKING~
+
+INCLUDE "%MOD_FOLDER%/lib/ui_block_store_function.tph"
+
+LAF ui_block_store_function
+  RET inactive_strref
+END
+
+COPY_EXISTING ~a7_merc.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~StartStore~ ~SetToken("DW_SIGNAL_STORE_REST",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_CURE",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_DONATE",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_DRINK",%inactive_strref%)
+                                    StartStore~
+  END
+BUT_ONLY
+
+
+BEGIN @24 // Allow only trading
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME "ui.menu") @100 // This game is not supported.
+SUBCOMPONENT @20 // Restrict available services in summoned stores
+DESIGNATED 24
+LABEL ~A7-MAGICSTORE-ALLOW_TRADING_ONLY~
+
+INCLUDE "%MOD_FOLDER%/lib/ui_block_store_function.tph"
+
+LAF ui_block_store_function
+  RET inactive_strref
+END
+
+COPY_EXISTING ~a7_merc.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~StartStore~ ~SetToken("DW_SIGNAL_STORE_REST",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_CURE",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_DONATE",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_DRINK",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_IDENTIFY",%inactive_strref%)
+                                    SetToken("DW_SIGNAL_STORE_STEAL",%inactive_strref%)
+                                    StartStore~
+  END
+BUT_ONLY

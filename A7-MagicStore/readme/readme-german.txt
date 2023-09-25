@@ -108,10 +108,33 @@ Diese optionale Komponente installiert eine Porträtversion für den geisterhaft
 geisterhafte Gesichtszüge.
 
 
+3. Verfügbare Angebote in herbeigerufenen Läden einschränken (benötigt die Hauptkomponente,
+   nur für EE-Spiele)
+
+Einige der Angebote können sehr leicht ausgenutzt werden, um sich einen Vorteil im Spiel zu
+verschaffen, wie zum Beispiel Rasten oder Heilen im Kampf.
+
+Diese optionale Komponente erlaubt es, diese Angebote in den herbeigerufenen Läden weiter
+einzuschränken.
+
+Die folgenden Optionen sind verfügbar:
+- Verbiete Rasten:
+  Entfernt das Angebot "Zimmer" vom Laden.
+- Verbiete Rasten und Heilen:
+  Entfernt die Angebote "Zimmer" and "Heilkräfte" vom Laden.
+- Verbiete Rasten, Heilen, Spenden und Trinken:
+  Entfernt die Angebote "Zimmer", "Heilkräfte", "Spenden" und "Getränke" vom Laden.
+- Erlaube nur Handeln:
+  Entfernt alle obigen Angebote, sowie die Möglichkeit Gegenstände zu identifizieren oder
+  im Laden zu stehlen.
+
+
 Danksagungen
 ~~~~~~~~~~~~
 
 Coding and testing: Argent77
+
+Additional coding: DavidW
 
 Russian translation: yota13
 
@@ -129,6 +152,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 Versionshistorie
 ~~~~~~~~~~~~~~~~
+
+2.4
+- Added options to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine

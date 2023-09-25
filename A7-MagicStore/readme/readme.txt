@@ -94,10 +94,30 @@ This optional component installs an alternate portrait version of the Ghostly Me
 ghostly features.
 
 
+3. Restrict available services in summoned stores (requires main component, EE games only)
+
+Some of the available services can be easily abused, such as resting or healing in the middle of
+combat.
+
+This optional component allows you to restrict the services offered by the summoned stores.
+
+The following options are available:
+- Prohibit resting:
+  Removes the service "Rooms" from the store.
+- Prohibit resting and curing:
+  Removes the services "Rooms" and "Healing" from the store.
+- Prohibit resting, curing, donating and drinking:
+  Removes the services "Rooms", "Healing", "Donate" and "Drinks" from the store.
+- Allow only trading:
+  Removes all of the services above as well as the options to identify items or steal from the store.
+
+
 Credits
 ~~~~~~~
 
 Coding and testing: Argent77
+
+Additional coding: DavidW
 
 Russian translation: yota13
 
@@ -117,6 +137,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+2.4
+- Added options to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine

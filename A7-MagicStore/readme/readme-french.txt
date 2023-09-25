@@ -78,6 +78,8 @@ Remerciements
 
 Codage et test : Argent77
 
+Additional coding: DavidW
+
 Traduction russe : yota13
 
 Traduction polonaise : Cahir (Traduction), GoForTheEyes (relecture)
@@ -96,6 +98,9 @@ Le mod "Magasin magique de Vergadain" est sous licence "Creative Commons Attribu
 
 Historique
 ~~~~~~~~~~
+
+2.4
+- Added options to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine
