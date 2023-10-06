@@ -3,7 +3,11 @@
 @2 = ~Fee required~
 @3 = ~Free of charge~
 @10 = ~Alternate portrait for Ghostly Merchant~
-@20 = ~Remove options to rest, cure, donate or drink from summoned stores~
+@20 = ~Restrict available services in summoned stores~
+@21 = ~Prohibit resting~
+@22 = ~Prohibit resting and curing~
+@23 = ~Prohibit resting, curing, donating and drinking~
+@24 = ~Allow only trading~
 
 // Error messages
 @100 = ~This game is not supported.~
