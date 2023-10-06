@@ -1,7 +1,7 @@
 Magasin magique de Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version :        2.3
+Version :        3.0
 Auteur :         Argent77
 
 Téléchargement : https://github.com/Argent77/A7-MagicStore/releases
@@ -92,15 +92,15 @@ Portrait du marchand : basé sur le portrait de "Aron" dans Ultima Underworld II
 Avis de droit d'auteur
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Le mod "Magasin magique de Vergadain" est sous licence "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
-(https://creativecommons.org/licenses/by-nc-sa/4.0/).
+Le mod "Magasin magique de Vergadain" est sous licence "Creative Commons Attribution-NonCommercial-
+ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 
 Historique
 ~~~~~~~~~~
 
-2.4
-- Added options to restrict available services in summoned stores (EE only)
+3.0
+- Added new subcomponents that allow you to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine

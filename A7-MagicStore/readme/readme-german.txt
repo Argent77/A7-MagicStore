@@ -1,7 +1,7 @@
 Magischer Laden von Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    2.3
+Version:    3.0
 Autor:      Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -140,6 +140,8 @@ Russian translation: yota13
 
 Polish translation: Cahir (translation), GoForTheEyes (proofreading)
 
+French translation: Deratiseur
+
 Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 
 
@@ -153,8 +155,8 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 Versionshistorie
 ~~~~~~~~~~~~~~~~
 
-2.4
-- Added options to restrict available services in summoned stores (EE only)
+3.0
+- Added new subcomponents that allow you to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine

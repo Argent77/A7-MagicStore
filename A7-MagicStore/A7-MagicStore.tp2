@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/A7-MagicStore~
 SUPPORT ~https://www.gibberlings3.net/forums/topic/32357-magic-store-of-vergadain-visit-any-store-anywhere-and-anytime~
-VERSION ~2.3~
+VERSION ~3.0~
 
 // Required by Tutu
 ALLOW_MISSING

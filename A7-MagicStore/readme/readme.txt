@@ -1,7 +1,7 @@
 Magic Store of Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    2.3
+Version:    3.0
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -138,8 +138,8 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 History
 ~~~~~~~
 
-2.4
-- Added options to restrict available services in summoned stores (EE only)
+3.0
+- Added new subcomponents that allow you to restrict available services in summoned stores (EE only)
 
 2.3
 - Fixed a comparison bug in the store installation routine
