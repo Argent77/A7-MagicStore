@@ -123,7 +123,7 @@ Russian translation: yota13
 
 Polish translation: Cahir (translation), GoForTheEyes (proofreading)
 
-French translation: Deratiseur
+French translation: Deratiseur, JohnBob
 
 Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 

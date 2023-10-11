@@ -84,7 +84,7 @@ Traduction russe : yota13
 
 Traduction polonaise : Cahir (Traduction), GoForTheEyes (relecture)
 
-Traduction française : Deratiseur
+Traduction française : Deratiseur, JohnBob
 
 Portrait du marchand : basé sur le portrait de "Aron" dans Ultima Underworld II.
 

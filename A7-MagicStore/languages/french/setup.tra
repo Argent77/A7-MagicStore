@@ -3,6 +3,11 @@
 @2 = ~Frais requis~
 @3 = ~Gratuit~
 @10 = ~Autre portrait pour le Marchand fantome~
+@20 = ~Limiter les services disponibles dans les magasins convoques~
+@21 = ~Proscrire le repos~
+@22 = ~Proscrire le repos et les soins~
+@23 = ~Proscrire le repos, les soins, les donations et les chopines~
+@24 = ~Autoriser les echanges commerciaux uniquement~
 
 // Error messages
 @100 = ~Ce jeu n'est pas supporte.~

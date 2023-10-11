@@ -84,7 +84,7 @@ Tłumaczenie na język rosyjski: yota13
 
 Tłumaczenie na język polski: Cahir (tłumaczenie), GoForTheEyes (korekta)
 
-French translation: Deratiseur
+French translation: Deratiseur, JohnBob
 
 Portret kupca: Na podstawie portretu „Aron” z gry Ultima Underworld II.
 
