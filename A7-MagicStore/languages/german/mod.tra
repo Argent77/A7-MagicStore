@@ -50,13 +50,22 @@
 
 EIGENSCHAFTEN:
 
-Geisterhaften Händler herbeirufen (3x täglich)
+%desc_ability_charges%
 
 Gewicht: 1~
 
 @3010 = ~Geisterhafter Händler~
 @3011 = ~Niemand bestiehlt mich!~
 @3012 = ~Ich gebe mich nicht mit diebischen Halunken ab.~
+
+// Replaces %desc_abilities% in @3001
+@3020 = ~~  // not used
+@3021 = ~~  // not used
+// Replaces %desc_ability_charges% in @3001
+@3022 = ~Geisterhaften Händler herbeirufen (3x täglich)~
+@3023 = ~Geisterhaften Händler herbeirufen (1x täglich)~
+@3024 = ~Geisterhaften Händler herbeirufen (10x täglich)~
+@3025 = ~Geisterhaften Händler herbeirufen~
 
 @3100 = ~Kupferbrocken~
 @3101 = ~Dies ist ein Brocken Kupfererz. Er kann zum Schmieden von Schmuckstücken oder Verzierungen verwendet werden.

@@ -61,7 +61,11 @@ BEGIN
   COPY ~%MOD_FOLDER%/itm/a7_mcsum.itm~ ~override~
     SAY NAME1 @3000 // Magic Store of Vergadain
     SAY NAME2 @3000 // Magic Store of Vergadain
+
+    SPRINT desc_abilities @3020  // Special abilities:
+    SPRINT desc_ability_charges @3022  // Summon a ghostly merchant three times per day
     SAY UNIDENTIFIED_DESC @3001
+
     PATCH_IF (GAME_IS ~iwdee~) BEGIN
       WRITE_ASCII 0x58 ~~ (8) // description image
     END

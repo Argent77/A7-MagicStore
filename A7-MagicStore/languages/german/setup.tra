@@ -3,12 +3,18 @@
 @2 = ~Gebuehrenpflichtig~
 @3 = ~Gebuehrenfrei~
 @10 = ~Alternatives Portrait fuer den geisterhaften Haendler~
-@20 = ~Verfuegbare Angebote in herbeigerufenen Laeden einschränken~
+@20 = ~Verfuegbare Angebote in herbeigerufenen Laeden einschraenken~
 @21 = ~Verbiete Rasten~
 @22 = ~Verbiete Rasten und Heilen~
 @23 = ~Verbiete Rasten, Heilen, Spenden und Trinken~
 @24 = ~Erlaube nur Handeln~
-
+@30 = ~Anzahl Ladungen des Magischen Ladens aendern (Standard: 3x taeglich)~
+@31 = ~1x taeglich~
+@32 = ~10x taeglich~
+@33 = ~10 Ladungen~
+@34 = ~50 Ladungen~
+@35 = ~100 Ladungen~
+@36 = ~Unbegrenzt~
 
 // Error messages
 @100 = ~Dieses Spiel wird nicht unterstuetzt.~

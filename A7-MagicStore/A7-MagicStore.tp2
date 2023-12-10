@@ -214,3 +214,111 @@ COPY_EXISTING ~a7_merc.dlg~ ~override~
                                     StartStore~
   END
 BUT_ONLY
+
+
+BEGIN @31 // Once per day
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+SUBCOMPONENT @30 // Tweak item charges of the Magic Store (default: 3x/day)
+DESIGNATED 31
+LABEL ~A7-MAGICSTORE-CHARGES-ONCE_PER_DAY~
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE "%MOD_FOLDER%/lib/tweak_charges.tph"
+
+LAF tweak_charges
+  INT_VAR
+    charges = 1
+    type    = 3 // 0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+    price   = 1 * 1000
+END
+
+
+BEGIN @32 // 10 times per day
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+SUBCOMPONENT @30 // Tweak item charges of the Magic Store (default: 3x/day)
+DESIGNATED 32
+LABEL ~A7-MAGICSTORE-CHARGES-TEN_TIMES_PER_DAY~
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE "%MOD_FOLDER%/lib/tweak_charges.tph"
+
+LAF tweak_charges
+  INT_VAR
+    charges = 10
+    type    = 3 // 0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+    price   = 10 * 1000
+END
+
+
+BEGIN @33 // 10 charges
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+SUBCOMPONENT @30 // Tweak item charges of the Magic Store (default: 3x/day)
+DESIGNATED 33
+LABEL ~A7-MAGICSTORE-CHARGES-TEN_CHARGES~
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE "%MOD_FOLDER%/lib/tweak_charges.tph"
+
+LAF tweak_charges
+  INT_VAR
+    charges = 10
+    type    = 1 // 0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+    price   = 10 * 250
+END
+
+
+BEGIN @34 // 50 charges
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+SUBCOMPONENT @30 // Tweak item charges of the Magic Store (default: 3x/day)
+DESIGNATED 34
+LABEL ~A7-MAGICSTORE-CHARGES-FIFTY_CHARGES~
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE "%MOD_FOLDER%/lib/tweak_charges.tph"
+
+LAF tweak_charges
+  INT_VAR
+    charges = 50
+    type    = 1 // 0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+    price   = 50 * 250
+END
+
+
+BEGIN @35 // 100 charges
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+SUBCOMPONENT @30 // Tweak item charges of the Magic Store (default: 3x/day)
+DESIGNATED 35
+LABEL ~A7-MAGICSTORE-CHARGES-HUNDRED_CHARGES~
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE "%MOD_FOLDER%/lib/tweak_charges.tph"
+
+LAF tweak_charges
+  INT_VAR
+    charges = 100
+    type    = 1 // 0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+    price   = 100 * 250
+END
+
+
+BEGIN @36 // Unlimited charges
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 1 ||
+                   MOD_IS_INSTALLED ~A7-MagicStore.tp2~ 2) @102 // Requires the main component.
+SUBCOMPONENT @30 // Tweak item charges of the Magic Store (default: 3x/day)
+DESIGNATED 36
+LABEL ~A7-MAGICSTORE-CHARGES-UNLIMITED_CHARGES~
+
+INCLUDE ~%MOD_FOLDER%/lib/init.tph~
+INCLUDE "%MOD_FOLDER%/lib/tweak_charges.tph"
+
+LAF tweak_charges
+  INT_VAR
+    charges = 0
+    type    = 0 // 0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+    price   = 6000
+END

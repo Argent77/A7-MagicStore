@@ -129,6 +129,26 @@ Die folgenden Optionen sind verfügbar:
   im Laden zu stehlen.
 
 
+4. Anzahl Ladungen des Magischen Ladens ändern (benötigt die Hauptkomponente)
+
+Diese optionale Komponente kann genutzt werden, um Anzahl und Typ der Ladungen des Magischen
+Ladens anzupassen.
+
+Die folgenden Optionen sind verfügbar:
+- 1x täglich:   Der Magische Laden kann einmal täglich herbeigerufenen werden.
+- 10x täglich:  Der Magische Laden kann 10 Mal täglich herbeigerufenen werden.
+- 10 Ladungen:  Der Magische Laden kann insgesamt 10 Mal herbeigerufenen werden,
+                bevor er für immer verschwindet.
+- 50 Ladungen:  Der Magische Laden kann insgesamt 50 Mal herbeigerufenen werden,
+                bevor er für immer verschwindet.
+- 100 Ladungen: Der Magische Laden kann insgesamt 100 Mal herbeigerufenen werden,
+                bevor er für immer verschwindet.
+- Unbegrenzt:   Der Magische Laden kann ohne Einschränkungen herbeigerufenen werden.
+
+Hinweis: Man kann den Magischen Laden an Händler verkaufen und wieder zurückkaufen,
+         um ihn aufzuladen.
+
+
 Danksagungen
 ~~~~~~~~~~~~
 
@@ -154,6 +174,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 Versionshistorie
 ~~~~~~~~~~~~~~~~
+
+4.0
+- Added a new subcomponent that allows you to tweak number and type of the Magic Store item charges
 
 3.0
 - Added new subcomponents that allow you to restrict available services in summoned stores (EE only)

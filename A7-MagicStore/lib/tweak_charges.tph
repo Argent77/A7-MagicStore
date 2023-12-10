@@ -1,0 +1,112 @@
+/**
+ * Tweaks item charges of the Magic Store.
+ * 
+ * INT_VAR charges  Number of item charges
+ * INT_VAR type     Defines how the item behaves when it is drained:
+ *                  0: item remains, 1: item vanishes, 2: replace item, 3: item recharges
+ * INT_VAR price    Price in gold
+ */
+DEFINE_ACTION_FUNCTION tweak_charges
+INT_VAR
+  charges = 3
+  type    = 3
+  price   = 3 * 1000
+BEGIN
+  // adjust item charges
+  COPY_EXISTING ~a7_mcsum.itm~ ~override~
+    // item description
+    LPF tweak_item_desc INT_VAR charges type END
+
+    // price
+    WRITE_LONG 0x34 price
+
+    // ability charges
+    READ_LONG 0x64 ofs_abil
+    READ_SHORT 0x68 num_abil
+    PATCH_IF (num_abil > 0) BEGIN
+      WRITE_SHORT (ofs_abil + 0x22) charges
+      WRITE_SHORT (ofs_abil + 0x24) type
+      WRITE_LONG (ofs_abil + 0x26) ((type == 3) ? (THIS BOR BIT11) : (THIS BAND BNOT BIT11))
+    END
+  BUT_ONLY
+
+  // adjust charges in scripted item creation
+  ACTION_CLEAR_ARRAY ~tweak_scripts~
+  ACTION_CLEAR_ARRAY ~tweak_dialogs~
+
+  LAF GET_GAMES RET_ARRAY games END
+  ACTION_IF ($games(~BG1~)) BEGIN
+    OUTER_SET $tweak_dialogs(~%tutu_var%THALAN~) = 1
+  END
+
+  ACTION_IF ($games(~SOD~)) BEGIN
+    OUTER_SET $tweak_dialogs(~BDSORALI~) = 1
+  END
+
+  ACTION_IF ($games(~SOA~)) BEGIN
+    OUTER_SET $tweak_scripts(~AR0334~) = 1
+    OUTER_SET $tweak_scripts(~AR0602~) = 1
+  END
+
+  ACTION_IF ($games(~TOB~)) BEGIN
+    OUTER_SET $tweak_scripts(~BOTSMITH~) = 1
+  END
+
+  ACTION_IF ($games(~IWD~)) BEGIN
+    OUTER_SET $tweak_dialogs(~DORRICK~) = 1
+  END
+
+  ACTION_PHP_EACH tweak_scripts AS resref => update BEGIN
+    ACTION_IF (update) BEGIN
+      COPY_EXISTING ~%resref%.BCS~ ~override~
+        DECOMPILE_AND_PATCH BEGIN
+          REPLACE_TEXTUALLY
+            ~GiveItemCreate("a7_mcsum",\([^,]+\),\([0-9]+\),\([0-9]+\),\([0-9]+\))~
+            ~GiveItemCreate("a7_mcsum",\1,%charges%,\3,\4)~
+          REPLACE_TEXTUALLY
+            ~CreateItem("A7_MCSUM",\([0-9]+\),\([0-9]+\),\([0-9]+\))~
+            ~CreateItem("A7_MCSUM",%charges%,\2,\3)~
+        END
+      BUT_ONLY IF_EXISTS
+    END
+  END
+
+<<<<<<<< .../inlined/A7-MagicStore/tweak_dialogs.d
+REPLACE_ACTION_TEXT
+  ~%resref%~
+  ~GiveItemCreate("a7_mcsum",\([^,]+\),\([0-9]+\),\([0-9]+\),\([0-9]+\))~
+  ~GiveItemCreate("a7_mcsum",\1,%charges%,\3,\4)~
+>>>>>>>>
+  ACTION_PHP_EACH tweak_dialogs AS resref => update BEGIN
+    ACTION_IF (update) BEGIN
+      COMPILE EVAL ~.../inlined/A7-MagicStore/tweak_dialogs.d~
+    END
+  END
+END
+
+
+// Updates Magic Store item description based on the specified parameters.
+DEFINE_PATCH_FUNCTION tweak_item_desc
+INT_VAR
+  charges = 3
+  type    = 3
+BEGIN
+  PATCH_IF (type = 3) BEGIN
+    SPRINT desc_abilities @3020  // Special abilities:
+    PATCH_MATCH (charges) WITH
+      1 BEGIN
+          SPRINT desc_ability_charges @3023 // Summon a ghostly merchant once per day
+        END
+      10 BEGIN
+           SPRINT desc_ability_charges @3024 // Summon a ghostly merchant ten times per day
+         END
+      DEFAULT
+        SPRINT desc_ability_charges @3022 // Summon a ghostly merchant three times per day
+    END
+  END ELSE BEGIN
+    SPRINT desc_abilities @3021  // Charge abilities:
+    SPRINT desc_ability_charges @3025 // Summon a ghostly merchant
+  END
+
+  SAY UNIDENTIFIED_DESC @3001
+END

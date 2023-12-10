@@ -51,3 +51,7 @@ This optional component installs an alternate portrait version of the Ghostly Me
 Some of the available services can be easily abused, such as resting or healing in the middle of combat.
 
 This optional component allows you to restrict the services offered by the summoned stores.
+
+### Tweak item charges of the Magic Store *(requires main component)*
+
+This optional component allows you to tweak number and type of item charges for the Magic Store of Vergadain.

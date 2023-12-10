@@ -112,6 +112,22 @@ The following options are available:
   Removes all of the services above as well as the options to identify items or steal from the store.
 
 
+4. Tweak item charges of the Magic Store (requires main component)
+
+This optional component allows you to tweak number and type of item charges for the Magic Store
+of Vergadain.
+
+The following options are available:
+- Once per day:      The Magic Store can be summoned only once per day.
+- 10 times per day:  The Magic Store can be summoned ten times per day.
+- 10 charges:        The Magic Store can be summoned a total of 10 times before it vanishes forever.
+- 50 charges:        The Magic Store can be summoned a total of 50 times before it vanishes forever.
+- 100 charges:       The Magic Store can be summoned a total of 100 times before it vanishes forever.
+- Unlimited charges: The Magic Store can be summoned without restrictions.
+
+Note: The Magic Store can be recharged by selling it to a merchant and purchase it back.
+
+
 Credits
 ~~~~~~~
 
@@ -137,6 +153,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+4.0
+- Added a new subcomponent that allows you to tweak number and type of the Magic Store item charges
 
 3.0
 - Added new subcomponents that allow you to restrict available services in summoned stores (EE only)

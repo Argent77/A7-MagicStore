@@ -50,14 +50,23 @@
 
 STATISTICS:
 
-Special abilities:
-Summon a ghostly merchant three times per day
+%desc_abilities%
+%desc_ability_charges%
 
 Weight: 1~
 
 @3010 = ~Ghostly Merchant~
 @3011 = ~Nobody steals from me!~
 @3012 = ~I don't deal with thieving scoundrels.~
+
+// Replaces %desc_abilities% in @3001
+@3020 = ~Special abilities:~
+@3021 = ~Charge abilities:~
+// Replaces %desc_ability_charges% in @3001
+@3022 = ~Summon a ghostly merchant three times per day~
+@3023 = ~Summon a ghostly merchant once per day~
+@3024 = ~Summon a ghostly merchant ten times per day~
+@3025 = ~Summon a ghostly merchant~
 
 @3100 = ~Copper Nuggets~
 @3101 = ~This is a chunk of copper ore. It can be used to forge trinkets or adornments.

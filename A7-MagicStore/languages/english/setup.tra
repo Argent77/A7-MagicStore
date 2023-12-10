@@ -8,6 +8,13 @@
 @22 = ~Prohibit resting and curing~
 @23 = ~Prohibit resting, curing, donating and drinking~
 @24 = ~Allow only trading~
+@30 = ~Tweak item charges of the Magic Store (default: 3x/day)~
+@31 = ~Once per day~
+@32 = ~10 times per day~
+@33 = ~10 charges~
+@34 = ~50 charges~
+@35 = ~100 charges~
+@36 = ~Unlimited charges~
 
 // Error messages
 @100 = ~This game is not supported.~

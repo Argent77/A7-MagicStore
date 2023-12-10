@@ -99,6 +99,9 @@ ShareAlike 4.0 International License” (https://creativecommons.org/licenses/by
 Historia wersji
 ~~~~~~~~~~~~~~~
 
+4.0
+- Added a new subcomponent that allows you to tweak number and type of the Magic Store item charges
+
 3.0
 - Added new subcomponents that allow you to restrict available services in summoned stores (EE only)
 
