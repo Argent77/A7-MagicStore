@@ -73,6 +73,38 @@ Vous ne pouvez acquérir qu'un seul magasin magique dans tout le jeu. Par exempl
 Ce composant optionnel installe une version alternative du portrait du marchand fantôme sans caractéristiques fantomatiques.
 
 
+3. Limiter les services disponibles dans les magasins convoqués (nécessite le composant principal, jeux EE uniquement)
+
+Certains des services disponibles peuvent être facilement utilisés de manière abusive, comme se reposer ou se soigner pendant un combat.
+
+Ce composant optionnel vous permet de restreindre les services offerts par les magasins invoqués.
+
+Les options suivantes sont disponibles :
+- Interdire le repos :
+  Supprime le service "Chambres" du magasin.
+- Interdire le repos et la guérison :
+  Supprime les services "Chambres" et "Guérison" du magasin.
+- Interdire le repos, la guérison, le don et la boisson :
+  Supprime les services "Chambres", "Guérison", "Don" et "Boissons" du magasin.
+- N'autoriser que le commerce :
+  Supprime tous les services ci-dessus ainsi que les options permettant d'identifier des objets ou de voler dans le magasin.
+
+
+4. Modifier le nombre de charges du Magasin Magique (nécessite le composant principal)
+
+Ce composant optionnel vous permet d'ajuster le nombre et le type de charges pour le Magasin Magique de Vergadain.
+
+Les options suivantes sont disponibles :
+- Une fois par jour : Le Magasin Magique peut être invoqué une fois par jour.
+- 10 fois par jour : Le magasin de magie peut être invoqué dix fois par jour.
+- 10 charges : Le Magasin magique peut être invoqué 10 fois au total avant de disparaître définitivement.
+- 50 charges : Le Magasin magique peut être invoqué 50 fois au total avant de disparaître définitivement.
+- 100 charges : Le Magasin magique peut être invoqué 100 fois au total avant de disparaître définitivement.
+- Charges illimitées : Le Magasin magique peut être invoqué sans restriction.
+
+Remarque : le Magasin magique peut être rechargé en le vendant à un marchand et en le rachetant. 
+
+
 Remerciements
 ~~~~~~~~~~~~~
 
@@ -100,13 +132,13 @@ Historique
 ~~~~~~~~~~
 
 4.0
-- Added a new subcomponent that allows you to tweak number and type of the Magic Store item charges
+- Ajout d'un nouveau sous-composant qui permet d'ajuster le nombre et le type de charges du Magasin Magique.
 
 3.0
-- Added new subcomponents that allow you to restrict available services in summoned stores (EE only)
+- Ajout d'un nouveau sous-composant qui permet de restreindre les services disponibles dans les magasins convoqués (EE seulement)
 
 2.3
-- Fixed a comparison bug in the store installation routine
+- Correction d'un bug de comparaison dans la routine d'installation du magasin
 
 2.2
 - Ajout de la traduction française (merci à Deratiseur)

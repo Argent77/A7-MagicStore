@@ -8,6 +8,13 @@
 @22 = ~Proscrire le repos et les soins~
 @23 = ~Proscrire le repos, les soins, les donations et les chopines~
 @24 = ~Autoriser les echanges commerciaux uniquement~
+@30 = ~Modifier le nombre de charges du Magasin Magique (par defaut : 3x/jour)~
+@31 = ~Une fois par jour~
+@32 = ~10 fois par jour~
+@33 = ~10 charges~
+@34 = ~50 charges~
+@35 = ~100 charges~
+@36 = ~Charge illimitee~
 
 // Error messages
 @100 = ~Ce jeu n'est pas supporte.~

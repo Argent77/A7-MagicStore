@@ -61,12 +61,12 @@ Poids : 1~
 
 // Replaces %desc_abilities% in @3001
 @3020 = ~Capacités spéciales :~
-@3021 = ~Charge abilities:~
+@3021 = ~Capacités de charge :~
 // Replaces %desc_ability_charges% in @3001
 @3022 = ~Invoque un marchand fantôme trois fois par jour.~
-@3023 = ~Summon a ghostly merchant once per day~
-@3024 = ~Summon a ghostly merchant ten times per day~
-@3025 = ~Summon a ghostly merchant~
+@3023 = ~Invoque un marchand fantôme une fois par jour.~
+@3024 = ~Invoque un marchand fantôme dix fois par jour.~
+@3025 = ~Invoque un marchand fantôme.~
 
 @3100 = ~Pépites de cuivre~
 @3101 = ~Ceci est un morceau de minerai de cuivre. Il peut être utilisé pour forger des bibelots ou des parures.
