@@ -3,6 +3,18 @@
 @2 = ~Wymagana oplata~
 @3 = ~Bez oplat~
 @10 = ~Alternatywny portret widmowego kupca~
+@20 = ~Ograniczenie dostepnych uslug w przyzwanym sklepie~
+@21 = ~Brak mozliwosci odpoczynku~
+@22 = ~Brak mozliwosci odpoczynku i leczenia~
+@23 = ~Brak mozliwosci odpoczynku, leczenia, skladania ofiary i spozywania alkoholu~
+@24 = ~Dostepny tylko handel~
+@30 = ~Modyfikacja ilosci ladunkow w Magicznym sklepie (domyslnie 3 razy dziennie)~
+@31 = ~Raz dziennie~
+@32 = ~10 razy dziennie~
+@33 = ~10 ladunkow~
+@34 = ~50 ladunkow~
+@35 = ~100 ladunkow~
+@36 = ~Nieograniczona ilosc ladunkow~
 
 // Error messages
 @100 = ~Ta gra nie jest obslugiwana.~

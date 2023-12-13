@@ -73,6 +73,38 @@ W trakcie całej gry można zdobyć tylko jeden Magiczny sklep Vergadaina. Przyk
 Po uruchomieniu tego opcjonalnego komponentu zostanie zainstalowana alternatywna wersja portretu widmowego handlarza, bez widocznych widmowych cech.
 
 
+3. Ogranicza dostępne usługi w przyzwanym sklepie (wymaga zainstalowania głównego komponentu, dostępne tylko w wersji EE)
+
+Niektóre z dostępnych usług (jak odpoczynek czy leczenie) mogą być nadużywane podczas walki.
+
+Ten opcjonalny komponent pozwala ograniczyć dostępność oferowanych usług w przyzwanych sklepach.
+
+Dostępne są następujące opcje:
+- Brak możliwości odpoczynku
+  Usuwa ze sklepu usługę „Pokoje”.
+- Brak możliwości odpoczynku i leczenia:
+  Usuwa ze sklepu usługi „Pokoje” i „Leczenie”.
+- Brak możliwości odpoczynku, leczenia, składania ofiary i spożywania alkoholu:
+  Usuwa ze sklepu usługi „Pokoje”, „Leczenie”, „Ofiara” i „Trunki”.
+- Dostępny tylko handel:
+  Usuwa ze sklepu wszystkie powyższe usługi, jak również możliwość identyfikacji i kradzieży przedmiotów.
+
+
+4. Modyfikuje ładunki przedmiotów w Magicznym sklepie (wymaga zainstalowania głównego komponentu)
+
+Ten opcjonalny komponent pozwala na modyfikowanie ilości ładunków w Magicznym sklepie Vergadaina.
+
+Dostępne są następujące opcje:
+- Raz dziennie: Magiczny sklep może być przyzwany raz dziennie.
+- 10 razy dziennie: Magiczny sklep może być przyzwany dziesięć razy dziennie.
+- 10 ładunków: Magiczny sklep może być przyzwany maksymalnie dziesięć razy dziennie, po czym znika na zawsze.
+- 50 ładunków: Magiczny sklep może być przyzwany maksymalnie pięćdziesiąt razy dziennie, po czym znika na zawsze.
+- 100 ładunków: Magiczny sklep może być przyzwany maksymalnie sto razy dziennie, po czym znika na zawsze.
+- Nieograniczona ilość ładunków: Magiczny sklep może być przyzwany nieograniczoną ilość razy.
+
+Uwaga: Magiczny sklep można naładować ponownie, sprzedając go innemu kupcowi, a następnie go odkupując.
+
+
 Autorzy
 ~~~~~~~
 
