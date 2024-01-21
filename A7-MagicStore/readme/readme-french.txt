@@ -1,7 +1,7 @@
 Magasin magique de Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version :        3.0
+Version :        4.0
 Auteur :         Argent77
 
 Téléchargement : https://github.com/Argent77/A7-MagicStore/releases
@@ -133,6 +133,8 @@ Historique
 
 4.0
 - Ajout d'un nouveau sous-composant qui permet d'ajuster le nombre et le type de charges du Magasin Magique.
+- Updated French translation (thanks JohnBob)
+- Updated Polish translation
 
 3.0
 - Ajout d'un nouveau sous-composant qui permet de restreindre les services disponibles dans les magasins convoqués (EE seulement)

@@ -1,7 +1,7 @@
 Magischer Laden von Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    3.0
+Version:    4.0
 Autor:      Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -177,6 +177,8 @@ Versionshistorie
 
 4.0
 - Added a new subcomponent that allows you to tweak number and type of the Magic Store item charges
+- Updated French translation (thanks JohnBob)
+- Updated Polish translation
 
 3.0
 - Added new subcomponents that allow you to restrict available services in summoned stores (EE only)
