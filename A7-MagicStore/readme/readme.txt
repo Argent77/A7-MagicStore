@@ -141,6 +141,8 @@ Polish translation: Cahir (translation), GoForTheEyes (proofreading)
 
 French translation: Deratiseur, JohnBob
 
+Simplified Chinese translation: Lewis Liu
+
 Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 
 

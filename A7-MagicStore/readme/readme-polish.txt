@@ -118,6 +118,8 @@ Tłumaczenie na język polski: Cahir (tłumaczenie), GoForTheEyes (korekta)
 
 French translation: Deratiseur, JohnBob
 
+Simplified Chinese translation: Lewis Liu
+
 Portret kupca: Na podstawie portretu „Aron” z gry Ultima Underworld II.
 
 
