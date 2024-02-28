@@ -63,6 +63,12 @@ LANGUAGE ~French (Translation: Deratiseur)~
          ~A7-MagicStore/languages/english/mod.tra~
          ~A7-MagicStore/languages/french/setup.tra~
          ~A7-MagicStore/languages/french/mod.tra~
+LANGUAGE ~Simplified Chinese (translation: Lewis Liu)~
+         ~schinese~
+         ~A7-MagicStore/languages/english/setup.tra~
+         ~A7-MagicStore/languages/english/mod.tra~
+         ~A7-MagicStore/languages/schinese/setup.tra~
+         ~A7-MagicStore/languages/schinese/mod.tra~
 
 
 BEGIN @2  // Fee required
