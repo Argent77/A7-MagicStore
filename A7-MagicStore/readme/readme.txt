@@ -1,7 +1,7 @@
 Magic Store of Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    4.0
+Version:    4.1
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -155,6 +155,10 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+4.1
+- Added Simplified Chinese translation (thanks Lewis Liu)
+- Updated Russian translation
 
 4.0
 - Added a new subcomponent that allows you to tweak number and type of the Magic Store item charges
