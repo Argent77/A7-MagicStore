@@ -1,7 +1,7 @@
 Magasin magique de Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version :        4.1
+Version :        4.2
 Auteur :         Argent77
 
 Téléchargement : https://github.com/Argent77/A7-MagicStore/releases
@@ -132,6 +132,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 Historique
 ~~~~~~~~~~
+
+4.2
+- Updated Simplified Chinese translation
 
 4.1
 - Added Simplified Chinese translation (thanks Lewis Liu)

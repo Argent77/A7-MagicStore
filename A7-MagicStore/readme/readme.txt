@@ -1,7 +1,7 @@
 Magic Store of Vergadain
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    4.1
+Version:    4.2
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-MagicStore/releases
@@ -155,6 +155,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+4.2
+- Updated Simplified Chinese translation
 
 4.1
 - Added Simplified Chinese translation (thanks Lewis Liu)
