@@ -8,8 +8,6 @@ ALLOW_MISSING
   ~XR2600.ARE~
 
 ALWAYS
-  // required because of non-standard BACKUP path
-  OUTER_TEXT_SPRINT MOD_FOLDER ~A7-MagicStore~
   // root folder for mutable data
   OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
 
