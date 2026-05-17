@@ -115,10 +115,43 @@ BEGIN
     OUTER_SET $fees(~DEFAULT~) = 0
     OUTER_TEXT_SPRINT $conditions(~DEFAULT~) ~~
   END
+
   COMPILE ~%MOD_FOLDER%/bcs/a7_merc.baf~ EVAL
+
+  // adding temple detection
+<<<<<<<< .../inlined/A7-MagicStore/a7_merc_temple.baf
+IF
+  Global("A7STO_FREE_STORAGE","GLOBAL",0)
+  AreaCheck("%temple_area%")
+THEN
+  RESPONSE #100
+    SetGlobal("A7STO_FREE_STORAGE","GLOBAL",1)
+    Continue()
+END
+>>>>>>>>
+  OUTER_SET temple_table = 0
+  COPY ~%MOD_FOLDER%/2da/temple.2da~ ~%MOD_FOLDER%/2da/temple.2da~
+    READ_2DA_ENTRIES_NOW temple_table 1
+  BUT_ONLY IF_EXISTS
+
+  OUTER_FOR (row = 3; row < temple_table; ++row) BEGIN
+    OUTER_SPRINT game $temple_table(~%row%~ ~1~)
+    LAF is_game STR_VAR game RET is_game = result END
+    ACTION_IF (is_game) BEGIN
+      OUTER_SPRINT temple_area $temple_table(~%row%~ ~2~)
+      ACTION_IF (FILE_EXISTS_IN_GAME ~%temple_area%.ARE~) BEGIN
+        EXTEND_TOP ~a7_merc.bcs~ ~.../inlined/A7-MagicStore/a7_merc_temple.baf~ EVAL
+      END
+    END
+  END
+
+  // installing bag of holding
+  COPY ~%MOD_FOLDER%/sto/a7_mbag1.sto~ ~override~
+    SAY NAME2 @3013 // Personal item storage
 
   // compiling dialog
   OUTER_TEXT_SPRINT A7_MERC_INTRO_LIST ~~
+  OUTER_TEXT_SPRINT A7_MERC_OFFER_LIST ~~
   OUTER_TEXT_SPRINT A7_MERC_GAME_ENTRY ~~
   ACTION_PHP_EACH games AS game => available BEGIN
     ACTION_IF (available) BEGIN
@@ -140,12 +173,14 @@ BEGIN
 
       OUTER_TEXT_SPRINT A7_MERC_INTRO_LIST ~~~~~%A7_MERC_INTRO_LIST%  IF ~%triggers%~ DO ~SetGlobal("A7STO_MerchantSummoned","GLOBAL",1)~ + Intro.%game%%WNL%~~~~~
 
+      OUTER_TEXT_SPRINT A7_MERC_OFFER_LIST ~~~~~%A7_MERC_OFFER_LIST%  IF ~%triggers%~ + Stores.%game%%WNL%~~~~~
+
       OUTER_TEXT_SPRINT A7_MERC_GAME_ENTRY ~~~~~%A7_MERC_GAME_ENTRY%IF ~~ Intro.%game%
 %A7_MERC_STATE_INTRO%
 %A7_MERC_RESPONSE_LIST%
 END
 
-IF ~!Global("A7STO_MerchantSummoned","GLOBAL",0) %triggers% !ActuallyInCombat()~ Stores.%game%
+IF ~!Global("A7STO_MerchantSummoned","GLOBAL",0) %triggers%~ Stores.%game%
 %A7_MERC_STATE%
   COPY_TRANS SAFE ~A7_MERC~ Intro.%game%
 END

@@ -39,6 +39,21 @@
 
 @2020 = ~Laden~ // default name for unnamed stores
 
+// Extra dialog in temple
+@2030 = ~Als der geisterhafte Händler Gestalt annimmt, schaut er sich um, und seine Augen leuchten auf.~
+@2031 = ~Obwohl es kaum mehr als ein Flüstern ist, könnt Ihr seine Überraschung darüber wahrnehmen, an einen Ort der Verehrung einer Göttin des Handels gerufen worden zu sein.~
+@2032 = ~Um seine Verbundenheit mit Waukeen auszudrücken, macht er Euch das Angebot, einen persönlichen Lagerraum für Eure Ausrüstung einzurichten, der dem legendären Nimmervollen Beutel nicht unähnlich ist.~
+@2033 = ~Dabei streckt er seine Hände aus, und Ihr wisst instinktiv, dass er für sein Angebot eine finanzielle Gegenleistung erwartet.~
+@2034 = ~Zahlt 2.000 Goldmünzen für den persönlichen Lagerraum.~
+@2035 = ~Zahl 1.000 Goldmünzen für den persönlichen Lagerraum.~
+@2036 = ~Zahlt 500 Goldmünzen für den persönlichen Lagerraum.~
+@2037 = ~Nehmt sein Angebot an, den persönlichen Lagerraum kostenfrei einzurichten.~
+@2038 = ~Ich habe leider nicht genug Gold, um Euer Angebot anzunehmen.~
+@2039 = ~Ich bin daran nicht interessiert.~
+@2040 = ~Er nickt zustimmend und murmelt eine Verzauberungsspruch. Kurz darauf fährt er mit seiner ursprünglichen Aufgabe fort.~
+@2041 = ~Als er Eure Ablehnung bemerkt, zuckt er nur mit den Schultern und kehrt wieder zu seiner ursprünglichen Aufgabe zurück.~
+@2042 = ~Öffnet Euren persönlichen Lagerraum.~
+
 // custom messages for special stores (see 2da/special.2da); added after response string in parentheses
 @2100 = ~für 50 Goldmünzen~ // Ribald's special store
 @2101 = ~für 100 Goldmünzen~  // Nym's exotic store (Golem Construction mod)
@@ -57,6 +72,7 @@ Gewicht: 1~
 @3010 = ~Geisterhafter Händler~
 @3011 = ~Niemand bestiehlt mich!~
 @3012 = ~Ich gebe mich nicht mit diebischen Halunken ab.~
+@3013 = ~Persönlicher Lagerraum~
 
 // Replaces %desc_abilities% in @3001
 @3020 = ~~  // not used

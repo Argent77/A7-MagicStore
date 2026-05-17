@@ -101,6 +101,9 @@ Im gesamten Spiel kann man nur einen Magischen Laden erlangen. Zum Beispiel ist 
 möglich, weitere Läden in den Spielabschnitten SoD, BG2:SvA und BG2:TdB zu erwerben, wenn Ihr den
 Laden bereits im BG1-Teil erworben habt.
 
+Hinweis: Der geisterhafte Händler könnte darauf reagieren, an heiligen Orten herbeigerufen zu
+         werden, die anderen Göttern des Handels gewidmet sind.
+
 
 2. Alternatives Porträt für den geisterhaften Händler (benötigt die Hauptkomponente)
 
@@ -176,6 +179,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 Versionshistorie
 ~~~~~~~~~~~~~~~~
+
+4.3
+- Added secret feature to the Ghostly Merchant that can be unlocked in BG2 or IWD:HoW (see readme)
 
 4.2
 - Updated Simplified Chinese translation

@@ -133,6 +133,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 Historique
 ~~~~~~~~~~
 
+4.3
+- Added secret feature to the Ghostly Merchant that can be unlocked in BG2 or IWD:HoW (see readme)
+
 4.2
 - Updated Simplified Chinese translation
 

@@ -15,6 +15,8 @@ ALWAYS
     FAIL @101 // Modmerge or DLC Merger is required before mods can be installed on this game.
   END
 
+  INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+
   ACTION_DEFINE_ARRAY a7noconvert BEGIN ~setup~ END
   ACTION_DEFINE_ARRAY a7reload BEGIN ~mod~ END
   LAF HANDLE_CHARSETS

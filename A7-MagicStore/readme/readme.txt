@@ -87,6 +87,9 @@ Only one Magic Store can be acquired in the whole game. For example, if you acqu
 Store in EET during the BG1 campaign you can't get another one during the SoD, BG2:SoA or BG2:ToB
 campaigns.
 
+Hint: The ghostly merchant might react to being summoned to places of worship of fellow deities of
+      commerce.
+
 
 2. Alternate portrait for Ghostly Merchant (requires main component)
 
@@ -155,6 +158,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+4.3
+- Added secret feature to the Ghostly Merchant that can be unlocked in BG2 or IWD:HoW (see readme)
 
 4.2
 - Updated Simplified Chinese translation

@@ -66,6 +66,11 @@ BEGIN
     OUTER_TEXT_SPRINT $select_responses(~~) ~++ @2003 EXIT~  // I don't want to visit any stores right now.
   END
 
+  // handling free storage
+  OUTER_TEXT_SPRINT entry $select_responses(~~)
+  OUTER_TEXT_SPRINT entry ~~~~~  + ~Global("A7STO_FREE_STORAGE","GLOBAL",2)~ + @2042 DO ~StartStore("A7_MBAG1",LastTalkedToBy(Myself))~ EXIT%WNL%%entry%~~~~~ // Open your personal item storage.
+  OUTER_TEXT_SPRINT $select_responses(~~) ~%entry%~
+
   // defining store responses
   ACTION_PHP_EACH EVAL ~%sto_dlg_array%~ AS sto_resref => _ BEGIN
     ACTION_IF (NOT VARIABLE_IS_SET $stores(~%sto_resref%~)) BEGIN
@@ -156,15 +161,7 @@ BEGIN
         OUTER_TEXT_SPRINT message ~~
         ACTION_IF (VARIABLE_IS_SET $table_special(~%sto_resref%~)) BEGIN
           OUTER_TEXT_SPRINT game $table_special(~%sto_resref%~)
-          ACTION_TO_UPPER ~game~
-          ACTION_MATCH ~%game%~ WITH
-            ~BG1~ BEGIN OUTER_SET is_game = GAME_IS ~tutu tutu_totsc bgt bgee eet~ END
-            ~SOD~ BEGIN OUTER_SET is_game = GAME_INCLUDES ~sod~ END
-            ~SOA~ BEGIN OUTER_SET is_game = GAME_IS ~soa tob bgt bg2ee eet~ END
-            ~TOB~ BEGIN OUTER_SET is_game = GAME_IS ~tob bgt bg2ee eet~ END
-            ~IWD~ BEGIN OUTER_SET is_game = GAME_IS ~iwdee~ END
-            DEFAULT OUTER_SET is_game = 0
-          END
+          LAF is_game STR_VAR game RET is_game = result END
           ACTION_IF (is_game) BEGIN
             OUTER_TEXT_SPRINT trigger_extra $table_special(~%sto_resref%~ ~trigger~)
             OUTER_PATCH_SAVE trigger_extra ~%trigger_extra%~ BEGIN REPLACE_TEXTUALLY ~;~ ~ ~ END

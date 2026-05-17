@@ -20,7 +20,7 @@
 
 
 // Ghostly Merchant dialog
-@2000 = ~The ghostly shape of a man dressed like a merchant takes form and turns his attention to you.~
+@2000 = ~The ghostly appearance of a man dressed like a merchant takes shape and turns his attention to you.~
 @2001 = ~To your surprise he presents you with a list of all the stores you have visited in the past and waits for you to make a decision.~
 @2002 = ~The merchant presents you with a list of stores and waits for your decision.~
 @2003 = ~I don't want to visit any stores right now.~
@@ -38,6 +38,21 @@
 @2013 = ~"%store_name%" by %creature_name%, in "%area_name%"~
 
 @2020 = ~Store~ // default name for unnamed stores
+
+// Extra dialog in temple
+@2030 = ~As the ghostly merchant takes shape he looks around, and his eyes light up.~
+@2031 = ~Though barely a whisper you can make out his surprise to be summoned to a place of worship dedicated to a fellow deity of commerce.~
+@2032 = ~Expressing his kinship with Waukeen he makes you an offer to prepare personal storage space for your equipment in a similar way a Bag of Holding would work.~
+@2033 = ~He stretches out his hands, and you instinctively know that he expects a monetary compensation for his offer.~
+@2034 = ~Pay 2,000 gold for the personal storage space.~
+@2035 = ~Pay 1,000 gold for the personal storage space.~
+@2036 = ~Pay 500 gold for the personal storage space.~
+@2037 = ~Accept his offer to prepare the personal storage space for free.~
+@2038 = ~I don't have enough gold to accept your offer.~
+@2039 = ~I'm not interested.~
+@2040 = ~He nods his head in approval and mutters an enchantment spell. A short while later he continues with his original task.~
+@2041 = ~Recognizing your refusal he simply shrugs and returns to his original task.~
+@2042 = ~Open your personal item storage.~
 
 // custom messages for special stores (see 2da/special.2da); added after response string in parentheses
 @2100 = ~for 50 gold~ // Ribald's special store
@@ -58,6 +73,7 @@ Weight: 1~
 @3010 = ~Ghostly Merchant~
 @3011 = ~Nobody steals from me!~
 @3012 = ~I don't deal with thieving scoundrels.~
+@3013 = ~Personal item storage~
 
 // Replaces %desc_abilities% in @3001
 @3020 = ~Special abilities:~

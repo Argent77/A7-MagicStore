@@ -1,0 +1,17 @@
+// Returns whether the current game matches the requested game.
+DEFINE_DIMORPHIC_FUNCTION is_game
+STR_VAR
+  game = ~~
+RET
+  result
+BEGIN
+  ACTION_TO_UPPER ~game~
+  ACTION_MATCH ~%game%~ WITH
+    ~BG1~ BEGIN OUTER_SET result = GAME_IS ~tutu tutu_totsc bgt bgee eet~ END
+    ~SOD~ BEGIN OUTER_SET result = GAME_INCLUDES ~sod~ END
+    ~SOA~ BEGIN OUTER_SET result = GAME_IS ~soa tob bgt bg2ee eet~ END
+    ~TOB~ BEGIN OUTER_SET result = GAME_IS ~tob bgt bg2ee eet~ END
+    ~IWD~ BEGIN OUTER_SET result = GAME_IS ~iwdee~ END
+    DEFAULT OUTER_SET result = 0
+  END
+END
