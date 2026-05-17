@@ -40,8 +40,8 @@
 @2020 = ~Store~ // default name for unnamed stores
 
 // Extra dialog in temple
-@2030 = ~As the ghostly merchant takes shape he looks around, and his eyes light up.~
-@2031 = ~Though barely a whisper you can make out his surprise to be summoned to a place of worship dedicated to a fellow deity of commerce.~
+@2030 = ~As the ghostly merchant takes shape, he looks around, and his eyes light up.~
+@2031 = ~Although it's barely more than a whisper, you can make out his surprise to be summoned to a place of worship dedicated to a fellow deity of commerce.~
 @2032 = ~Expressing his kinship with Waukeen he makes you an offer to prepare personal storage space for your equipment in a similar way a Bag of Holding would work.~
 @2033 = ~He stretches out his hands, and you instinctively know that he expects a monetary compensation for his offer.~
 @2034 = ~Pay 2,000 gold for the personal storage space.~
