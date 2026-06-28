@@ -39,6 +39,21 @@
 
 @2020 = ~Magasin~ // default name for unnamed stores
 
+// Extra dialog in temple
+@2030 = ~Alors que le marchand fantomatique prend forme, il regarde autour de lui et ses yeux s'illuminent.~
+@2031 = ~Même si ce n'est guère plus qu'un murmure, on devine sa surprise d'avoir été convoqué dans un lieu de culte dédié à la divinité du commerce.~
+@2032 = ~Exprimant son attachement à Waukyne, il vous propose de vous aménager un espace de stockage personnel pour votre équipement, un peu comme le ferait un sac de contenance.~
+@2033 = ~Il tend les mains, et vous comprenez instinctivement qu'il s'attend à une contrepartie financière en échange de son offre.~
+@2034 = ~Payer 2 000 pièces d'or pour l'espace de stockage personnel.~
+@2035 = ~Payer 1 000 pièces d'or pour l'espace de stockage personnel.~
+@2036 = ~Payer 500 pièces d'or pour l'espace de stockage personnel.~
+@2037 = ~Accepter son offre de préparer gratuitement l'espace de stockage personnel.~
+@2038 = ~Je n'ai pas assez d'or pour accepter ton offre.~
+@2039 = ~Ça ne m'intéresse pas.~
+@2040 = ~Il hoche la tête en signe d'approbation et marmonne une formule d'enchantement. Quelques instants plus tard, il reprend la tâche qu'il était en train d'accomplir.~
+@2041 = ~Constatant votre refus, il se contente de hausser les épaules et retourne à ce qu'il était en train de faire.~
+@2042 = ~Ouvrez votre espace de stockage personnel.~
+
 // messages personnalisés pour les magasins spéciaux (voir 2da/special.2da); ajouté après la chaîne de réponse entre parenthèses
 @2100 = ~pour 50 pièces d'or~ // Ribald's special store
 @2101 = ~pour 100 pièces d'or~  // Nym's exotic store (Golem Construction mod)
