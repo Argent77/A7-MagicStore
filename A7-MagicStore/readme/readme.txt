@@ -144,7 +144,7 @@ Polish translation: Cahir (translation), GoForTheEyes (proofreading)
 
 French translation: Deratiseur, JohnBob
 
-Simplified Chinese translation: Lewis Liu
+Simplified Chinese translation: Lewis Liu, DiabloIORI
 
 Merchant portrait: Based on 'Aron' portrait from Ultima Underworld II.
 

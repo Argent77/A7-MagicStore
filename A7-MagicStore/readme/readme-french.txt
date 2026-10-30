@@ -118,7 +118,7 @@ Traduction polonaise : Cahir (Traduction), GoForTheEyes (relecture)
 
 Traduction française : Deratiseur, JohnBob
 
-Traduction chinois simplifié : Lewis Liu
+Traduction chinois simplifié : Lewis Liu, DiabloIORI
 
 Portrait du marchand : basé sur le portrait de "Aron" dans Ultima Underworld II.
 
